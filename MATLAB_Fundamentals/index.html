@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>MATLAB Fundamentals</title>
+
+        <script>
+            function examplesList(topic, numberExamples) {
+                var txt = "";
+                txt +=  '<h2>' + topic + '</h2>\n' + 
+                        '<details>\n' + 
+                            '<summary>Examples</summary>\n';
+
+                for (var i = 1; i <= numberExamples; i++) {
+                    txt += '<li type="square"><a href="./' + topic.replace(/\s/g, "_") + '/Example_' + i + '.html">Example'+ i + '</a></li>\n';
+                }
+
+                txt += '</details>\n';
+                document.getElementById(topic).innerHTML = txt;
+            }
+        </script>  
+    </head>
+    <body>  
+        <h1 style="text-align: center;">MATLAB Fundamentals</h1>
+
+        <p id="Using the MATLAB Desktop"></p>
+        <script>examplesList('Using the MATLAB Desktop', 3);</script>
+
+        <p id="Creating and Manipulating Arrays"></p>
+        <script>examplesList('Creating and Manipulating Arrays', 7);</script>
+
+        <p id="Accessing Data in Arrays"></p>
+        <script>examplesList('Accessing Data in Arrays', 5);</script>
+
+        <p id="Mathematical and Statistical Operations with Arrays"></p>
+        <script>examplesList('Mathematical and Statistical Operations with Arrays', 11);</script>
+    </body>
+</html>
