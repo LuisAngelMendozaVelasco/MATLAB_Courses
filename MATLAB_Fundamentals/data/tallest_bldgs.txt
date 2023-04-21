@@ -1,0 +1,15 @@
+bldg_name	city	year	stories	height_feet	height_m
+Burj Dubai	Dubai	2009	162	2684	818.0832
+Taipei 101	Taipei	2004	101	1671	509.3208
+Shanghai World Financial Center	Shanghai	2008	101	1614	491.9472
+Petronas Tower 1	Kuala Lumpur	1998	88	1483	452.0184
+Petronas Tower 2	Kuala Lumpur	1998	88	1483	452.0184
+Nanjing Greenland Financial Center	Nanjing	2009	66	1476	449.8848
+Sears Tower	Chicago	1974	108	1451	442.2648
+Guangzhou West Tower	Guangzhou	2009	103	1435	437.388
+Jin Mao Tower	Shanghai	1999	88	1380	420.624
+Trump International Hotel & Tower	Chicago	2009	96	1362	415.1376
+Two International Finance Centre	Hong Kong	2003	88	1362	415.1376
+CITIC Plaza	Guangzhou	1997	80	1283	391.0584
+Shun Hing Square	Shenzhen	1996	69	1260	384.048
+Empire State Building	New York City	1931	102	1250	381
