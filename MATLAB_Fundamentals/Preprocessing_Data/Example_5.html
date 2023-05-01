@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2023a"><title>Removing NaNs from Usage Data</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.CodeBlock { background-color: #F5F5F5; margin: 10px 0 10px 0; }
+.S2 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 0px none rgb(33, 33, 33); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S3 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 0px; padding: 0px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S4 { color: rgb(33, 33, 33); padding: 10px 0px 6px 17px; background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box; font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px; overflow-x: hidden; line-height: 17.234px;  }
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsErrorElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsErrorElement .diagnosticMessage-errorType {    overflow: auto;}
+.embeddedOutputsErrorElement.inlineElement {}
+.embeddedOutputsErrorElement.rightPaneElement {}
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsWarningElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsWarningElement .diagnosticMessage-warningType {    overflow: auto;}
+.embeddedOutputsWarningElement.inlineElement {}
+.embeddedOutputsWarningElement.rightPaneElement {}
+/* Copyright 2015-2022 The MathWorks, Inc. *//* In this file, styles are not scoped to rtcContainer since they could be in the Dojo Tooltip */.diagnosticMessage-wrapper {    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;    font-size: 12px;}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType {    color: var(--mw-color-matlabWarning);}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType a {    color: var(--mw-color-matlabWarning);    text-decoration: underline;}
+.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-warningType,.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-warningType a {    color: var(--mw-color-matlabWarning) !important;}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType {    color: var(--mw-color-matlabErrors);}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType a {    color: var(--mw-color-matlabErrors);    text-decoration: underline;}
+.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-errorType,.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-errorType a {    color: var(--mw-color-matlabErrors) !important;}
+.diagnosticMessage-wrapper .diagnosticMessage-messagePart,.diagnosticMessage-wrapper .diagnosticMessage-causePart {    white-space: pre-wrap;}
+.diagnosticMessage-wrapper .diagnosticMessage-stackPart {    white-space: pre;}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement {    white-space: pre;    word-wrap:  initial;    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsTextElement .textElement,.embeddedOutputsVariableStringElement .textElement {    overflow: auto;}
+.textElement,.rtcDataTipElement .textElement {    padding-top: 2px;}
+.embeddedOutputsTextElement.inlineElement,.embeddedOutputsVariableStringElement.inlineElement {}
+.inlineElement .textElement {}
+.embeddedOutputsTextElement.rightPaneElement,.embeddedOutputsVariableStringElement.rightPaneElement {    min-height: 16px;}
+.rightPaneElement .textElement {    padding-top: 2px;    padding-left: 9px;}
+.S5 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.S6 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 4px 4px 0px 0px; padding: 6px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.variableValue { width: 100% !important; }
+.embeddedOutputsMatrixElement,.eoOutputWrapper .matrixElement {    min-height: 18px;    box-sizing: border-box;}
+.embeddedOutputsMatrixElement .matrixElement,.eoOutputWrapper  .matrixElement,.rtcDataTipElement .matrixElement {    position: relative;}
+.matrixElement .variableValue,.rtcDataTipElement .matrixElement .variableValue {    white-space: pre;    display: inline-block;    vertical-align: top;    overflow: hidden;}
+.embeddedOutputsMatrixElement.inlineElement {}
+.embeddedOutputsMatrixElement.inlineElement .topHeaderWrapper {    display: none;}
+.embeddedOutputsMatrixElement.inlineElement .veTable .body {    padding-top: 0 !important;    max-height: 100px;}
+.inlineElement .matrixElement {    max-height: 300px;}
+.embeddedOutputsMatrixElement.rightPaneElement {}
+.rightPaneElement .matrixElement,.rtcDataTipElement .matrixElement {    overflow: hidden;    padding-left: 9px;}
+.rightPaneElement .matrixElement {    margin-bottom: -1px;}
+.embeddedOutputsMatrixElement .matrixElement .valueContainer,.eoOutputWrapper .matrixElement .valueContainer,.rtcDataTipElement .matrixElement .valueContainer {    white-space: nowrap;    margin-bottom: 3px;}
+.embeddedOutputsMatrixElement .matrixElement .valueContainer .horizontalEllipsis.hide,.embeddedOutputsMatrixElement .matrixElement .verticalEllipsis.hide,.eoOutputWrapper .matrixElement .valueContainer .horizontalEllipsis.hide,.eoOutputWrapper .matrixElement .verticalEllipsis.hide,.rtcDataTipElement .matrixElement .valueContainer .horizontalEllipsis.hide,.rtcDataTipElement .matrixElement .verticalEllipsis.hide {    display: none;}
+.embeddedOutputsVariableMatrixElement .matrixElement .valueContainer.hideEllipses .verticalEllipsis, .embeddedOutputsVariableMatrixElement .matrixElement .valueContainer.hideEllipses .horizontalEllipsis {    display:none;}
+.embeddedOutputsMatrixElement .matrixElement .valueContainer .horizontalEllipsis,.eoOutputWrapper .matrixElement .valueContainer .horizontalEllipsis {    margin-bottom: -3px;}
+.eoOutputWrapper .embeddedOutputsVariableMatrixElement .matrixElement .valueContainer {    cursor: default !important;}
+.embeddedOutputsVariableElement {    white-space: pre-wrap;    word-wrap: break-word;    min-height: 18px;    max-height: 250px;    overflow: auto;}
+.variableElement {}
+.embeddedOutputsVariableElement.inlineElement {}
+.inlineElement .variableElement {}
+.embeddedOutputsVariableElement.rightPaneElement {    min-height: 16px;}
+.rightPaneElement .variableElement {    padding-top: 2px;    padding-left: 9px;}
+.outputsOnRight .embeddedOutputsVariableElement.rightPaneElement .eoOutputContent {    /* Remove extra space allocated for navigation border */    margin-top: 0;    margin-bottom: 0;}
+.variableNameElement {    margin-bottom: 3px;    display: inline-block;}
+/* * Ellipses as base64 for HTML export. */.matrixElement .horizontalEllipsis,.rtcDataTipElement .matrixElement .horizontalEllipsis {    display: inline-block;    margin-top: 3px;    /* base64 encoded version of images-liveeditor/HEllipsis.png */    width: 30px;    height: 12px;    background-repeat: no-repeat;    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAJCAYAAADO1CeCAAAAJUlEQVR42mP4//8/A70xw0i29BUDFPxnAEtTW37wWDqakIa4pQDvOOG89lHX2gAAAABJRU5ErkJggg==");}
+.matrixElement .verticalEllipsis,.textElement .verticalEllipsis,.rtcDataTipElement .matrixElement .verticalEllipsis,.rtcDataTipElement .textElement .verticalEllipsis {    margin-left: 35px;    /* base64 encoded version of images-liveeditor/VEllipsis.png */    width: 12px;    height: 30px;    background-repeat: no-repeat;    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAZCAYAAAAIcL+IAAAALklEQVR42mP4//8/AzGYgWyFMECMwv8QddRS+P//KyimlmcGUOFoOI6GI/UVAgDnd8Dd4+NCwgAAAABJRU5ErkJggg==");}
+.S7 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 0px; padding: 6px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>Removing </span><span style=' font-family: monospace;'>NaN</span><span>s from Usage Data</span></h1><div  class = 'S1'><span>Instructions are in the task pane to the left. Complete and submit each task one at a time.</span></div><div  class = 'S1'><span>This code sets up the activity.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >usage = table2array(readtable(</span><span style="color: rgb(167, 9, 245);">"../data/electricityData.xlsx"</span><span >, </span><span style="color: rgb(167, 9, 245);">"Sheet"</span><span >, </span><span style="color: rgb(167, 9, 245);">"usage"</span><span >, </span><span style="color: rgb(167, 9, 245);">'ReadVariableNames'</span><span >, false));</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S3'><span style="white-space: pre"><span >whos</span></span></div><div  class = 'S4'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="3C5C2529" prevent-scroll="true" data-testid="output_0" style="width: 1340px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" data-previous-available-width="1310" data-previous-scroll-height="371" data-hashorizontaloverflow="false" style="max-height: 382px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">  Name                  Size            Bytes  Class       Attributes
+
+  Z                    50x4              1600  double                
+  ans                   1x5                 5  logical               
+  centeredUsage       315x4             10080  double                
+  cleanX                1x3                24  double                
+  cleanZ               46x4              1472  double                
+  cleanZcols           50x1               400  double                
+  cleanedData          46x4              1472  double                
+  dates               315x1              2542  datetime              
+  idx                   1x13               13  logical               
+  missingIdx           50x1                50  logical               
+  missingIndices       50x1                50  logical               
+  normTotal           315x1              2520  double                
+  normUsage           315x4             10080  double                
+  numMissing            1x1                 8  double                
+  rangeUsage          315x4             10080  double                
+  scaledUsage         315x4             10080  double                
+  sectors               1x4               360  string                
+  total               315x1              2520  double                
+  usage               315x4             10080  double                
+  x                     1x5                40  double                
+  xMean                 1x1                 8  double                
+  xProd                 1x1                 8  double                
+  xnan                  1x13              104  double                </div></div></div></div></div><h2  class = 'S5'><span>Task 1</span></h2><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre"><span >emean = mean(usage, </span><span style="color: rgb(167, 9, 245);">"omitnan"</span><span >)</span></span></div><div  class = 'S4'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableMatrixElement" uid="AB8DDC14" prevent-scroll="true" data-testid="output_1" data-width="1310" style="width: 1340px; white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="matrixElement veSpecifier eoOutputContent" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="veVariableName variableNameElement double" style="width: 1310px; white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="headerElementClickToInteract" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">emean = </span><span class="veVariableValueSummary veMetaSummary" style="white-space: normal; font-style: italic; color: rgb(97, 97, 97); font-size: 12px;">1×4</span></div></div><div class="veScalingFactor" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">10<sup>6</sup><span class="multiply" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"> ×</span></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:66,&quot;totalColumns&quot;:4,&quot;totalRows&quot;:1,&quot;charsPerColumn&quot;:10}" style="white-space: nowrap; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="variableValue" style="width: 266px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">    3.3579    3.0364    2.7374    9.2678
+</div><div class="horizontalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div><div class="verticalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div></div></div><div class="outputLayer selectedOutputDecorationLayer doNotExport" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div><div class="outputLayer activeOutputDecorationLayer doNotExport" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div><div class="outputLayer scrollableOutputDecorationLayer doNotExport" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div></div></div></div></div><h2  class = 'S5'><span>Task 2</span></h2><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre"><span >usage = rmmissing(usage)</span></span></div><div  class = 'S4'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableMatrixElement" uid="6C92525B" prevent-scroll="true" data-testid="output_2" data-width="1310" style="width: 1340px; white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="matrixElement veSpecifier eoOutputContent" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="veVariableName variableNameElement double" style="width: 1310px; white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="headerElementClickToInteract" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">usage = </span><span class="veVariableValueSummary veMetaSummary" style="white-space: normal; font-style: italic; color: rgb(97, 97, 97); font-size: 12px;">284×4</span></div></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:80,&quot;totalColumns&quot;:4,&quot;totalRows&quot;:284,&quot;charsPerColumn&quot;:12}" style="white-space: nowrap; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="variableValue" style="width: 322px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">     3078100     2016100     2425400     7770200
+     2660700     2032600     2664500     7620100
+     2319400     1870300     2478800     6905400
+     2173000     1882700     2541300     6835700
+     2028400     1901300     2540600     6714600
+     2463300     2153600     2689200     7568100
+     2856900     2294200     2711100     8132700
+     2874700     2309900     2720400     8172700
+     2245000     2035400     2643800     7171200
+     2214300     1955000     2588900     6996400
+</div><div class="horizontalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div><div class="verticalEllipsis" style="white-space: nowrap; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div></div></div><div class="outputLayer selectedOutputDecorationLayer doNotExport" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div><div class="outputLayer activeOutputDecorationLayer doNotExport" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div><div class="outputLayer scrollableOutputDecorationLayer doNotExport" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div></div></div></div><div class="inlineWrapper outputs"><div  class = 'S7'><span style="white-space: pre"><span >emean = mean(usage)</span></span></div><div  class = 'S4'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableMatrixElement" uid="AB883532" prevent-scroll="true" data-testid="output_3" data-width="1310" style="width: 1340px; white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="matrixElement veSpecifier eoOutputContent" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="veVariableName variableNameElement double" style="width: 1310px; white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="headerElementClickToInteract" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">emean = </span><span class="veVariableValueSummary veMetaSummary" style="white-space: normal; font-style: italic; color: rgb(97, 97, 97); font-size: 12px;">1×4</span></div></div><div class="veScalingFactor" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">10<sup>6</sup><span class="multiply" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"> ×</span></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:66,&quot;totalColumns&quot;:4,&quot;totalRows&quot;:1,&quot;charsPerColumn&quot;:10}" style="white-space: nowrap; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="variableValue" style="width: 266px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">    3.3608    3.0362    2.7344    9.2797
+</div><div class="horizontalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div><div class="verticalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div></div></div><div class="outputLayer selectedOutputDecorationLayer doNotExport" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div><div class="outputLayer activeOutputDecorationLayer doNotExport" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div><div class="outputLayer scrollableOutputDecorationLayer doNotExport" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div></div></div></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% Removing |NaN|s from Usage Data
+% Instructions are in the task pane to the left. Complete and submit each task 
+% one at a time.
+%% 
+% This code sets up the activity.
+
+usage = table2array(readtable("../data/electricityData.xlsx", "Sheet", "usage", 'ReadVariableNames', false));
+whos
+%% Task 1
+
+emean = mean(usage, "omitnan")
+%% Task 2
+
+usage = rmmissing(usage)
+emean = mean(usage)
+##### SOURCE END #####
+-->
+</div></body></html>

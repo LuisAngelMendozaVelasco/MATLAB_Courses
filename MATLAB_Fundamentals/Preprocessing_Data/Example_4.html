@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2023a"><title>Removing Missing Data</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.CodeBlock { background-color: #F5F5F5; margin: 10px 0 10px 0; }
+.S2 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 0px none rgb(33, 33, 33); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S3 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 0px none rgb(33, 33, 33); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S4 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 0px; padding: 0px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S5 { color: rgb(33, 33, 33); padding: 10px 0px 6px 17px; background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box; font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px; overflow-x: hidden; line-height: 17.234px;  }
+.variableValue { width: 100% !important; }
+.embeddedOutputsMatrixElement,.eoOutputWrapper .matrixElement {    min-height: 18px;    box-sizing: border-box;}
+.embeddedOutputsMatrixElement .matrixElement,.eoOutputWrapper  .matrixElement,.rtcDataTipElement .matrixElement {    position: relative;}
+.matrixElement .variableValue,.rtcDataTipElement .matrixElement .variableValue {    white-space: pre;    display: inline-block;    vertical-align: top;    overflow: hidden;}
+.embeddedOutputsMatrixElement.inlineElement {}
+.embeddedOutputsMatrixElement.inlineElement .topHeaderWrapper {    display: none;}
+.embeddedOutputsMatrixElement.inlineElement .veTable .body {    padding-top: 0 !important;    max-height: 100px;}
+.inlineElement .matrixElement {    max-height: 300px;}
+.embeddedOutputsMatrixElement.rightPaneElement {}
+.rightPaneElement .matrixElement,.rtcDataTipElement .matrixElement {    overflow: hidden;    padding-left: 9px;}
+.rightPaneElement .matrixElement {    margin-bottom: -1px;}
+.embeddedOutputsMatrixElement .matrixElement .valueContainer,.eoOutputWrapper .matrixElement .valueContainer,.rtcDataTipElement .matrixElement .valueContainer {    white-space: nowrap;    margin-bottom: 3px;}
+.embeddedOutputsMatrixElement .matrixElement .valueContainer .horizontalEllipsis.hide,.embeddedOutputsMatrixElement .matrixElement .verticalEllipsis.hide,.eoOutputWrapper .matrixElement .valueContainer .horizontalEllipsis.hide,.eoOutputWrapper .matrixElement .verticalEllipsis.hide,.rtcDataTipElement .matrixElement .valueContainer .horizontalEllipsis.hide,.rtcDataTipElement .matrixElement .verticalEllipsis.hide {    display: none;}
+.embeddedOutputsVariableMatrixElement .matrixElement .valueContainer.hideEllipses .verticalEllipsis, .embeddedOutputsVariableMatrixElement .matrixElement .valueContainer.hideEllipses .horizontalEllipsis {    display:none;}
+.embeddedOutputsMatrixElement .matrixElement .valueContainer .horizontalEllipsis,.eoOutputWrapper .matrixElement .valueContainer .horizontalEllipsis {    margin-bottom: -3px;}
+.eoOutputWrapper .embeddedOutputsVariableMatrixElement .matrixElement .valueContainer {    cursor: default !important;}
+.embeddedOutputsVariableElement {    white-space: pre-wrap;    word-wrap: break-word;    min-height: 18px;    max-height: 250px;    overflow: auto;}
+.variableElement {}
+.embeddedOutputsVariableElement.inlineElement {}
+.inlineElement .variableElement {}
+.embeddedOutputsVariableElement.rightPaneElement {    min-height: 16px;}
+.rightPaneElement .variableElement {    padding-top: 2px;    padding-left: 9px;}
+.outputsOnRight .embeddedOutputsVariableElement.rightPaneElement .eoOutputContent {    /* Remove extra space allocated for navigation border */    margin-top: 0;    margin-bottom: 0;}
+.variableNameElement {    margin-bottom: 3px;    display: inline-block;}
+/* * Ellipses as base64 for HTML export. */.matrixElement .horizontalEllipsis,.rtcDataTipElement .matrixElement .horizontalEllipsis {    display: inline-block;    margin-top: 3px;    /* base64 encoded version of images-liveeditor/HEllipsis.png */    width: 30px;    height: 12px;    background-repeat: no-repeat;    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAJCAYAAADO1CeCAAAAJUlEQVR42mP4//8/A70xw0i29BUDFPxnAEtTW37wWDqakIa4pQDvOOG89lHX2gAAAABJRU5ErkJggg==");}
+.matrixElement .verticalEllipsis,.textElement .verticalEllipsis,.rtcDataTipElement .matrixElement .verticalEllipsis,.rtcDataTipElement .textElement .verticalEllipsis {    margin-left: 35px;    /* base64 encoded version of images-liveeditor/VEllipsis.png */    width: 12px;    height: 30px;    background-repeat: no-repeat;    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAZCAYAAAAIcL+IAAAALklEQVR42mP4//8/AzGYgWyFMECMwv8QddRS+P//KyimlmcGUOFoOI6GI/UVAgDnd8Dd4+NCwgAAAABJRU5ErkJggg==");}
+.S6 { margin: 20px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.S7 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.S8 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 4px; padding: 6px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S9 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 4px 4px 0px 0px; padding: 6px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>Removing Missing Data</span></h1><div  class = 'S1'><span>Instructions are in the task pane to the left. Complete and submit each task one at a time.</span></div><div  class = 'S1'><span>This code sets up the activity.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >rng(1)</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >Z = rand(50, 4);</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S4'><span style="white-space: pre"><span >Z(Z &gt; 0.97) = NaN</span></span></div><div  class = 'S5'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableMatrixElement" uid="8B8B74E6" prevent-scroll="true" data-testid="output_0" data-width="1310" style="width: 1340px; white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="matrixElement veSpecifier eoOutputContent" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="veVariableName variableNameElement double" style="width: 1310px; white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="headerElementClickToInteract" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">Z = </span><span class="veVariableValueSummary veMetaSummary" style="white-space: normal; font-style: italic; color: rgb(97, 97, 97); font-size: 12px;">50×4</span></div></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:66,&quot;totalColumns&quot;:4,&quot;totalRows&quot;:50,&quot;charsPerColumn&quot;:10}" style="white-space: nowrap; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="variableValue" style="width: 266px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">    0.4170    0.0194    0.3266    0.0720
+    0.7203    0.6788    0.5271    0.9673
+    0.0001    0.2116    0.8859    0.5681
+    0.3023    0.2655    0.3573    0.2033
+    0.1468    0.4916    0.9085    0.2523
+    0.0923    0.0534    0.6234    0.7438
+    0.1863    0.5741    0.0158    0.1954
+    0.3456    0.1467    0.9294    0.5814
+    0.3968    0.5893    0.6909       NaN
+    0.5388    0.6998       NaN    0.8468
+</div><div class="horizontalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div><div class="verticalEllipsis" style="white-space: nowrap; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div></div></div><div class="outputLayer selectedOutputDecorationLayer doNotExport" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div><div class="outputLayer activeOutputDecorationLayer doNotExport" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div><div class="outputLayer scrollableOutputDecorationLayer doNotExport" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div></div></div></div></div><h2  class = 'S6'><span>Tasks 1 &amp; 2</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span style="color: rgb(0, 128, 19);">% Remove missing data</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >[cleanZ,missingIdx] = rmmissing(Z);</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S4'><span style="white-space: pre"><span >x = [2 NaN 5 3 NaN]</span></span></div><div  class = 'S5'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableMatrixElement" uid="F8378AA4" prevent-scroll="true" data-testid="output_1" data-width="1310" style="width: 1340px; white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="matrixElement veSpecifier eoOutputContent" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="veVariableName variableNameElement double" style="width: 1310px; white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="headerElementClickToInteract" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">x = </span><span class="veVariableValueSummary veMetaSummary" style="white-space: normal; font-style: italic; color: rgb(97, 97, 97); font-size: 12px;">1×5</span></div></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:40,&quot;totalColumns&quot;:5,&quot;totalRows&quot;:1,&quot;charsPerColumn&quot;:6}" style="white-space: nowrap; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="variableValue" style="width: 202px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">     2   NaN     5     3   NaN
+</div><div class="horizontalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div><div class="verticalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div></div></div><div class="outputLayer selectedOutputDecorationLayer doNotExport" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div><div class="outputLayer activeOutputDecorationLayer doNotExport" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div><div class="outputLayer scrollableOutputDecorationLayer doNotExport" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div></div></div></div></div><h2  class = 'S7'><span>Task 3</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >cleanX = rmmissing(x);</span></span></div></div></div><h2  class = 'S7'><span>Task 4</span></h2><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S9'><span style="white-space: pre"><span >cleanZcols = rmmissing(Z, 2)</span></span></div><div  class = 'S5'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableMatrixElement" uid="9C6B0C49" prevent-scroll="true" data-testid="output_2" data-width="1310" style="width: 1340px; white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="matrixElement veSpecifier eoOutputContent" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="veVariableName variableNameElement double" style="width: 1310px; white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="headerElementClickToInteract" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">cleanZcols = </span><span class="veVariableValueSummary veMetaSummary" style="white-space: normal; font-style: italic; color: rgb(97, 97, 97); font-size: 12px;">50×1</span></div></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:66,&quot;totalColumns&quot;:1,&quot;totalRows&quot;:50,&quot;charsPerColumn&quot;:10}" style="white-space: nowrap; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="variableValue" style="width: 68px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">    0.0194
+    0.6788
+    0.2116
+    0.2655
+    0.4916
+    0.0534
+    0.5741
+    0.1467
+    0.5893
+    0.6998
+</div><div class="horizontalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div><div class="verticalEllipsis" style="white-space: nowrap; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div></div></div><div class="outputLayer selectedOutputDecorationLayer doNotExport" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div><div class="outputLayer activeOutputDecorationLayer doNotExport" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div><div class="outputLayer scrollableOutputDecorationLayer doNotExport" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div></div></div></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% Removing Missing Data
+% Instructions are in the task pane to the left. Complete and submit each task 
+% one at a time.
+%% 
+% This code sets up the activity.
+
+rng(1)
+Z = rand(50, 4);
+Z(Z > 0.97) = NaN
+%% Tasks 1 & 2
+
+% Remove missing data
+[cleanZ,missingIdx] = rmmissing(Z);
+x = [2 NaN 5 3 NaN]
+%% Task 3
+
+cleanX = rmmissing(x);
+%% Task 4
+
+cleanZcols = rmmissing(Z, 2)
+##### SOURCE END #####
+-->
+</div></body></html>
