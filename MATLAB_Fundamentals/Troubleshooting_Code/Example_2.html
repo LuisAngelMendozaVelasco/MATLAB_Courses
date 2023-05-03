@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2023a"><title>First 102 Fibonacci Numbers</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.CodeBlock { background-color: #F5F5F5; margin: 10px 0 10px 0; }
+.S2 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 0px none rgb(33, 33, 33); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S3 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 0px none rgb(33, 33, 33); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S4 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 0px 0px 4px 4px; padding: 0px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S5 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 0px; padding: 0px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S6 { color: rgb(33, 33, 33); padding: 10px 0px 6px 17px; background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box; font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px; overflow-x: hidden; line-height: 17.234px;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>First 102 Fibonacci Numbers</span></h1><div  class = 'S1'><span>This code preallocates a vector of size n for the fibonacci values.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >n = 102;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >fib = zeros(1, n);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >fib([2, 3]) = 1;</span></span></div></div></div><div  class = 'S1'><span>Create the Fibonacci Sequence</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">for </span><span >k = 3:n-1</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >    fib(k+1) = fib(k-1) + fib(k);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S5'><span style="white-space: pre"><span >fibN = fib(end)</span></span></div><div  class = 'S6'><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px; '>fibN = 5.7315e+20</div></div></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% First 102 Fibonacci Numbers
+% This code preallocates a vector of size n for the fibonacci values.
+
+n = 102;
+fib = zeros(1, n);
+fib([2, 3]) = 1;
+%% 
+% Create the Fibonacci Sequence
+
+for k = 3:n-1
+    fib(k+1) = fib(k-1) + fib(k);
+end
+fibN = fib(end)
+##### SOURCE END #####
+-->
+</div></body></html>
