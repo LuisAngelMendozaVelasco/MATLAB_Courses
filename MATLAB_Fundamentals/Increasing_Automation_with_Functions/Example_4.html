@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2023a"><title>Calling a Custom isequal Function</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.CodeBlock { background-color: #F5F5F5; margin: 10px 0 10px 0; }
+.S2 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 0px none rgb(33, 33, 33); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S3 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 0px none rgb(33, 33, 33); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S4 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 0px; padding: 0px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S5 { color: rgb(33, 33, 33); padding: 10px 0px 6px 17px; background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box; font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px; overflow-x: hidden; line-height: 17.234px;  }
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsErrorElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsErrorElement .diagnosticMessage-errorType {    overflow: auto;}
+.embeddedOutputsErrorElement.inlineElement {}
+.embeddedOutputsErrorElement.rightPaneElement {}
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsWarningElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsWarningElement .diagnosticMessage-warningType {    overflow: auto;}
+.embeddedOutputsWarningElement.inlineElement {}
+.embeddedOutputsWarningElement.rightPaneElement {}
+/* Copyright 2015-2022 The MathWorks, Inc. *//* In this file, styles are not scoped to rtcContainer since they could be in the Dojo Tooltip */.diagnosticMessage-wrapper {    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;    font-size: 12px;}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType {    color: var(--mw-color-matlabWarning);}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType a {    color: var(--mw-color-matlabWarning);    text-decoration: underline;}
+.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-warningType,.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-warningType a {    color: var(--mw-color-matlabWarning) !important;}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType {    color: var(--mw-color-matlabErrors);}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType a {    color: var(--mw-color-matlabErrors);    text-decoration: underline;}
+.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-errorType,.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-errorType a {    color: var(--mw-color-matlabErrors) !important;}
+.diagnosticMessage-wrapper .diagnosticMessage-messagePart,.diagnosticMessage-wrapper .diagnosticMessage-causePart {    white-space: pre-wrap;}
+.diagnosticMessage-wrapper .diagnosticMessage-stackPart {    white-space: pre;}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement {    white-space: pre;    word-wrap:  initial;    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsTextElement .textElement,.embeddedOutputsVariableStringElement .textElement {    overflow: auto;}
+.textElement,.rtcDataTipElement .textElement {    padding-top: 2px;}
+.embeddedOutputsTextElement.inlineElement,.embeddedOutputsVariableStringElement.inlineElement {}
+.inlineElement .textElement {}
+.embeddedOutputsTextElement.rightPaneElement,.embeddedOutputsVariableStringElement.rightPaneElement {    min-height: 16px;}
+.rightPaneElement .textElement {    padding-top: 2px;    padding-left: 9px;}
+.S6 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 0px; padding: 6px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S7 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.S8 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 4px 4px 0px 0px; padding: 6px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S9 { margin: 20px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>Calling a Custom isequal Function</span></h1><div  class = 'S1'><span>Instructions are in the task pane to the left. Complete and submit each task one at a time.</span></div><div  class = 'S1'><span>This code is used to test the functions in this script.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >x = [pi; 1.23; -4.2];</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >y = [3.14159; 1.22999; -4.2002];</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >z = [3.1415; 1.23004; -4.1999825];</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S4'><span style="white-space: pre"><span >disp([x y z])</span></span></div><div  class = 'S5'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="42863A12" prevent-scroll="true" data-testid="output_0" style="width: 1340px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" data-previous-available-width="1310" data-previous-scroll-height="46" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">    3.1416    3.1416    3.1415
+    1.2300    1.2300    1.2300
+   -4.2000   -4.2002   -4.2000</div></div></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre"><span >disp(x - y)</span></span></div><div  class = 'S5'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="849E62F1" prevent-scroll="true" data-testid="output_1" style="width: 1340px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" data-previous-available-width="1310" data-previous-scroll-height="76" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">   1.0e-03 *
+
+    0.0027
+    0.0100
+    0.2000</div></div></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre"><span >disp(x - z)</span></span></div><div  class = 'S5'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="C16B519E" prevent-scroll="true" data-testid="output_2" style="width: 1340px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" data-previous-available-width="1310" data-previous-scroll-height="76" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">   1.0e-04 *
+
+    0.9265
+   -0.4000
+   -0.1750</div></div></div></div></div><h2  class = 'S7'><span>Task 1</span></h2><div  class = 'S1'><span>Write the function isequaltol_vec. The code below should run successfully without any alteration.</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S8'><span style="white-space: pre"><span >[shouldbetrue, dmax1] = isequaltol_vec(x, y, 1e-3)</span></span></div><div  class = 'S5'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="32E51EA8" prevent-scroll="true" data-testid="output_3" style="width: 1340px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" data-previous-available-width="1310" data-previous-scroll-height="35" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">shouldbetrue = <span class="headerElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">logical</span></span></div><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">   1
+</div></div></div><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px; '>dmax1 = 2.0000e-04</div></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre"><span >[shouldbefalse, dmax2] = isequaltol_vec(x, y, 1e-6)</span></span></div><div  class = 'S5'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="58CA7E43" prevent-scroll="true" data-testid="output_5" style="width: 1340px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" data-previous-available-width="1310" data-previous-scroll-height="35" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">shouldbefalse = <span class="headerElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">logical</span></span></div><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">   0
+</div></div></div><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px; '>dmax2 = 2.0000e-04</div></div></div></div><h2  class = 'S9'><span>Task 2</span></h2><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S8'><span style="white-space: pre"><span >eqxz = isequaltol_vec(x, z, 1e-5)</span></span></div><div  class = 'S5'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="CEB8B30B" prevent-scroll="true" data-testid="output_7" style="width: 1340px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" data-previous-available-width="1310" data-previous-scroll-height="35" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">eqxz = <span class="headerElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">logical</span></span></div><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">   0
+</div></div></div></div></div></div><h2  class = 'S9'><span>Task 3</span></h2><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S8'><span style="white-space: pre"><span >[~, mxdyz] = isequaltol_vec(y, z, 1e-5)</span></span></div><div  class = 'S5'><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px; '>mxdyz = 2.1750e-04</div></div></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% Calling a Custom isequal Function
+% Instructions are in the task pane to the left. Complete and submit each task 
+% one at a time.
+%% 
+% This code is used to test the functions in this script.
+
+x = [pi; 1.23; -4.2];
+y = [3.14159; 1.22999; -4.2002];
+z = [3.1415; 1.23004; -4.1999825];
+disp([x y z])
+disp(x - y)
+disp(x - z)
+%% Task 1
+% Write the function isequaltol_vec. The code below should run successfully 
+% without any alteration.
+
+[shouldbetrue, dmax1] = isequaltol_vec(x, y, 1e-3)
+[shouldbefalse, dmax2] = isequaltol_vec(x, y, 1e-6)
+%% Task 2
+
+eqxz = isequaltol_vec(x, z, 1e-5)
+%% Task 3
+
+[~, mxdyz] = isequaltol_vec(y, z, 1e-5)
+##### SOURCE END #####
+-->
+</div></body></html>
