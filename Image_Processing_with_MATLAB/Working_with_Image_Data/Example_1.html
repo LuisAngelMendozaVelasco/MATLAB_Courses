@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2023a"><title>Extracting Image File Information</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S2 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.CodeBlock { background-color: #F5F5F5; margin: 10px 0 10px 0; }
+.S3 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 4px 4px 0px 0px; padding: 6px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S4 { color: rgb(33, 33, 33); padding: 10px 0px 6px 17px; background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box; font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px; overflow-x: hidden; line-height: 17.234px;  }
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsErrorElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsErrorElement .diagnosticMessage-errorType {    overflow: auto;}
+.embeddedOutputsErrorElement.inlineElement {}
+.embeddedOutputsErrorElement.rightPaneElement {}
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsWarningElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsWarningElement .diagnosticMessage-warningType {    overflow: auto;}
+.embeddedOutputsWarningElement.inlineElement {}
+.embeddedOutputsWarningElement.rightPaneElement {}
+/* Copyright 2015-2022 The MathWorks, Inc. *//* In this file, styles are not scoped to rtcContainer since they could be in the Dojo Tooltip */.diagnosticMessage-wrapper {    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;    font-size: 12px;}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType {    color: var(--mw-color-matlabWarning);}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType a {    color: var(--mw-color-matlabWarning);    text-decoration: underline;}
+.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-warningType,.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-warningType a {    color: var(--mw-color-matlabWarning) !important;}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType {    color: var(--mw-color-matlabErrors);}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType a {    color: var(--mw-color-matlabErrors);    text-decoration: underline;}
+.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-errorType,.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-errorType a {    color: var(--mw-color-matlabErrors) !important;}
+.diagnosticMessage-wrapper .diagnosticMessage-messagePart,.diagnosticMessage-wrapper .diagnosticMessage-causePart {    white-space: pre-wrap;}
+.diagnosticMessage-wrapper .diagnosticMessage-stackPart {    white-space: pre;}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement {    white-space: pre;    word-wrap:  initial;    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsTextElement .textElement,.embeddedOutputsVariableStringElement .textElement {    overflow: auto;}
+.textElement,.rtcDataTipElement .textElement {    padding-top: 2px;}
+.embeddedOutputsTextElement.inlineElement,.embeddedOutputsVariableStringElement.inlineElement {}
+.inlineElement .textElement {}
+.embeddedOutputsTextElement.rightPaneElement,.embeddedOutputsVariableStringElement.rightPaneElement {    min-height: 16px;}
+.rightPaneElement .textElement {    padding-top: 2px;    padding-left: 9px;}
+.S5 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 0px; padding: 6px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>Extracting Image File Information</span></h1><div  class = 'S1'><span>Instructions are in the task pane to the left. Complete and submit each task one at a time.</span></div><h2  class = 'S2'><span>Task 1</span></h2><div  class = 'S1'><span>To determine whether it is reasonable to compare the satellite images of Bear Glacier from 1980 and 2011, you must confirm they were taken at the same time of the year. </span></div><div  class = 'S1'><span>You can use the</span><span> </span><span style=' font-family: monospace;'>imfinfo</span><span> </span><span>function to extract image file information.</span></div><div  class = 'S1'><span style=' font-family: monospace;'>info</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>=</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>imfinfo</span><span style=' font-family: monospace;'>(</span><span style=' font-family: monospace;'>"filename.png"</span><span style=' font-family: monospace;'>)</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S3'><span style="white-space: pre"><span >info1980 = imfinfo(</span><span style="color: rgb(167, 9, 245);">"./images/bearGlacier1980.png"</span><span >)</span></span></div><div  class = 'S4'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement scrollableOutput" uid="9E62A2EF" prevent-scroll="true" data-testid="output_0" style="width: 1340px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent scrollArea" data-previous-available-width="1310" data-previous-scroll-height="581" data-hashorizontaloverflow="true" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;" data-scroll-top="128" data-scroll-left="0"><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">info1980 = <span class="headerElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">struct with fields:</span></span></div><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">                  Filename: 'C:\Users\luisa\GitHub\MATLAB_Courses\Image_Processing_with_MATLAB\Working_with_Image_Data\images\bearGlacier1980.png'
+               FileModDate: '08-May-2023 15:52:39'
+                  FileSize: 364373
+                    Format: 'png'
+             FormatVersion: []
+                     Width: 1502
+                    Height: 1121
+                  BitDepth: 8
+                 ColorType: 'indexed'
+           FormatSignature: [137 80 78 71 13 10 26 10]
+                  Colormap: [20×3 double]
+                 Histogram: []
+             InterlaceType: 'none'
+              Transparency: 'none'
+    SimpleTransparencyData: []
+           BackgroundColor: []
+           RenderingIntent: []
+            Chromaticities: []
+                     Gamma: []
+               XResolution: []
+               YResolution: []
+            ResolutionUnit: []
+                   XOffset: []
+                   YOffset: []
+                OffsetUnit: []
+           SignificantBits: []
+              ImageModTime: '30 Jun 2020 13:45:45 +0000'
+                     Title: []
+                    Author: []
+               Description: []
+                 Copyright: []
+              CreationTime: '05-Jun-1980 00:00:00'
+                  Software: []
+                Disclaimer: []
+                   Warning: []
+                    Source: []
+                   Comment: 'Acquisition Date: 1980-06-05|Satellite Sensor: Landsat 3|Keywords: Landsat, Earth Science, Visible Imagery, Satellite, Remote Sensing|State: Alaska|Province: None|Country: None|Source: USGS|Visual Representation: None|Resolution: None|Original Source Metadata: http://earthexplorer.usgs.gov/metadata/3120/LM30740181980157AAA13?node=LRS|Level 1T Data: http://earthexplorer.usgs.gov/download/options/3120/LM30740181980157AAA13/|'
+                 OtherText: []
+</div></div></div></div></div></div><h2  class = 'S2'><span>Task 2</span></h2><div  class = 'S1'><span>The variable </span><span style=' font-family: monospace;'>info1980</span><span> </span><span>is a structure containing the image file information for bearGlacier1980.png. To extract a field from a structure, use dot notation.</span></div><div  class = 'S1'><span style=' font-family: monospace;'>struct.FieldName</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S3'><span style="white-space: pre"><span >taken1980 = info1980.CreationTime</span></span></div><div  class = 'S4'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="0A6BDB84" prevent-scroll="true" data-testid="output_1" style="width: 1340px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" data-previous-available-width="1310" data-previous-scroll-height="20" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">taken1980 = </span>'05-Jun-1980 00:00:00'</div></div></div></div></div></div><h2  class = 'S2'><span>Task 3</span></h2><div  class = 'S1'><span>The 1980 image of Bear Glacier was taken in June. Now you must compare that to the time of year when the 2011 image was taken.</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S3'><span style="white-space: pre"><span >info2011 = imfinfo(</span><span style="color: rgb(167, 9, 245);">"./images/bearGlacier2011.png"</span><span >)</span></span></div><div  class = 'S4'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement scrollableOutput" uid="0D2FB4EB" prevent-scroll="true" data-testid="output_2" style="width: 1340px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent scrollArea" data-previous-available-width="1310" data-previous-scroll-height="581" data-hashorizontaloverflow="true" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">info2011 = <span class="headerElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">struct with fields:</span></span></div><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">                  Filename: 'C:\Users\luisa\GitHub\MATLAB_Courses\Image_Processing_with_MATLAB\Working_with_Image_Data\images\bearGlacier2011.png'
+               FileModDate: '08-May-2023 15:52:39'
+                  FileSize: 356928
+                    Format: 'png'
+             FormatVersion: []
+                     Width: 1502
+                    Height: 1121
+                  BitDepth: 8
+                 ColorType: 'indexed'
+           FormatSignature: [137 80 78 71 13 10 26 10]
+                  Colormap: [20×3 double]
+                 Histogram: []
+             InterlaceType: 'none'
+              Transparency: 'none'
+    SimpleTransparencyData: []
+           BackgroundColor: []
+           RenderingIntent: []
+            Chromaticities: []
+                     Gamma: []
+               XResolution: []
+               YResolution: []
+            ResolutionUnit: []
+                   XOffset: []
+                   YOffset: []
+                OffsetUnit: []
+           SignificantBits: []
+              ImageModTime: '30 Jun 2020 13:45:46 +0000'
+                     Title: []
+                    Author: []
+               Description: []
+                 Copyright: []
+              CreationTime: '13-May-2011 00:00:00'
+                  Software: []
+                Disclaimer: []
+                   Warning: []
+                    Source: []
+                   Comment: 'Acquisition Date: 2011-05-13|Satellite Sensor: Landsat 7|Keywords: Landsat, Earth Science, Visible Imagery, Satellite, Remote Sensing|State: Alaska|Province: None|Country: None|Source: USGS|Visual Representation: None|Resolution: None|Original Source Metadata: https://earthexplorer.usgs.gov/metadata/12267/LE70680182011133EDC00?node=LRS|Level 1T Data: https://earthexplorer.usgs.gov/download/options/12267/LE70680182011133EDC00/|'
+                 OtherText: []
+</div></div></div></div></div><div class="inlineWrapper outputs"><div  class = 'S5'><span style="white-space: pre"><span >taken2011 = info2011.CreationTime</span></span></div><div  class = 'S4'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="9487FFCF" prevent-scroll="true" data-testid="output_3" style="width: 1340px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" data-previous-available-width="1310" data-previous-scroll-height="20" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">taken2011 = </span>'13-May-2011 00:00:00'</div></div></div></div></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% Extracting Image File Information
+% Instructions are in the task pane to the left. Complete and submit each task 
+% one at a time.
+%% Task 1
+% To determine whether it is reasonable to compare the satellite images of Bear 
+% Glacier from 1980 and 2011, you must confirm they were taken at the same time 
+% of the year. 
+% 
+% You can use the |imfinfo| function to extract image file information.
+% 
+% |info = imfinfo("filename.png")|
+
+info1980 = imfinfo("./images/bearGlacier1980.png")
+%% Task 2
+% The variable |info1980| is a structure containing the image file information 
+% for bearGlacier1980.png. To extract a field from a structure, use dot notation.
+% 
+% |struct.FieldName|
+
+taken1980 = info1980.CreationTime
+%% Task 3
+% The 1980 image of Bear Glacier was taken in June. Now you must compare that 
+% to the time of year when the 2011 image was taken.
+
+info2011 = imfinfo("./images/bearGlacier2011.png")
+taken2011 = info2011.CreationTime
+##### SOURCE END #####
+-->
+</div></body></html>
