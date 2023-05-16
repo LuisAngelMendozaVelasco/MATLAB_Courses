@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2023a"><title>Resizing an Image by Blocks</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.CodeBlock { background-color: #F5F5F5; margin: 10px 0 10px 0; }
+.S2 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 0px none rgb(33, 33, 33); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S3 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 0px 0px 4px 4px; padding: 0px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S4 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.S5 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 0px none rgb(33, 33, 33); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>Resizing an Image by Blocks</span></h1><div  class = 'S1'><span>Instructions are in the task pane to the left. Complete and submit each task one at a time.</span></div><div  class = 'S1'><span>This code sets up the activity.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >tumorOriginal = imread(</span><span style="color: rgb(167, 9, 245);">"tumorLargeFile.jpg"</span><span >);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >imshow(tumorOriginal)</span></span></div></div></div><h2  class = 'S4'><span>Task 2</span></h2><div  class = 'S1'><span>To process an image by blocks, use </span><span style=' font-family: monospace;'>blockproc</span><span>.</span></div><div  class = 'S1'><span style=' font-family: monospace;'>imBP</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>=</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>blockproc</span><span style=' font-family: monospace;'>(</span><span style=' font-family: monospace;'>im</span><span style=' font-family: monospace;'>,</span><span style=' font-family: monospace;'>blockSize</span><span style=' font-family: monospace;'>,@</span><span style=' font-family: monospace;'>functionName</span><span style=' font-family: monospace;'>)</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >tumor = blockproc(tumorOriginal, [15 15], @shrinkImage);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >imshow(tumor)</span></span></div></div></div><h2  class = 'S4'><span>Task 1</span></h2><div  class = 'S1'><span>You will shrink the image of a tumor by replacing a block by its median value.</span></div><div  class = 'S1'><span>First, you will write a function that gets passed to </span><span style=' font-family: monospace;'>blockproc</span><span>. The function declaration for</span><span> </span><span style=' font-family: monospace;'>shrinkImage</span><span> </span><span>is at the bottom of the script, and you will fill in the body of this local function.</span></div><div  class = 'S1'><span>To access image data for a block within the block processing function, first extract the</span><span> </span><span style=' font-family: monospace;'>data</span><span> field from the input structure,</span><span> </span><span style=' font-family: monospace;'>blockStruct</span><span>.</span></div><div  class = 'S1'><span style=' font-family: monospace;'>blockStruct.data</span></div><div  class = 'S1'><span>You can calculate the median of</span><span> </span><span style=' font-style: italic;'>all</span><span> </span><span>array elements with the</span><span> </span><span style=' font-family: monospace;'>median</span><span> </span><span>function.</span></div><div  class = 'S1'><span style=' font-family: monospace;'>median</span><span style=' font-family: monospace;'>(</span><span style=' font-family: monospace;'>A</span><span style=' font-family: monospace;'>,</span><span style=' font-family: monospace;'>"all"</span><span style=' font-family: monospace;'>)</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">function </span><span >newBlock = shrinkImage(blockStruct)</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">% shrinkImage extracts the block data from the input structure</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">% and finds its median and returns that scalar as the output</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >    </span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">% extract the data field of the structure blockStruct</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >    block = blockStruct.data;</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >    </span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">% calculate the median of the data field and save to newBlock</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >    newBlock = median(block,</span><span style="color: rgb(167, 9, 245);">"all"</span><span >);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% Resizing an Image by Blocks
+% Instructions are in the task pane to the left. Complete and submit each task 
+% one at a time.
+%% 
+% This code sets up the activity.
+
+tumorOriginal = imread("tumorLargeFile.jpg");
+imshow(tumorOriginal)
+%% Task 2
+% To process an image by blocks, use |blockproc|.
+% 
+% |imBP = blockproc(im,blockSize,@functionName)|
+
+tumor = blockproc(tumorOriginal, [15 15], @shrinkImage);
+imshow(tumor)
+%% Task 1
+% You will shrink the image of a tumor by replacing a block by its median value.
+% 
+% First, you will write a function that gets passed to |blockproc|. The function 
+% declaration for |shrinkImage| is at the bottom of the script, and you will fill 
+% in the body of this local function.
+% 
+% To access image data for a block within the block processing function, first 
+% extract the |data| field from the input structure, |blockStruct|.
+% 
+% |blockStruct.data|
+% 
+% You can calculate the median of _all_ array elements with the |median| function.
+% 
+% |median(A,"all")|
+
+function newBlock = shrinkImage(blockStruct)
+    % shrinkImage extracts the block data from the input structure
+    % and finds its median and returns that scalar as the output
+    
+    % extract the data field of the structure blockStruct
+    block = blockStruct.data;
+    
+    % calculate the median of the data field and save to newBlock
+    newBlock = median(block,"all");
+end
+##### SOURCE END #####
+-->
+</div></body></html>
