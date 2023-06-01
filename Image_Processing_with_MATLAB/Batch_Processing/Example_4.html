@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2023a"><title>Create a Datastore</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S2 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.CodeBlock { background-color: #F5F5F5; margin: 10px 0 10px 0; }
+.S3 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 0px none rgb(33, 33, 33); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S4 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 0px none rgb(33, 33, 33); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S5 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 0px; padding: 0px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S6 { color: rgb(33, 33, 33); padding: 10px 0px 6px 17px; background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box; font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px; overflow-x: hidden; line-height: 17.234px;  }
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsErrorElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsErrorElement .diagnosticMessage-errorType {    overflow: auto;}
+.embeddedOutputsErrorElement.inlineElement {}
+.embeddedOutputsErrorElement.rightPaneElement {}
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsWarningElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsWarningElement .diagnosticMessage-warningType {    overflow: auto;}
+.embeddedOutputsWarningElement.inlineElement {}
+.embeddedOutputsWarningElement.rightPaneElement {}
+/* Copyright 2015-2022 The MathWorks, Inc. *//* In this file, styles are not scoped to rtcContainer since they could be in the Dojo Tooltip */.diagnosticMessage-wrapper {    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;    font-size: 12px;}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType {    color: var(--mw-color-matlabWarning);}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType a {    color: var(--mw-color-matlabWarning);    text-decoration: underline;}
+.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-warningType,.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-warningType a {    color: var(--mw-color-matlabWarning) !important;}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType {    color: var(--mw-color-matlabErrors);}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType a {    color: var(--mw-color-matlabErrors);    text-decoration: underline;}
+.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-errorType,.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-errorType a {    color: var(--mw-color-matlabErrors) !important;}
+.diagnosticMessage-wrapper .diagnosticMessage-messagePart,.diagnosticMessage-wrapper .diagnosticMessage-causePart {    white-space: pre-wrap;}
+.diagnosticMessage-wrapper .diagnosticMessage-stackPart {    white-space: pre;}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement {    white-space: pre;    word-wrap:  initial;    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsTextElement .textElement,.embeddedOutputsVariableStringElement .textElement {    overflow: auto;}
+.textElement,.rtcDataTipElement .textElement {    padding-top: 2px;}
+.embeddedOutputsTextElement.inlineElement,.embeddedOutputsVariableStringElement.inlineElement {}
+.inlineElement .textElement {}
+.embeddedOutputsTextElement.rightPaneElement,.embeddedOutputsVariableStringElement.rightPaneElement {    min-height: 16px;}
+.rightPaneElement .textElement {    padding-top: 2px;    padding-left: 9px;}
+.S7 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 4px 4px 0px 0px; padding: 6px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.embeddedOutputsVariableTableElement .ClientViewDiv  table tr {  height: 22px;  white-space: nowrap;}
+.embeddedOutputsVariableTableElement .ClientViewDiv  table tr td,.embeddedOutputsVariableTableElement .ClientViewDiv  table tr th {  background-color:white;  text-overflow: ellipsis;  font-family: 'Arial', sans-serif;  font-size: 12px;  overflow : hidden;}
+.embeddedOutputsVariableTableElement .ClientViewDiv  table tr span {  text-overflow: ellipsis;  padding: 3px;}
+.embeddedOutputsVariableTableElement .ClientViewDiv  table tr th {    color: rgba(0,0,0,0.5);  padding: 3px;  font-size: 9px;}
+.embeddedOutputsMatrixElement,.eoOutputWrapper .matrixElement {    min-height: 18px;    box-sizing: border-box;}
+.embeddedOutputsMatrixElement .matrixElement,.eoOutputWrapper  .matrixElement,.rtcDataTipElement .matrixElement {    position: relative;}
+.matrixElement .variableValue,.rtcDataTipElement .matrixElement .variableValue {    white-space: pre;    display: inline-block;    vertical-align: top;    overflow: hidden;}
+.embeddedOutputsMatrixElement.inlineElement {}
+.embeddedOutputsMatrixElement.inlineElement .topHeaderWrapper {    display: none;}
+.embeddedOutputsMatrixElement.inlineElement .veTable .body {    padding-top: 0 !important;    max-height: 100px;}
+.inlineElement .matrixElement {    max-height: 300px;}
+.embeddedOutputsMatrixElement.rightPaneElement {}
+.rightPaneElement .matrixElement,.rtcDataTipElement .matrixElement {    overflow: hidden;    padding-left: 9px;}
+.rightPaneElement .matrixElement {    margin-bottom: -1px;}
+.embeddedOutputsMatrixElement .matrixElement .valueContainer,.eoOutputWrapper .matrixElement .valueContainer,.rtcDataTipElement .matrixElement .valueContainer {    white-space: nowrap;    margin-bottom: 3px;}
+.embeddedOutputsMatrixElement .matrixElement .valueContainer .horizontalEllipsis.hide,.embeddedOutputsMatrixElement .matrixElement .verticalEllipsis.hide,.eoOutputWrapper .matrixElement .valueContainer .horizontalEllipsis.hide,.eoOutputWrapper .matrixElement .verticalEllipsis.hide,.rtcDataTipElement .matrixElement .valueContainer .horizontalEllipsis.hide,.rtcDataTipElement .matrixElement .verticalEllipsis.hide {    display: none;}
+.embeddedOutputsVariableMatrixElement .matrixElement .valueContainer.hideEllipses .verticalEllipsis, .embeddedOutputsVariableMatrixElement .matrixElement .valueContainer.hideEllipses .horizontalEllipsis {    display:none;}
+.embeddedOutputsMatrixElement .matrixElement .valueContainer .horizontalEllipsis,.eoOutputWrapper .matrixElement .valueContainer .horizontalEllipsis {    margin-bottom: -3px;}
+.eoOutputWrapper .embeddedOutputsVariableMatrixElement .matrixElement .valueContainer {    cursor: default !important;}
+.embeddedOutputsVariableElement {    white-space: pre-wrap;    word-wrap: break-word;    min-height: 18px;    max-height: 250px;    overflow: auto;}
+.variableElement {}
+.embeddedOutputsVariableElement.inlineElement {}
+.inlineElement .variableElement {}
+.embeddedOutputsVariableElement.rightPaneElement {    min-height: 16px;}
+.rightPaneElement .variableElement {    padding-top: 2px;    padding-left: 9px;}
+.outputsOnRight .embeddedOutputsVariableElement.rightPaneElement .eoOutputContent {    /* Remove extra space allocated for navigation border */    margin-top: 0;    margin-bottom: 0;}
+.variableNameElement {    margin-bottom: 3px;    display: inline-block;}
+/* * Ellipses as base64 for HTML export. */.matrixElement .horizontalEllipsis,.rtcDataTipElement .matrixElement .horizontalEllipsis {    display: inline-block;    margin-top: 3px;    /* base64 encoded version of images-liveeditor/HEllipsis.png */    width: 30px;    height: 12px;    background-repeat: no-repeat;    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAJCAYAAADO1CeCAAAAJUlEQVR42mP4//8/A70xw0i29BUDFPxnAEtTW37wWDqakIa4pQDvOOG89lHX2gAAAABJRU5ErkJggg==");}
+.matrixElement .verticalEllipsis,.textElement .verticalEllipsis,.rtcDataTipElement .matrixElement .verticalEllipsis,.rtcDataTipElement .textElement .verticalEllipsis {    margin-left: 35px;    /* base64 encoded version of images-liveeditor/VEllipsis.png */    width: 12px;    height: 30px;    background-repeat: no-repeat;    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAZCAYAAAAIcL+IAAAALklEQVR42mP4//8/AzGYgWyFMECMwv8QddRS+P//KyimlmcGUOFoOI6GI/UVAgDnd8Dd4+NCwgAAAABJRU5ErkJggg==");}</style></head><body><div class = rtcContent><h1  class = 'S0'><span>Create a Datastore</span></h1><div  class = 'S1'><span>Instructions are in the task pane to the left. Complete and submit each task one at a time.</span></div><h2  class = 'S2'><span>Task 1 &amp; 2</span></h2><div  class = 'S1'><span>To process the roundworm images, you first need to locate the image files. With an image datastore, you can define their location and only import them when you're ready to process them.</span></div><div  class = 'S1'><span>When you create an image datastore, provide it with the directory you want to search and it will find the images in that folder. If you also want to search subfolders, set the</span><span> </span><span style=' font-family: monospace;'>"IncludeSubfolders"</span><span> </span><span>option to</span><span> </span><span style=' font-family: monospace;'>true</span><span>.</span></div><div  class = 'S1'><span style=' font-family: monospace;'>ds</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>=</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>imageDatastore</span><span style=' font-family: monospace;'>(</span><span style=' font-family: monospace;'>"directory"</span><span style=' font-family: monospace;'>,</span><span style=' font-family: monospace;'>...</span></div><div  class = 'S1'><span style=' font-family: monospace;'> 	     </span><span style=' font-family: monospace;'>"IncludeSubfolders"</span><span style=' font-family: monospace;'>,</span><span style=' font-family: monospace;'>true</span><span style=' font-family: monospace;'>)</span></div><div  class = 'S1'><span>The data folder names categorize the roundworm images; the "alive" folder contains the images of live worms while the "dead" folder contains images of dead worms. This information is an important part of the workflow: when selecting a cutoff for the median worm length you need to differentiate between lengths for live and dead worms.</span></div><div  class = 'S1'><span>You can create labels from the folder names by setting the</span><span> </span><span style=' font-family: monospace;'>"LabelSource"</span><span> </span><span>option to</span><span> </span><span style=' font-family: monospace;'>"foldernames"</span><span> </span><span>when creating the datastore.</span></div><div  class = 'S1'><span style=' font-family: monospace;'>ds</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>=</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>imageDatastore</span><span style=' font-family: monospace;'>(</span><span style=' font-family: monospace;'>... </span></div><div  class = 'S1'><span style=' font-family: monospace;'>     </span><span style=' font-family: monospace;'>"LabelSource"</span><span style=' font-family: monospace;'>,</span><span style=' font-family: monospace;'>"foldernames"</span><span style=' font-family: monospace;'>)</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >ds = imageDatastore(</span><span style="color: rgb(167, 9, 245);">"./images/antibioticResponse"</span><span >,</span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >    </span><span style="color: rgb(167, 9, 245);">"IncludeSubfolders"</span><span >, true,</span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S5'><span style="white-space: pre"><span >    </span><span style="color: rgb(167, 9, 245);">"LabelSource"</span><span >, </span><span style="color: rgb(167, 9, 245);">"foldernames"</span><span >)</span></span></div><div  class = 'S6'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="692F7A84" prevent-scroll="true" data-testid="output_0" style="width: 1340px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" data-previous-available-width="1310" data-previous-scroll-height="271" data-hashorizontaloverflow="false" style="max-height: 282px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">ds = </span></div><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">  ImageDatastore with properties:
+
+                       Files: {
+                              ' ...\Batch_Processing\images\antibioticResponse\alive\wormA01.jpg';
+                              ' ...\Batch_Processing\images\antibioticResponse\alive\wormA02.jpg';
+                              ' ...\Batch_Processing\images\antibioticResponse\alive\wormA03.jpg'
+                               ... and 90 more
+                              }
+                     Folders: {
+                              ' ...\Batch_Processing\images\antibioticResponse'
+                              }
+                      Labels: [alive; alive; alive ... and 90 more categorical]
+    AlternateFileSystemRoots: {}
+                    ReadSize: 1
+      SupportedOutputFormats: ["png"    "jpg"    "jpeg"    "tif"    "tiff"]
+         DefaultOutputFormat: "png"
+                     ReadFcn: @readDatastoreImage
+</div></div></div></div></div></div><h2  class = 'S2'><span>Task 3</span></h2><div  class = 'S1'><span>When choosing a cutoff that will separate images of live roundworms from dead ones, keep in mind that you’ll want around the same number of images in each category. You can use the </span><span style=' font-family: monospace;'>countEachLabel</span><span> function to find out how many images of live and dead worms you have in the datastore.</span></div><div  class = 'S1'><span style=' font-family: monospace;'>lbCounts = countEachLabel(imds)</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S7'><span style="white-space: pre"><span >labelCounts = countEachLabel(ds)</span></span></div><div  class = 'S6'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableTableElement" uid="94FBA379" prevent-scroll="true" data-testid="output_1" style="width: calc(100% - 5px);"><div class="ClientDocument veSpecifier dijitContentPane document ArrayTable table" id="variableeditor_peer_RemoteDocument_0" widgetid="variableeditor_peer_RemoteDocument_0" tabindex="0" data-update-plain-text-string="true"><div class="summaryBar" style="font-size: 12px; font-family: Consolas, Inconsolata, Menlo, monospace;"><span>labelCounts = </span><span style="color: rgb(179, 179, 179); font-style: normal;">2×2 table </span></div><div id="variableeditor_peer_RemoteTableViewModel_0" widgetid="variableeditor_peer_RemoteTableViewModel_0" class="table ClientViewDiv hasSummaryBar" data-viewid="__1" style="width: 100%; overflow: auto;"><table cellspacing="0" style="border-spacing: 0px; border-collapse: collapse;"><thead><tr><th style="text-overflow: ellipsis; font-family: Arial, sans-serif; font-size: 12px; overflow: hidden; padding: 6px 3px 3px; width: 34px; border: 1px solid rgb(191, 191, 191); text-align: left; background-color: rgb(245, 245, 245); color: rgba(0, 0, 0, 0.75); font-weight: 700; box-sizing: border-box;"><span>&nbsp;</span></th><th style="text-overflow: ellipsis; font-family: Arial, sans-serif; font-size: 12px; overflow: hidden; padding: 6px 3px 3px; width: 82px; min-width: 82px; max-width: 82px; border: 1px solid rgb(191, 191, 191); text-align: center; background-color: rgb(245, 245, 245); color: rgba(0, 0, 0, 0.75); font-weight: 700; box-sizing: border-box;"><span>Label</span></th><th style="text-overflow: ellipsis; font-family: Arial, sans-serif; font-size: 12px; overflow: hidden; padding: 6px 3px 3px; width: 82px; min-width: 82px; max-width: 82px; border: 1px solid rgb(191, 191, 191); text-align: center; background-color: rgb(245, 245, 245); color: rgba(0, 0, 0, 0.75); font-weight: 700; box-sizing: border-box;"><span>Count</span></th></tr></thead><tbody><tr><th style="text-overflow: ellipsis; font-family: Arial, sans-serif; font-size: 12px; overflow: hidden; padding: 6px 3px 3px; width: 34px; border-width: 0px 1px 1px; border-style: solid; border-color: rgb(191, 191, 191); border-image: initial; text-align: left; background-color: rgb(245, 245, 245); color: rgba(0, 0, 0, 0.75); font-weight: 700; box-sizing: border-box;"><span>1</span></th><td style="text-overflow: ellipsis; font-family: Arial, sans-serif; font-size: 12px; overflow: hidden; padding: 3px; width: 82px; min-width: 82px; max-width: 82px; border-width: 0px 1px 1px; border-style: solid; border-color: rgb(191, 191, 191); border-image: initial; text-align: left;"><span>alive</span></td><td style="text-overflow: ellipsis; font-family: Arial, sans-serif; font-size: 12px; overflow: hidden; padding: 3px; width: 82px; min-width: 82px; max-width: 82px; border-width: 0px 1px 1px; border-style: solid; border-color: rgb(191, 191, 191); border-image: initial; text-align: right;"><span>48</span></td></tr><tr><th style="text-overflow: ellipsis; font-family: Arial, sans-serif; font-size: 12px; overflow: hidden; padding: 6px 3px 3px; width: 34px; border-width: 0px 1px 1px; border-style: solid; border-color: rgb(191, 191, 191); border-image: initial; text-align: left; background-color: rgb(245, 245, 245); color: rgba(0, 0, 0, 0.75); font-weight: 700; box-sizing: border-box;"><span>2</span></th><td style="text-overflow: ellipsis; font-family: Arial, sans-serif; font-size: 12px; overflow: hidden; padding: 3px; width: 82px; min-width: 82px; max-width: 82px; border-width: 0px 1px 1px; border-style: solid; border-color: rgb(191, 191, 191); border-image: initial; text-align: left;"><span>dead</span></td><td style="text-overflow: ellipsis; font-family: Arial, sans-serif; font-size: 12px; overflow: hidden; padding: 3px; width: 82px; min-width: 82px; max-width: 82px; border-width: 0px 1px 1px; border-style: solid; border-color: rgb(191, 191, 191); border-image: initial; text-align: right;"><span>45</span></td></tr></tbody></table></div></div><div class="outputLayer selectedOutputDecorationLayer doNotExport"></div><div class="outputLayer activeOutputDecorationLayer doNotExport"></div><div class="outputLayer scrollableOutputDecorationLayer doNotExport"></div></div></div></div></div><h2  class = 'S2'><span>Task 4</span></h2><div  class = 'S1'><span>You'll often want to use the labels to select a certain category of images from the datastore. You can extract the labels field from the datastore structure using dot notation: </span><span style=' font-family: monospace;'>ds.Labels</span><span>.</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S7'><span style="white-space: pre"><span >labels = ds.Labels</span></span></div><div  class = 'S6'><div class="inlineElement eoOutputWrapper embeddedOutputsTextMatrixElement embeddedOutputsVariableMatrixElement" uid="38B0B86A" prevent-scroll="true" data-testid="output_2" data-width="1310" style="width: 1340px; white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="matrixElement veSpecifier eoOutputContent" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="veVariableName variableNameElement" style="width: 1310px; white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="headerElementClickToInteract" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">labels = </span><span class="veVariableValueSummary headerElement" style="white-space: normal; font-style: italic; color: rgb(97, 97, 97); font-size: 12px;">93×1 categorical</span></div></div><div class="valueContainer" data-layout="{&quot;totalRows&quot;:93,&quot;totalColumns&quot;:1}" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="variableValue" style="width: 82px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">alive        <br>alive        <br>alive        <br>alive        <br>alive        <br>alive        <br>alive        <br>alive        <br>alive        <br>alive        <br></div><div class="horizontalEllipsis hide" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div><div class="verticalEllipsis" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div></div></div><div class="outputLayer selectedOutputDecorationLayer doNotExport" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div><div class="outputLayer activeOutputDecorationLayer doNotExport" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div><div class="outputLayer scrollableOutputDecorationLayer doNotExport" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div></div></div></div></div><h2  class = 'S2'><span>Task 5</span></h2><div  class = 'S1'><span>You can use label information to select images. First, create a logical array and then use it to index into the file names. You can create a logical array that is</span><span> </span><span style=' font-family: monospace;'>true</span><span> </span><span>for all images of live worms using the logical</span><span> </span><span style=' font-family: monospace;'>==</span><span> </span><span>operator.</span></div><div  class = 'S1'><span style=' font-family: monospace;'>idxAlive</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>=</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>labels</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>==</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>"alive"</span></div><div  class = 'S1'><span>Note: in MATLAB,</span><span> </span><span style=' font-family: monospace;'>true</span><span> </span><span>values of logical arrays are displayed as</span><span> </span><span style=' font-family: monospace;'>1</span><span> </span><span>and</span><span> </span><span style=' font-family: monospace;'>false</span><span> </span><span>values as</span><span> </span><span style=' font-family: monospace;'>0</span><span>.</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S7'><span style="white-space: pre"><span >idxDead = labels == </span><span style="color: rgb(167, 9, 245);">"dead"</span></span></div><div  class = 'S6'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableMatrixElement" uid="DE29142D" prevent-scroll="true" data-testid="output_3" data-width="1310" style="width: 1340px; white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="matrixElement veSpecifier eoOutputContent" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="veVariableName variableNameElement" style="width: 1310px; white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="headerElementClickToInteract" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">idxDead = </span><span class="veVariableValueSummary headerElement" style="white-space: normal; font-style: italic; color: rgb(97, 97, 97); font-size: 12px;">93×1 logical array</span></div></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:27,&quot;totalColumns&quot;:1,&quot;totalRows&quot;:93,&quot;charsPerColumn&quot;:4}" style="white-space: nowrap; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="variableValue" style="width: 29px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">   0
+   0
+   0
+   0
+   0
+   0
+   0
+   0
+   0
+   0
+</div><div class="horizontalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div><div class="verticalEllipsis" style="white-space: nowrap; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div></div></div><div class="outputLayer selectedOutputDecorationLayer doNotExport" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div><div class="outputLayer activeOutputDecorationLayer doNotExport" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div><div class="outputLayer scrollableOutputDecorationLayer doNotExport" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div></div></div></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% Create a Datastore
+% Instructions are in the task pane to the left. Complete and submit each task 
+% one at a time.
+%% Task 1 & 2
+% To process the roundworm images, you first need to locate the image files. 
+% With an image datastore, you can define their location and only import them 
+% when you're ready to process them.
+% 
+% When you create an image datastore, provide it with the directory you want 
+% to search and it will find the images in that folder. If you also want to search 
+% subfolders, set the |"IncludeSubfolders"| option to |true|.
+% 
+% |ds = imageDatastore("directory",...|
+% 
+% "IncludeSubfolders",true)|
+% 
+% The data folder names categorize the roundworm images; the "alive" folder 
+% contains the images of live worms while the "dead" folder contains images of 
+% dead worms. This information is an important part of the workflow: when selecting 
+% a cutoff for the median worm length you need to differentiate between lengths 
+% for live and dead worms.
+% 
+% You can create labels from the folder names by setting the |"LabelSource"| 
+% option to |"foldernames"| when creating the datastore.
+% 
+% |ds = imageDatastore(...| 
+% 
+% "LabelSource","foldernames")|
+
+ds = imageDatastore("./images/antibioticResponse",...
+    "IncludeSubfolders", true,...
+    "LabelSource", "foldernames")
+%% Task 3
+% When choosing a cutoff that will separate images of live roundworms from dead 
+% ones, keep in mind that you’ll want around the same number of images in each 
+% category. You can use the |countEachLabel| function to find out how many images 
+% of live and dead worms you have in the datastore.
+% 
+% |lbCounts = countEachLabel(imds)|
+
+labelCounts = countEachLabel(ds)
+%% Task 4
+% You'll often want to use the labels to select a certain category of images 
+% from the datastore. You can extract the labels field from the datastore structure 
+% using dot notation: |ds.Labels|.
+
+labels = ds.Labels
+%% Task 5
+% You can use label information to select images. First, create a logical array 
+% and then use it to index into the file names. You can create a logical array 
+% that is |true| for all images of live worms using the logical |==| operator.
+% 
+% |idxAlive = labels == "alive"|
+% 
+% Note: in MATLAB, |true| values of logical arrays are displayed as |1| and 
+% |false| values as |0|.
+
+idxDead = labels == "dead"
+##### SOURCE END #####
+-->
+</div></body></html>

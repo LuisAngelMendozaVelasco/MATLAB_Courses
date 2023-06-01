@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2023a"><title>Loop through a Datastore</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.CodeBlock { background-color: #F5F5F5; margin: 10px 0 10px 0; }
+.S2 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 4px 4px 0px 0px; padding: 6px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S3 { color: rgb(33, 33, 33); padding: 10px 0px 6px 17px; background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box; font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px; overflow-x: hidden; line-height: 17.234px;  }
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsErrorElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsErrorElement .diagnosticMessage-errorType {    overflow: auto;}
+.embeddedOutputsErrorElement.inlineElement {}
+.embeddedOutputsErrorElement.rightPaneElement {}
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsWarningElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsWarningElement .diagnosticMessage-warningType {    overflow: auto;}
+.embeddedOutputsWarningElement.inlineElement {}
+.embeddedOutputsWarningElement.rightPaneElement {}
+/* Copyright 2015-2022 The MathWorks, Inc. *//* In this file, styles are not scoped to rtcContainer since they could be in the Dojo Tooltip */.diagnosticMessage-wrapper {    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;    font-size: 12px;}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType {    color: var(--mw-color-matlabWarning);}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType a {    color: var(--mw-color-matlabWarning);    text-decoration: underline;}
+.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-warningType,.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-warningType a {    color: var(--mw-color-matlabWarning) !important;}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType {    color: var(--mw-color-matlabErrors);}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType a {    color: var(--mw-color-matlabErrors);    text-decoration: underline;}
+.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-errorType,.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-errorType a {    color: var(--mw-color-matlabErrors) !important;}
+.diagnosticMessage-wrapper .diagnosticMessage-messagePart,.diagnosticMessage-wrapper .diagnosticMessage-causePart {    white-space: pre-wrap;}
+.diagnosticMessage-wrapper .diagnosticMessage-stackPart {    white-space: pre;}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement {    white-space: pre;    word-wrap:  initial;    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsTextElement .textElement,.embeddedOutputsVariableStringElement .textElement {    overflow: auto;}
+.textElement,.rtcDataTipElement .textElement {    padding-top: 2px;}
+.embeddedOutputsTextElement.inlineElement,.embeddedOutputsVariableStringElement.inlineElement {}
+.inlineElement .textElement {}
+.embeddedOutputsTextElement.rightPaneElement,.embeddedOutputsVariableStringElement.rightPaneElement {    min-height: 16px;}
+.rightPaneElement .textElement {    padding-top: 2px;    padding-left: 9px;}
+.S4 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.S5 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 0px none rgb(33, 33, 33); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S6 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 0px none rgb(33, 33, 33); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S7 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 0px 0px 4px 4px; padding: 0px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S8 { margin: 10px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>Loop through a Datastore</span></h1><div  class = 'S1'><span>Instructions are in the task pane to the left. Complete and submit each task one at a time.</span></div><div  class = 'S1'><span>Do not edit. This code creates a datastore </span><span style=' font-family: monospace;'>ds </span><span>that contains the roundworm images.</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S2'><span style="white-space: pre"><span >ds = imageDatastore(</span><span style="color: rgb(167, 9, 245);">"./images/antibioticResponse"</span><span >, </span><span style="color: rgb(167, 9, 245);">"IncludeSubfolders"</span><span >, true, </span><span style="color: rgb(167, 9, 245);">"LabelSource"</span><span >, </span><span style="color: rgb(167, 9, 245);">"foldernames"</span><span >)</span></span></div><div  class = 'S3'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="FDDB97D0" prevent-scroll="true" data-testid="output_0" style="width: 1340px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" data-previous-available-width="1310" data-previous-scroll-height="271" data-hashorizontaloverflow="false" style="max-height: 282px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">ds = </span></div><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">  ImageDatastore with properties:
+
+                       Files: {
+                              ' ...\Batch_Processing\images\antibioticResponse\alive\wormA01.jpg';
+                              ' ...\Batch_Processing\images\antibioticResponse\alive\wormA02.jpg';
+                              ' ...\Batch_Processing\images\antibioticResponse\alive\wormA03.jpg'
+                               ... and 90 more
+                              }
+                     Folders: {
+                              ' ...\Batch_Processing\images\antibioticResponse'
+                              }
+                      Labels: [alive; alive; alive ... and 90 more categorical]
+    AlternateFileSystemRoots: {}
+                    ReadSize: 1
+      SupportedOutputFormats: ["png"    "jpg"    "jpeg"    "tif"    "tiff"]
+         DefaultOutputFormat: "png"
+                     ReadFcn: @readDatastoreImage
+</div></div></div></div></div></div><h2  class = 'S4'><span>Task 1</span></h2><div  class = 'S1'><span>Now you're ready to programmatically batch process all 93 roundworm images. The provided code loops through 5 of the images using a for loop, computes the median worm length, and makes a prediction based on a cutoff.</span></div><div  class = 'S1'><span>In order to loop through all the images, replace the for loop with a while loop. Recall that a while loop has the form</span></div><div  class = 'S1'><span style=' font-family: monospace;'>while</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>&lt;</span><span style=' font-family: monospace;'>condition</span><span style=' font-family: monospace;'>&gt;</span></div><div  class = 'S1'><span style=' font-family: monospace;'>&lt;</span><span style=' font-family: monospace;'>body</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>statement</span><span style=' font-family: monospace;'>&gt;</span><span style=' font-family: monospace;'> </span></div><div  class = 'S1'><span style=' font-family: monospace;'>end</span></div><div  class = 'S1'><span>The body executes repeatedly as long as the header condition is true. You can use</span><span> </span><span style=' font-family: monospace;'>hasdata</span><span style=' font-family: monospace;'>(</span><span style=' font-family: monospace;'>ds</span><span style=' font-family: monospace;'>)</span><span> </span><span>as the condition to check if any images are left in the datastore.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >prediction = strings(0);</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">while </span><span >hasdata(ds)</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    I = read(ds);</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    result = medianWormLength(I);</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    </span><span style="color: rgb(14, 0, 255);">if </span><span >result.medLength &gt; 62</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        prediction(end + 1) = </span><span style="color: rgb(167, 9, 245);">"dead"</span><span >;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    </span><span style="color: rgb(14, 0, 255);">else</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        prediction(end + 1) = </span><span style="color: rgb(167, 9, 245);">"alive"</span><span >;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    </span><span style="color: rgb(14, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div></div><div  class = 'S8'></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% Loop through a Datastore
+% Instructions are in the task pane to the left. Complete and submit each task 
+% one at a time.
+%% 
+% Do not edit. This code creates a datastore |ds| that contains the roundworm 
+% images.
+
+ds = imageDatastore("./images/antibioticResponse", "IncludeSubfolders", true, "LabelSource", "foldernames")
+%% Task 1
+% Now you're ready to programmatically batch process all 93 roundworm images. 
+% The provided code loops through 5 of the images using a for loop, computes the 
+% median worm length, and makes a prediction based on a cutoff.
+% 
+% In order to loop through all the images, replace the for loop with a while 
+% loop. Recall that a while loop has the form
+% 
+% |while <condition>|
+% 
+% |<body statement> 
+% 
+% |end|
+% 
+% The body executes repeatedly as long as the header condition is true. You 
+% can use |hasdata(ds)| as the condition to check if any images are left in the 
+% datastore.
+
+prediction = strings(0);
+while hasdata(ds)
+    I = read(ds);
+    result = medianWormLength(I);
+    if result.medLength > 62
+        prediction(end + 1) = "dead";
+    else
+        prediction(end + 1) = "alive";
+    end
+end
+%% 
+%
+##### SOURCE END #####
+-->
+</div></body></html>
