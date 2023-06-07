@@ -1,6 +1,0 @@
-bldg_name,city,year,stories,height_feet,height_m
-Burj Dubai,Dubai,2009,162,2684,818.0832
-Taipei 101,Taipei,2004,101,1671,509.3208
-Shanghai World Financial Center,Shanghai,2008,101,1614,491.9472
-Petronas Tower 1,Kuala Lumpur,1998,88,1483,452.0184
-Petronas Tower 2,Kuala Lumpur,1998,88,1483,452.0184
