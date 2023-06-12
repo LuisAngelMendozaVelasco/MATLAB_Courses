@@ -1,0 +1,201 @@
+bldg_name,city,height_m,stories,yr
+Burj Dubai ,Dubai,818.0832,162,2009
+Taipei 101 ,Taipei,509.3208,101,2004
+Shanghai World Financial Center,Shanghai,491.9472,101,2008
+Petronas Tower 1 ,Kuala Lumpur,452.0184,88,1998
+Petronas Tower 2 ,Kuala Lumpur,452.0184,88,1998
+Nanjing Greenland Financial Center,Nanjing,449.8848,66,2009
+Sears Tower ,Chicago,442.2648,108,1974
+Guangzhou West Tower ,Guangzhou,437.388,103,2009
+Jin Mao Tower ,Shanghai,420.624,88,1999
+Two International Finance Centre,Hong Kong,415.1376,88,2003
+Trump International Hotel & Tower,Chicago,415.1376,96,2009
+CITIC Plaza ,Guangzhou,391.0584,80,1997
+Shun Hing Square ,Shenzhen,384.048,69,1996
+Empire State Building ,New York City,381,102,1931
+Central Plaza ,Hong Kong,373.9896,78,1992
+Bank of China Tower ,Hong Kong,367.284,70,1990
+Bank of America Tower ,New York City,365.76,54,2009
+Almas Tower ,Dubai,363.0168,68,2009
+Emirates Office Tower ,Dubai,354.4824,54,2000
+Tuntex Sky Tower ,Kaohsiung,347.472,85,1997
+Aon Center ,Chicago,346.2528,83,1973
+The Center ,Hong Kong,345.948,73,1998
+John Hancock Center ,Chicago,343.5096,100,1969
+Rose Tower ,Dubai,333.1464,72,2007
+Shimao International Plaza,Shanghai,333.1464,60,2006
+Minsheng Bank Building ,Wuhan,331.3176,68,2007
+Ryugyong Hotel ,Pyongyang,330.0984,105,NaN
+China World Trade Center Tower III,Beijing,330.0984,74,2009
+The Index ,Dubai,327.9648,80,2009
+Q1 Tower ,Gold Coast City,322.4784,78,2005
+Burj Al Arab ,Dubai,320.9544,60,1999
+Chrysler Building ,New York City,318.8208,77,1930
+Nina Tower ,Hong Kong,318.8208,80,2007
+New York Times Tower ,New York City,318.8208,52,2007
+Bank of America Plaza ,Atlanta,311.8104,55,1992
+US Bank Tower ,Los Angeles,310.2864,73,1989
+Menara Telekom ,Kuala Lumpur,309.9816,55,2001
+Jumeirah Emirates Towers Hotel,Dubai,309.0672,56,2000
+AT&T Corporate Center ,Chicago,306.9336,60,1989
+"The Address, Downtown Burj Dubai",Dubai,306.0192,63,2008
+JPMorgan Chase Tower ,Houston,305.4096,75,1982
+Baiyoke Tower II ,Bangkok,303.8856,85,1997
+Two Prudential Plaza ,Chicago,303.276,64,1990
+Wells Fargo Plaza ,Houston,302.3616,71,1983
+Kingdom Centre ,Riyadh,302.3616,41,2002
+Aspire Tower ,Doha,299.9232,36,2007
+Arraya 2 ,Kuwait City,299.9232,56,2009
+One Island East Centre ,Hong Kong,298.3992,69,2008
+First Bank Tower ,Toronto,298.0944,72,1976
+Shanghai Wheelock Square ,Shanghai,298.0944,58,2009
+Eureka Tower ,Melbourne,297.18,91,2006
+Comcast Center ,Philadelphia,296.5704,57,2008
+Yokohama Landmark Tower ,Yokohama,296.2656,73,1993
+Emirates Crown ,Dubai,295.9608,63,2008
+311 South Wacker ,Chicago,292.9128,65,1990
+SEG Plaza ,Shenzhen,291.6936,70,2000
+American International Building,New York City,290.1696,66,1932
+Key Tower ,Cleveland,288.6456,57,1991
+Plaza 66 ,Shanghai,288.036,66,2001
+One Liberty Place ,Philadelphia,288.036,61,1987
+Columbia Center ,Seattle,285.5976,76,1985
+Millennium Tower ,Dubai,284.988,60,2006
+Tomorrow Square ,Shanghai,284.6832,55,2003
+Chongqing World Trade Center,Chongqing,283.1592,60,2005
+Cheung Kong Centre ,Hong Kong,282.8544,62,1999
+The Trump Building ,New York City,282.5496,70,1930
+Bank of America Plaza ,Dallas,280.7208,72,1985
+Republic Plaza ,Singapore,280.1112,66,1996
+OUB Centre ,Singapore,280.1112,63,1988
+UOB Plaza One ,Singapore,280.1112,66,1992
+Citigroup Center ,New York City,278.892,59,1977
+Hong Kong New World Tower ,Shanghai,278.2824,61,2002
+Diwang International Commerce Center,Nanning,276.1488,54,2006
+Scotia Tower ,Toronto,274.9296,68,1988
+Williams Tower ,Houston,274.6248,64,1983
+Moscow ,Moscow,274.32,73,2009
+Wuhan World Trade Tower ,Wuhan,273.1008,58,1998
+Renaissance Tower ,Dallas,270.0528,56,1974
+The Cullinan I ,Hong Kong,270.0528,68,2008
+The Cullinan II ,Hong Kong,270.0528,68,2008
+China International Center Tower B,Guangzhou,269.4432,62,2007
+Dapeng International Plaza,Guangzhou,269.4432,56,NaN
+One Lujiazui ,Shanghai,269.1384,47,2008
+21st Century Tower ,Dubai,269.1384,55,2003
+Naberezhnaya Tower C ,Moscow,268.5288,61,2007
+Al Faisaliyah Center ,Riyadh,267.0048,30,2000
+900 North Michigan ,Chicago,265.4808,66,1989
+Bank of America Corporate Center,Charlotte,265.4808,60,1992
+SunTrust Plaza ,Atlanta,265.4808,60,1992
+Al Kazim Tower 1 ,Dubai,264.8712,53,2008
+Al Kazim Tower 2 ,Dubai,264.8712,53,2008
+Bocom Financial Towers ,Shanghai,264.8712,52,2002
+120 Collins Street ,Melbourne,264.8712,52,1991
+Triumph-Palace ,Moscow,263.9568,54,2005
+"Tower Palace Three, Tower G",Seoul,263.652,73,2004
+Trump World Tower ,New York City,262.4328,72,2001
+Shenzhen Special Zone Press Tower,Shenzhen,262.128,48,1998
+Water Tower Place ,Chicago,261.8232,74,1976
+Grand Gateway Shanghai I ,Shanghai,261.8232,52,2005
+Grand Gateway Shanghai II ,Shanghai,261.8232,52,2005
+Aon Center ,Los Angeles,261.5184,62,1973
+Grand Lisboa ,Macao,260.9088,47,2008
+Sapphire ,Istanbul,260.9088,54,2009
+Hotel Panorama ,Hong Kong,260.9088,64,2007
+Canada Trust Tower ,Toronto,260.9088,53,1990
+101 Collins Street ,Melbourne,259.9944,50,1991
+Fortune Plaza Office Building 1,Beijing,259.9944,63,2008
+The Vision Tower ,Dubai,259.9944,60,2009
+Dual Tower 1 ,Manama,259.9944,53,2007
+Dual Tower 2 ,Manama,259.9944,53,2007
+Post & Telecommunication Hub,Guangzhou,259.9944,66,2003
+Transamerica Pyramid ,San Francisco,259.9944,48,1972
+Chase Tower ,Chicago,259.08,60,1969
+GE Building ,New York City,259.08,69,1933
+Commerzbank Tower ,Frankfurt am Main,259.08,58,1997
+PBCOM Tower ,Makati,258.4704,55,2000
+Two Liberty Place ,Philadelphia,258.4704,58,1990
+Lanko Grand Hyatt Hotel ,Chongqing,257.8608,60,2004
+Park Tower ,Chicago,257.2512,67,2000
+MesseTurm ,Frankfurt am Main,256.6416,55,1990
+U.S. Steel Tower ,Pittsburgh,256.3368,64,1970
+Sorrento 1 ,Hong Kong,256.3368,75,2003
+Emirates Marina Serviced Apartments & Spa,Dubai,256.032,59,2007
+"Mok-dong Hyperion I, Tower A",Seoul,256.032,69,2003
+Rinku Gate Tower Building ,Izumisano,256.032,56,1996
+New Century Plaza Tower A ,Nanjing,255.1176,52,2006
+Langham Place Office Tower,Hong Kong,255.1176,59,2004
+Capital Tower ,Singapore,252.984,52,2000
+Highcliff ,Hong Kong,252.3744,72,2003
+Bank of Shanghai Headquarters,Shanghai,252.0696,46,2005
+Osaka World Trade Center ,Osaka,252.0696,55,1995
+The Harbourside ,Hong Kong,251.1552,73,2003
+Rialto Towers ,Melbourne,251.1552,63,1986
+Jiali Plaza ,Wuhan,250.8504,61,1997
+Chelsea Tower ,Dubai,249.936,49,2005
+Wisma 46 ,Jakarta,249.936,50,1996
+Park Tower ,Beijing,249.936,63,2007
+One Atlantic Center ,Atlanta,249.936,50,1987
+Torre Caja Madrid ,Madrid,249.936,45,2008
+KLI 63 Building ,Seoul,249.0216,60,1985
+Central Park ,Perth,249.0216,52,1992
+Torre de Cristal ,Madrid,249.0216,45,2008
+CitySpire Center ,New York City,248.1072,75,1987
+Hangzhou No.2 Telecom Hub ,Hangzhou,248.1072,41,2003
+Mid Town Tower ,Tokyo,247.8024,54,2007
+One Chase Manhattan Plaza ,New York City,247.8024,60,1961
+State Tower ,Bangkok,247.1928,68,2001
+Chase Tower ,Indianapolis,247.1928,49,1990
+Midland Square ,Nagoya,246.888,40,2006
+4 Times Square ,New York City,246.5832,48,1999
+MetLife Building ,New York City,246.2784,59,1963
+Bloomberg Tower ,New York City,245.6688,54,2005
+One Raffles Quay North Tower,Singapore,245.0592,50,2006
+Al Fattan Tower ,Dubai,245.0592,51,2006
+JR Central Office Tower ,Nagoya,245.0592,51,2000
+Marina Bay Tower ,Singapore,245.0592,70,2008
+Oasis Beach Tower ,Dubai,245.0592,51,2006
+Shin Kong Life Tower ,Taipei,244.7544,51,1993
+City Gate Ramat Gan ,Ramat Gan,244.1448,68,2001
+Chifley Tower ,Sydney,244.1448,50,1992
+Arenco Tower ,Dubai,243.84,46,2008
+Menara Maybank ,Kuala Lumpur,243.5352,50,1988
+"Tokyo City Hall, Tower I ",Tokyo,243.5352,48,1991
+R&F Centre ,Guangzhou,242.9256,54,2007
+Citigroup Centre ,Sydney,242.9256,50,2000
+Dalian Futures Square 1 ,Dalian,242.9256,53,2008
+Dalian Futures Square 2 ,Dalian,242.9256,53,2008
+The Tower ,Dubai,242.6208,54,2002
+Zapad ,Moscow,242.316,62,2008
+Dalian World Trade Center ,Dalian,242.0112,50,2000
+Mellon Bank Center ,Philadelphia,241.4016,54,1990
+Woolworth Building ,New York City,241.4016,57,1913
+IDS Tower ,Minneapolis,241.4016,55,1973
+Maxdo Centre ,Shanghai,241.4016,55,2002
+Bank of China Mansion ,Qingdao,241.0968,54,1999
+Hancock Place ,Boston,240.792,60,1976
+Shenzhen Broadcasting Center Building,Shenzhen,240.792,48,2001
+Four Seasons Hotel & Tower,Miami,240.4872,64,2003
+Manulife Plaza ,Hong Kong,240.4872,52,1998
+Panglin Plaza ,Shenzhen,239.8776,57,1999
+Bahrain World Trade Centre 1,Manama,239.8776,50,2008
+Bahrain World Trade Centre 2,Manama,239.8776,50,2008
+Moscow State University ,Moscow,239.8776,36,1953
+NTT DoCoMo Yoyogi Building,Tokyo,239.8776,28,2000
+Sunshine 60 Building ,Tokyo,239.8776,60,1978
+Deutsche Bank Place ,Sydney,239.8776,39,2005
+Comerica Bank Tower ,Dallas,239.8776,60,1987
+"Mok-dong Hyperion I, Tower B",Seoul,239.268,63,2003
+300 North LaSalle ,Chicago,239.268,60,2009
+Beijing TV Centre ,Beijing,238.9632,41,2006
+Commerce Court West ,Toronto,238.9632,57,1972
+Roppongi Hills Mori Tower ,Tokyo,238.0488,54,2003
+30 Hudson Street ,Jersey City,238.0488,42,2004
+Cloud Nine ,Shanghai,238.0488,58,2006
+New World Center ,Shenzhen,238.0488,53,2006
+Tianjin Xinda Plaza ,Tianjin,238.0488,51,2004
+Vista Tower ,Kuala Lumpur,238.0488,62,1994
+Bank of America Center ,Houston,237.744,56,1983
+555 California Street ,San Francisco,237.4392,52,1969
+One Worldwide Plaza ,New York City,237.1344,50,1989
