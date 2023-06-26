@@ -1,0 +1,10 @@
+BuildingName	City	Height_feet_
+Shanghai Tower	Shanghai	2073
+Makkah Royal Clock Tower Hotel	Mecca	1971
+One World Trade Center	NYC	1776
+International Commerce Centre	Hong Kong	1588
+Kingkey 100	Shenzhen	1449
+Princess Tower	Dubai	1358
+Al Hamra Firdous Tower	Kuwait City	1354
+23 Marina	Dubai	1296
+Central Market Project	Abu Dhabi	1251

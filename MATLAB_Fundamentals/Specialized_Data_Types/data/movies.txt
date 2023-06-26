@@ -1,0 +1,16 @@
+Title	Studio	AdjustedGross
+101 Dalmatians	Dis.	857290000
+Avatar	Fox	834450200
+Ben-Hur	MGM	840840000
+Doctor Zhivago	MGM	1.07E+09
+E.T.: The Extra-Terrestrial	Uni.	1.22E+09
+Gone with the Wind	MGM	1.73E+09
+Jaws	Uni.	1.10E+09
+Snow White and the Seven Dwarfs	Dis.	935220000
+Star Wars	Fox	1.53E+09
+Star Wars: The Force Awakens	BV	927669600
+The Empire Strikes Back	Fox	842389900
+The Exorcist	WB	948940900
+The Sound of Music	Fox	1.22E+09
+The Ten Commandments	Par.	1.12E+09
+Titanic	Par.	1.16E+09
