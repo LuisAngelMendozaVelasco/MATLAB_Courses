@@ -2,13 +2,37 @@
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2023a"><title>Using a While Loop</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
 .S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
 .CodeBlock { background-color: #F5F5F5; margin: 10px 0 10px 0; }
-.S2 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 0px none rgb(33, 33, 33); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
-.S3 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 0px none rgb(33, 33, 33); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
-.S4 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 0px 0px 4px 4px; padding: 0px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S2 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 4px 4px 0px 0px; padding: 6px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S3 { color: rgb(33, 33, 33); padding: 10px 0px 6px 17px; background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box; font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px; overflow-x: hidden; line-height: 17.234px;  }
+.S4 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 0px; padding: 6px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
 .S5 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
-.S6 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 0px; padding: 0px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
-.S7 { color: rgb(33, 33, 33); padding: 10px 0px 6px 17px; background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box; font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px; overflow-x: hidden; line-height: 17.234px;  }
-.S8 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 0px; padding: 6px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>Using a While Loop</span></h1><div  class = 'S1'><span>Instructions are in the task pane to the left. Complete and submit each task one at a time.</span></div><div  class = 'S1'><span>This code sets up the activity.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >k = 0;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >teamA = 0;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >teamB = 0;</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >outcome = zeros(5, 1);</span></span></div></div></div><h2  class = 'S5'><span>Task 1</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">while </span><span >max([teamA, teamB]) &lt; 3</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >    k = k + 1;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >    outcome(k) = randi(2, 1);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >    </span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >    teamA = nnz(outcome == 1);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >    teamB = nnz(outcome == 2);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'>&nbsp;</div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre"><span >teamA</span></span></div><div  class = 'S7'><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px; '>teamA = 3</div></div></div><div class="inlineWrapper outputs"><div  class = 'S8'><span style="white-space: pre"><span >teamB</span></span></div><div  class = 'S7'><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px; '>teamB = 2</div></div></div></div>
+.S6 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 0px none rgb(33, 33, 33); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S7 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 0px none rgb(33, 33, 33); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S8 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 0px 0px 4px 4px; padding: 0px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsErrorElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsErrorElement .diagnosticMessage-errorType {    overflow: auto;}
+.embeddedOutputsErrorElement.inlineElement {}
+.embeddedOutputsErrorElement.rightPaneElement {}
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsWarningElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsWarningElement .diagnosticMessage-warningType {    overflow: auto;}
+.embeddedOutputsWarningElement.inlineElement {}
+.embeddedOutputsWarningElement.rightPaneElement {}
+/* Copyright 2015-2022 The MathWorks, Inc. *//* In this file, styles are not scoped to rtcContainer since they could be in the Dojo Tooltip */.diagnosticMessage-wrapper {    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;    font-size: 12px;}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType {    color: var(--mw-color-matlabWarning);}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType a {    color: var(--mw-color-matlabWarning);    text-decoration: underline;}
+.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-warningType,.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-warningType a {    color: var(--mw-color-matlabWarning) !important;}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType {    color: var(--mw-color-matlabErrors);}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType a {    color: var(--mw-color-matlabErrors);    text-decoration: underline;}
+.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-errorType,.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-errorType a {    color: var(--mw-color-matlabErrors) !important;}
+.diagnosticMessage-wrapper .diagnosticMessage-messagePart,.diagnosticMessage-wrapper .diagnosticMessage-causePart {    white-space: pre-wrap;}
+.diagnosticMessage-wrapper .diagnosticMessage-stackPart {    white-space: pre;}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement {    white-space: pre;    word-wrap:  initial;    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsTextElement .textElement,.embeddedOutputsVariableStringElement .textElement {    overflow: auto;}
+.textElement,.rtcDataTipElement .textElement {    padding-top: 2px;}
+.embeddedOutputsTextElement.inlineElement,.embeddedOutputsVariableStringElement.inlineElement {}
+.inlineElement .textElement {}
+.embeddedOutputsTextElement.rightPaneElement,.embeddedOutputsVariableStringElement.rightPaneElement {    min-height: 16px;}
+.rightPaneElement .textElement {    padding-top: 2px;    padding-left: 9px;}</style></head><body><div class = rtcContent><h1  class = 'S0'><span>Using a While Loop</span></h1><div  class = 'S1'><span>Instructions are in the task pane to the left. Complete and submit each task one at a time.</span></div><div  class = 'S1'><span>This code sets up the activity.</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S2'><span style="white-space: pre"><span >x = 1</span></span></div><div  class = 'S3'><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px; '>x = 1</div></div></div><div class="inlineWrapper outputs"><div  class = 'S4'><span style="white-space: pre"><span >epsilon = x</span></span></div><div  class = 'S3'><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px; '>epsilon = 1</div></div></div><div class="inlineWrapper outputs"><div  class = 'S4'><span style="white-space: pre"><span >y = x + epsilon</span></span></div><div  class = 'S3'><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px; '>y = 2</div></div></div></div><h2  class = 'S5'><span>Task 1</span></h2><div  class = 'S1'><span>Computers do not store infinitely precise numbers. So numbers are stored up to a certain number of decimal places. For instance, if you have software that only stores two decimal places, then 0.001 and 0.008 are both "equal to" zero.</span></div><div  class = 'S1'><span>What is the biggest value of</span><span> </span><span style=' font-family: monospace;'>epsilon</span><span> </span><span>such that MATLAB cannot tell</span><span> </span><span style=' font-family: monospace;'>1</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>+</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>epsilon</span><span> </span><span>from</span><span> </span><span style=' font-family: monospace;'>1</span><span>?</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">while </span><span >y ~= x</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >    epsilon = epsilon / 2;</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >    y = x + epsilon;</span></span></div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div></div><div  class = 'S1'><span>This code reports the result.</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S2'><span style="white-space: pre"><span >x + </span><span style="color: rgb(167, 9, 245);">" + " </span><span >+ epsilon + </span><span style="color: rgb(167, 9, 245);">" is the same as " </span><span >+ x</span></span></div><div  class = 'S3'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="597B7DC1" prevent-scroll="true" data-testid="output_3" style="width: 1724px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" data-previous-available-width="1694" data-previous-scroll-height="20" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">ans = </span>"1 + 1.1102e-16 is the same as 1"</div></div></div></div></div></div>
 <br>
 <!-- 
 ##### SOURCE BEGIN #####
@@ -18,22 +42,25 @@
 %% 
 % This code sets up the activity.
 
-k = 0;
-teamA = 0;
-teamB = 0;
-outcome = zeros(5, 1);
+x = 1
+epsilon = x
+y = x + epsilon
 %% Task 1
+% Computers do not store infinitely precise numbers. So numbers are stored up 
+% to a certain number of decimal places. For instance, if you have software that 
+% only stores two decimal places, then 0.001 and 0.008 are both "equal to" zero.
+% 
+% What is the biggest value of |epsilon| such that MATLAB cannot tell |1 + epsilon| 
+% from |1|?
 
-while max([teamA, teamB]) < 3
-    k = k + 1;
-    outcome(k) = randi(2, 1);
-    
-    teamA = nnz(outcome == 1);
-    teamB = nnz(outcome == 2);
+while y ~= x
+    epsilon = epsilon / 2;
+    y = x + epsilon;
 end
+%% 
+% This code reports the result.
 
-teamA
-teamB
+x + " + " + epsilon + " is the same as " + x
 ##### SOURCE END #####
 -->
 </div></body></html>
