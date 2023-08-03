@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2023a"><title>Transfer Learning</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.CodeBlock { background-color: #F5F5F5; margin: 10px 0 10px 0; }
+.S2 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 0px none rgb(33, 33, 33); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S3 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 0px 0px 4px 4px; padding: 0px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S4 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.S5 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 4px 4px 0px 0px; padding: 6px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S6 { color: rgb(33, 33, 33); padding: 10px 0px 6px 17px; background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box; font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px; overflow-x: hidden; line-height: 17.234px;  }
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsErrorElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsErrorElement .diagnosticMessage-errorType {    overflow: auto;}
+.embeddedOutputsErrorElement.inlineElement {}
+.embeddedOutputsErrorElement.rightPaneElement {}
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsWarningElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsWarningElement .diagnosticMessage-warningType {    overflow: auto;}
+.embeddedOutputsWarningElement.inlineElement {}
+.embeddedOutputsWarningElement.rightPaneElement {}
+/* Copyright 2015-2022 The MathWorks, Inc. *//* In this file, styles are not scoped to rtcContainer since they could be in the Dojo Tooltip */.diagnosticMessage-wrapper {    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;    font-size: 12px;}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType {    color: var(--mw-color-matlabWarning);}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType a {    color: var(--mw-color-matlabWarning);    text-decoration: underline;}
+.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-warningType,.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-warningType a {    color: var(--mw-color-matlabWarning) !important;}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType {    color: var(--mw-color-matlabErrors);}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType a {    color: var(--mw-color-matlabErrors);    text-decoration: underline;}
+.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-errorType,.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-errorType a {    color: var(--mw-color-matlabErrors) !important;}
+.diagnosticMessage-wrapper .diagnosticMessage-messagePart,.diagnosticMessage-wrapper .diagnosticMessage-causePart {    white-space: pre-wrap;}
+.diagnosticMessage-wrapper .diagnosticMessage-stackPart {    white-space: pre;}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement {    white-space: pre;    word-wrap:  initial;    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsTextElement .textElement,.embeddedOutputsVariableStringElement .textElement {    overflow: auto;}
+.textElement,.rtcDataTipElement .textElement {    padding-top: 2px;}
+.embeddedOutputsTextElement.inlineElement,.embeddedOutputsVariableStringElement.inlineElement {}
+.inlineElement .textElement {}
+.embeddedOutputsTextElement.rightPaneElement,.embeddedOutputsVariableStringElement.rightPaneElement {    min-height: 16px;}
+.rightPaneElement .textElement {    padding-top: 2px;    padding-left: 9px;}
+.S7 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 0px; padding: 6px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>Transfer Learning</span></h1><div  class = 'S1'><span>Instructions are in the task pane to the left. Complete and submit each task one at a time.</span></div><div  class = 'S1'><span>This code sets up the activity.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >rng(123)</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >pathToImages = </span><span style="color: rgb(167, 9, 245);">"../data/Animals/"</span><span >;</span></span></div></div></div><h2  class = 'S4'><span>Task 1</span></h2><div  class = 'S1'><span>The images in this data set are stored in subfolders. The name of each folder is the corresponding label for the images in that folder. Set the</span><span> </span><span style=' font-family: monospace;'>"IncludeSubfolder"</span><span> </span><span>and</span><span> </span><span style=' font-family: monospace;'>"LabelSource"</span><span> </span><span>options to find and label all the images for your datastore.</span></div><div  class = 'S1'><span style=' font-style: italic; font-family: monospace;'>ds</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>=</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>imageDatastore</span><span style=' font-family: monospace;'>(</span><span style=' font-style: italic; font-family: monospace;'>location</span><span style=' font-family: monospace;'>,</span><span style=' font-family: monospace;'>...</span></div><div  class = 'S1'><span style=' font-family: monospace;'>"IncludeSubfolders"</span><span style=' font-family: monospace;'>,</span><span style=' font-family: monospace;'>true</span><span style=' font-family: monospace;'>,</span><span style=' font-family: monospace;'>...</span></div><div  class = 'S1'><span style=' font-family: monospace;'>"LabelSource"</span><span style=' font-family: monospace;'>,</span><span style=' font-family: monospace;'>"foldernames"</span><span style=' font-family: monospace;'>)</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S5'><span style="white-space: pre"><span >imds = imageDatastore(pathToImages, </span><span style="color: rgb(167, 9, 245);">"IncludeSubfolders"</span><span >, true, </span><span style="color: rgb(167, 9, 245);">"LabelSource"</span><span >, </span><span style="color: rgb(167, 9, 245);">"foldernames"</span><span >)</span></span></div><div  class = 'S6'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="5F2BCDE1" prevent-scroll="true" data-testid="output_0" style="width: 1724px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" data-previous-available-width="1694" data-previous-scroll-height="271" data-hashorizontaloverflow="false" style="max-height: 282px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">imds = </span></div><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">  ImageDatastore with properties:
+
+                       Files: {
+                              ' ...\Deep_Learning_with_MATLAB\data\Animals\Alpaca\01ad3ff1d94eb557.jpg';
+                              ' ...\Deep_Learning_with_MATLAB\data\Animals\Alpaca\0346463867a297f4.jpg';
+                              ' ...\Deep_Learning_with_MATLAB\data\Animals\Alpaca\038fae9e70c4c3f1.jpg'
+                               ... and 439 more
+                              }
+                     Folders: {
+                              ' ...\luisa\GitHub\MATLAB_Courses\Deep_Learning_with_MATLAB\data\Animals'
+                              }
+                      Labels: [Alpaca; Alpaca; Alpaca ... and 439 more categorical]
+    AlternateFileSystemRoots: {}
+                    ReadSize: 1
+      SupportedOutputFormats: ["png"    "jpg"    "jpeg"    "tif"    "tiff"]
+         DefaultOutputFormat: "png"
+                     ReadFcn: @readDatastoreImage
+</div></div></div></div></div></div><h2  class = 'S4'><span>Task 2</span></h2><div  class = 'S1'><span>During training, the network learns to associate the training images and labels. The network may have a high training accuracy, but a network is only useful if it can generalize to new images. You should use a separate test data set to evaluate if the network can classify images it has not yet seen.</span></div><div  class = 'S1'><span>You can split the data set with</span><span> </span><span style=' font-family: monospace;'>splitEachLabel</span><span>.</span></div><div  class = 'S1'><span style=' font-family: monospace;'>[</span><span style=' font-style: italic; font-family: monospace;'>ds1</span><span style=' font-family: monospace;'>,</span><span style=' font-style: italic; font-family: monospace;'>ds2</span><span style=' font-family: monospace;'>]</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>=</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>splitEachLabel</span><span style=' font-family: monospace;'>(</span><span style=' font-style: italic; font-family: monospace;'>imds</span><span style=' font-family: monospace;'>,</span><span style=' font-style: italic; font-family: monospace;'>p</span><span style=' font-family: monospace;'>)</span></div><div  class = 'S1'><span>The proportion</span><span> </span><span style=' font-family: monospace;'>p</span><span> </span><span>(a value from 0 to 1) indicates the proportion of images from each label from</span><span> </span><span style=' font-family: monospace;'>imds</span><span> </span><span>that are contained in</span><span> </span><span style=' font-family: monospace;'>ds1</span><span>. The remaining files are assigned to</span><span> </span><span style=' font-family: monospace;'>ds2</span><span>.</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S5'><span style="white-space: pre"><span >[trainImgs, testImgs] = splitEachLabel(imds, 0.95)</span></span></div><div  class = 'S6'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="074C9D9F" prevent-scroll="true" data-testid="output_1" style="width: 1724px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" data-previous-available-width="1694" data-previous-scroll-height="271" data-hashorizontaloverflow="false" style="max-height: 282px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">trainImgs = </span></div><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">  ImageDatastore with properties:
+
+                       Files: {
+                              ' ...\Deep_Learning_with_MATLAB\data\Animals\Alpaca\01ad3ff1d94eb557.jpg';
+                              ' ...\Deep_Learning_with_MATLAB\data\Animals\Alpaca\0346463867a297f4.jpg';
+                              ' ...\Deep_Learning_with_MATLAB\data\Animals\Alpaca\038fae9e70c4c3f1.jpg'
+                               ... and 418 more
+                              }
+                     Folders: {
+                              ' ...\luisa\GitHub\MATLAB_Courses\Deep_Learning_with_MATLAB\data\Animals'
+                              }
+                      Labels: [Alpaca; Alpaca; Alpaca ... and 418 more categorical]
+    AlternateFileSystemRoots: {}
+                    ReadSize: 1
+      SupportedOutputFormats: ["png"    "jpg"    "jpeg"    "tif"    "tiff"]
+         DefaultOutputFormat: "png"
+                     ReadFcn: @readDatastoreImage
+</div></div></div><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="5BA6C459" prevent-scroll="true" data-testid="output_2" style="width: 1724px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" data-previous-available-width="1694" data-previous-scroll-height="271" data-hashorizontaloverflow="false" style="max-height: 282px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">testImgs = </span></div><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">  ImageDatastore with properties:
+
+                       Files: {
+                              ' ...\Deep_Learning_with_MATLAB\data\Animals\Alpaca\ecd10c4f262d152e.jpg';
+                              ' ...\Deep_Learning_with_MATLAB\data\Animals\Alpaca\ed97a138b308f294.jpg';
+                              ' ...\Deep_Learning_with_MATLAB\data\Animals\Alpaca\ef28f0a69b6376d1.jpg'
+                               ... and 18 more
+                              }
+                     Folders: {
+                              ' ...\luisa\GitHub\MATLAB_Courses\Deep_Learning_with_MATLAB\data\Animals'
+                              }
+                      Labels: [Alpaca; Alpaca; Alpaca ... and 18 more categorical]
+    AlternateFileSystemRoots: {}
+                    ReadSize: 1
+      SupportedOutputFormats: ["png"    "jpg"    "jpeg"    "tif"    "tiff"]
+         DefaultOutputFormat: "png"
+                     ReadFcn: @readDatastoreImage
+</div></div></div></div></div></div><h2  class = 'S4'><span>Task 3</span></h2><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S5'><span style="white-space: pre"><span >trainds = augmentedImageDatastore([224 224], trainImgs)</span></span></div><div  class = 'S6'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="5661863D" prevent-scroll="true" data-testid="output_3" style="width: 1724px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" data-previous-available-width="1694" data-previous-scroll-height="182" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">trainds = </span></div><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">  augmentedImageDatastore with properties:
+
+             NumObservations: 421
+                       Files: {421×1 cell}
+    AlternateFileSystemRoots: {}
+               MiniBatchSize: 128
+            DataAugmentation: 'none'
+          ColorPreprocessing: 'none'
+                  OutputSize: [224 224]
+              OutputSizeMode: 'resize'
+        DispatchInBackground: 0
+</div></div></div></div></div><div class="inlineWrapper outputs"><div  class = 'S7'><span style="white-space: pre"><span >testds = augmentedImageDatastore([224 224], testImgs)</span></span></div><div  class = 'S6'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="485323DC" prevent-scroll="true" data-testid="output_4" style="width: 1724px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" data-previous-available-width="1694" data-previous-scroll-height="182" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">testds = </span></div><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">  augmentedImageDatastore with properties:
+
+             NumObservations: 21
+                       Files: {21×1 cell}
+    AlternateFileSystemRoots: {}
+               MiniBatchSize: 128
+            DataAugmentation: 'none'
+          ColorPreprocessing: 'none'
+                  OutputSize: [224 224]
+              OutputSizeMode: 'resize'
+        DispatchInBackground: 0
+</div></div></div></div></div></div><h2  class = 'S4'><span>Task 4</span></h2><div  class = 'S1'><span>Algorithm options control how a network is trained. You can create these options with the</span><span> </span><span style=' font-family: monospace;'>trainingOptions</span><span> </span><span>function.</span></div><div  class = 'S1'><span style=' font-style: italic; font-family: monospace;'>opts</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>=</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>trainingOptions</span><span style=' font-family: monospace;'>(</span><span style=' font-style: italic; font-family: monospace;'>algorithm</span><span style=' font-family: monospace;'>,</span><span style=' font-family: monospace;'>...</span></div><div  class = 'S1'><span style=' font-family: monospace;'>"InitialLearnRate"</span><span style=' font-family: monospace;'>,</span><span style=' font-style: italic; font-family: monospace;'>rate</span><span style=' font-family: monospace;'>)</span></div><div  class = 'S1'><span>The first input is the name of the training algorithm to use. A common modification from the default options is to decrease the initial learning rate.</span></div><div  class = 'S1'><span>There are many other options you can set. To see the possible training algorithms and other options, refer to the documentation.</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S5'><span style="white-space: pre"><span >options = trainingOptions(</span><span style="color: rgb(167, 9, 245);">"adam"</span><span >, </span><span style="color: rgb(167, 9, 245);">"InitialLearnRate"</span><span >, 0.0001)</span></span></div><div  class = 'S6'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement scrollableOutput" uid="5E79FD67" prevent-scroll="true" data-testid="output_5" style="width: 1724px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent scrollArea" data-previous-available-width="1694" data-previous-scroll-height="522" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">options = </span></div><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">  TrainingOptionsADAM with properties:
+
+             GradientDecayFactor: 0.9000
+      SquaredGradientDecayFactor: 0.9990
+                         Epsilon: 1.0000e-08
+                InitialLearnRate: 1.0000e-04
+               LearnRateSchedule: 'none'
+             LearnRateDropFactor: 0.1000
+             LearnRateDropPeriod: 10
+                L2Regularization: 1.0000e-04
+         GradientThresholdMethod: 'l2norm'
+               GradientThreshold: Inf
+                       MaxEpochs: 30
+                   MiniBatchSize: 128
+                         Verbose: 1
+                VerboseFrequency: 50
+                  ValidationData: []
+             ValidationFrequency: 50
+              ValidationPatience: Inf
+                         Shuffle: 'once'
+                  CheckpointPath: ''
+             CheckpointFrequency: 1
+         CheckpointFrequencyUnit: 'epoch'
+            ExecutionEnvironment: 'auto'
+                      WorkerLoad: []
+                       OutputFcn: []
+                           Plots: 'none'
+                  SequenceLength: 'longest'
+            SequencePaddingValue: 0
+        SequencePaddingDirection: 'right'
+            DispatchInBackground: 0
+         ResetInputNormalization: 1
+    BatchNormalizationStatistics: 'population'
+                   OutputNetwork: 'last-iteration'
+</div></div></div></div></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% Transfer Learning
+% Instructions are in the task pane to the left. Complete and submit each task 
+% one at a time.
+% 
+% This code sets up the activity.
+
+rng(123)
+pathToImages = "../data/Animals/";
+%% Task 1
+% The images in this data set are stored in subfolders. The name of each folder 
+% is the corresponding label for the images in that folder. Set the |"IncludeSubfolder"| 
+% and |"LabelSource"| options to find and label all the images for your datastore.
+% 
+% |_ds_ = imageDatastore(_location_,...|
+% 
+% |"IncludeSubfolders",true,...|
+% 
+% |"LabelSource","foldernames")|
+
+imds = imageDatastore(pathToImages, "IncludeSubfolders", true, "LabelSource", "foldernames")
+%% Task 2
+% During training, the network learns to associate the training images and labels. 
+% The network may have a high training accuracy, but a network is only useful 
+% if it can generalize to new images. You should use a separate test data set 
+% to evaluate if the network can classify images it has not yet seen.
+% 
+% You can split the data set with |splitEachLabel|.
+% 
+% |[_ds1_,_ds2_] = splitEachLabel(_imds_,_p_)|
+% 
+% The proportion |p| (a value from 0 to 1) indicates the proportion of images 
+% from each label from |imds| that are contained in |ds1|. The remaining files 
+% are assigned to |ds2|.
+
+[trainImgs, testImgs] = splitEachLabel(imds, 0.95)
+%% Task 3
+
+trainds = augmentedImageDatastore([224 224], trainImgs)
+testds = augmentedImageDatastore([224 224], testImgs)
+%% Task 4
+% Algorithm options control how a network is trained. You can create these options 
+% with the |trainingOptions| function.
+% 
+% |_opts_ = trainingOptions(_algorithm_,...|
+% 
+% |"InitialLearnRate",_rate_)|
+% 
+% The first input is the name of the training algorithm to use. A common modification 
+% from the default options is to decrease the initial learning rate.
+% 
+% There are many other options you can set. To see the possible training algorithms 
+% and other options, refer to the documentation.
+
+options = trainingOptions("adam", "InitialLearnRate", 0.0001)
+##### SOURCE END #####
+-->
+</div></body></html>
