@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2023a"><title>Creating Network Architectures</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 20px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.S2 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.CodeBlock { background-color: #F5F5F5; margin: 10px 0 10px 0; }
+.S3 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 4px 4px 0px 0px; padding: 6px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S4 { color: rgb(33, 33, 33); padding: 10px 0px 6px 17px; background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box; font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px; overflow-x: hidden; line-height: 17.234px;  }
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsErrorElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsErrorElement .diagnosticMessage-errorType {    overflow: auto;}
+.embeddedOutputsErrorElement.inlineElement {}
+.embeddedOutputsErrorElement.rightPaneElement {}
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsWarningElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsWarningElement .diagnosticMessage-warningType {    overflow: auto;}
+.embeddedOutputsWarningElement.inlineElement {}
+.embeddedOutputsWarningElement.rightPaneElement {}
+/* Copyright 2015-2022 The MathWorks, Inc. *//* In this file, styles are not scoped to rtcContainer since they could be in the Dojo Tooltip */.diagnosticMessage-wrapper {    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;    font-size: 12px;}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType {    color: var(--mw-color-matlabWarning);}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType a {    color: var(--mw-color-matlabWarning);    text-decoration: underline;}
+.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-warningType,.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-warningType a {    color: var(--mw-color-matlabWarning) !important;}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType {    color: var(--mw-color-matlabErrors);}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType a {    color: var(--mw-color-matlabErrors);    text-decoration: underline;}
+.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-errorType,.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-errorType a {    color: var(--mw-color-matlabErrors) !important;}
+.diagnosticMessage-wrapper .diagnosticMessage-messagePart,.diagnosticMessage-wrapper .diagnosticMessage-causePart {    white-space: pre-wrap;}
+.diagnosticMessage-wrapper .diagnosticMessage-stackPart {    white-space: pre;}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement {    white-space: pre;    word-wrap:  initial;    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsTextElement .textElement,.embeddedOutputsVariableStringElement .textElement {    overflow: auto;}
+.textElement,.rtcDataTipElement .textElement {    padding-top: 2px;}
+.embeddedOutputsTextElement.inlineElement,.embeddedOutputsVariableStringElement.inlineElement {}
+.inlineElement .textElement {}
+.embeddedOutputsTextElement.rightPaneElement,.embeddedOutputsVariableStringElement.rightPaneElement {    min-height: 16px;}
+.rightPaneElement .textElement {    padding-top: 2px;    padding-left: 9px;}
+.S5 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.S6 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 0px; padding: 6px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S7 { margin: 10px 0px 20px; padding-left: 0px; font-family: Helvetica, Arial, sans-serif; font-size: 14px;  }
+.S8 { margin-left: 56px; line-height: 21px; min-height: 0px; text-align: left; white-space: pre-wrap;  }
+.S9 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 0px none rgb(33, 33, 33); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S10 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 0px none rgb(33, 33, 33); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S11 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 0px; padding: 0px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>Creating Network Architectures</span></h1><h2  class = 'S1'><span>Task 1</span></h2><div  class = 'S2'><span>The first layer of any convolutional neural network is an image input layer.</span></div><div  class = 'S2'><span style=' font-family: monospace;'>imageInputLayer</span><span style=' font-family: monospace;'>(</span><span style=' font-style: italic; font-family: monospace;'>inputSize</span><span style=' font-family: monospace;'>)</span></div><div  class = 'S2'><span>This layer requires the image size as input.</span></div><div  class = 'S2'><span>The input size is a three-element vector corresponding to the height, width, and number of channels of that image.</span></div><div  class = 'S2'><span>Grayscale images have one channel, color images have three, and the landcover images have four (red, green, blue, near infrared).</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S3'><span style="white-space: pre"><span >imageinput = imageInputLayer([28, 28, 4])</span></span></div><div  class = 'S4'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="F24A472A" prevent-scroll="true" data-testid="output_0" style="width: 1723px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" data-previous-available-width="1693" data-previous-scroll-height="182" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">imageinput = </span></div><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">  ImageInputLayer with properties:
+
+                      Name: ''
+                 InputSize: [28 28 4]
+        SplitComplexInputs: 0
+
+   Hyperparameters
+          DataAugmentation: 'none'
+             Normalization: 'zerocenter'
+    NormalizationDimension: 'auto'
+                      Mean: []
+</div></div></div></div></div></div><h2  class = 'S5'><span>Task 2</span></h2><div  class = 'S2'><span>Convolution layers learn features in the input image by applying different filters to the image. To create a convolution layer, you need to specify the filter size and the number of filters.</span></div><div  class = 'S2'><span style=' font-family: monospace;'>convolution2dLayer</span><span style=' font-family: monospace;'>([</span><span style=' font-style: italic; font-family: monospace;'>h</span><span style=' font-family: monospace;'> </span><span style=' font-style: italic; font-family: monospace;'>w</span><span style=' font-family: monospace;'>]</span><span style=' font-family: monospace;'>,</span><span style=' font-style: italic; font-family: monospace;'>n</span><span style=' font-family: monospace;'>)</span></div><div  class = 'S2'><span>You will learn more about convolution layers later in this module.</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S3'><span style="white-space: pre"><span >conv = convolution2dLayer([5, 5], 20)</span></span></div><div  class = 'S4'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="C96C4769" prevent-scroll="true" data-testid="output_1" style="width: 1723px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" data-previous-available-width="1693" data-previous-scroll-height="300" data-hashorizontaloverflow="false" style="max-height: 311px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">conv = </span></div><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">  Convolution2DLayer with properties:
+
+              Name: ''
+
+   Hyperparameters
+        FilterSize: [5 5]
+       NumChannels: 'auto'
+        NumFilters: 20
+            Stride: [1 1]
+    DilationFactor: [1 1]
+       PaddingMode: 'manual'
+       PaddingSize: [0 0 0 0]
+      PaddingValue: 0
+
+   Learnable Parameters
+           Weights: []
+              Bias: []
+
+  Show all properties
+</div></div></div></div></div></div><h2  class = 'S5'><span>Task 3</span></h2><div  class = 'S2'><span>Convolution layers are generally followed by</span><span> </span><span style=' font-style: italic;'>rectified linear unit</span><span> </span><span>(ReLU) and</span><span> </span><span style=' font-style: italic;'>max pooling</span><span> </span><span>layers.</span></div><div  class = 'S2'><span>A ReLU layer sets all negative values to zero.</span></div><div  class = 'S2'><span style=' font-family: monospace;'>reluLayer</span><span style=' font-family: monospace;'>()</span></div><div  class = 'S2'><span>Max pooling layers perform downsampling by “pooling” rectangular regions together and computing the maximum of each region. Use the pool size as input.</span></div><div  class = 'S2'><span style=' font-family: monospace;'>maxPooling2dLayer</span><span style=' font-family: monospace;'>([</span><span style=' font-style: italic; font-family: monospace;'>h</span><span style=' font-family: monospace;'> </span><span style=' font-style: italic; font-family: monospace;'>w</span><span style=' font-family: monospace;'>])</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S3'><span style="white-space: pre"><span >relu = reluLayer</span></span></div><div  class = 'S4'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="C41EDEBA" prevent-scroll="true" data-testid="output_2" style="width: 1723px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" data-previous-available-width="1693" data-previous-scroll-height="64" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">relu = </span></div><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">  ReLULayer with properties:
+
+    Name: ''
+</div></div></div></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre"><span >maxpool = maxPooling2dLayer([2, 2])</span></span></div><div  class = 'S4'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="43D7E35A" prevent-scroll="true" data-testid="output_3" style="width: 1723px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" data-previous-available-width="1693" data-previous-scroll-height="197" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">maxpool = </span></div><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">  MaxPooling2DLayer with properties:
+
+                   Name: ''
+    HasUnpoolingOutputs: 0
+             NumOutputs: 1
+            OutputNames: {'out'}
+
+   Hyperparameters
+               PoolSize: [2 2]
+                 Stride: [1 1]
+            PaddingMode: 'manual'
+            PaddingSize: [0 0 0 0]
+</div></div></div></div></div></div><h2  class = 'S5'><span>Task 4</span></h2><div  class = 'S2'><span>The last three layers of a convolutional neural network are</span></div><ul  class = 'S7'><li  class = 'S8'><span style=' font-family: monospace;'>fullyConnectedLayer</span></li><li  class = 'S8'><span style=' font-family: monospace;'>softmaxLayer</span></li><li  class = 'S8'><span style=' font-family: monospace;'>classificationLayer</span></li></ul><div  class = 'S2'><span>The fully connected layer has an</span><span> </span><span style=' font-weight: bold;'>OutputSize</span><span> </span><span>property, which represents the number of classes that the network can predict.</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S3'><span style="white-space: pre"><span >fc = fullyConnectedLayer(6)</span></span></div><div  class = 'S4'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="DC1DF49E" prevent-scroll="true" data-testid="output_4" style="width: 1723px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" data-previous-available-width="1693" data-previous-scroll-height="212" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">fc = </span></div><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">  FullyConnectedLayer with properties:
+
+          Name: ''
+
+   Hyperparameters
+     InputSize: 'auto'
+    OutputSize: 6
+
+   Learnable Parameters
+       Weights: []
+          Bias: []
+
+  Show all properties
+</div></div></div></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre"><span >softmax = softmaxLayer</span></span></div><div  class = 'S4'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="93D7DDA5" prevent-scroll="true" data-testid="output_5" style="width: 1723px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" data-previous-available-width="1693" data-previous-scroll-height="64" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">softmax = </span></div><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">  SoftmaxLayer with properties:
+
+    Name: ''
+</div></div></div></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre"><span >classoutput = classificationLayer</span></span></div><div  class = 'S4'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="63FA062F" prevent-scroll="true" data-testid="output_6" style="width: 1723px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" data-previous-available-width="1693" data-previous-scroll-height="153" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">classoutput = </span></div><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">  ClassificationOutputLayer with properties:
+
+            Name: ''
+         Classes: 'auto'
+    ClassWeights: 'none'
+      OutputSize: 'auto'
+
+   Hyperparameters
+    LossFunction: 'crossentropyex'
+</div></div></div></div></div></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >layers = [	imageinput</span></span></div></div><div class="inlineWrapper"><div  class = 'S10'><span style="white-space: pre"><span >            conv,</span></span></div></div><div class="inlineWrapper"><div  class = 'S10'><span style="white-space: pre"><span >            relu,</span></span></div></div><div class="inlineWrapper"><div  class = 'S10'><span style="white-space: pre"><span >            maxpool,</span></span></div></div><div class="inlineWrapper"><div  class = 'S10'><span style="white-space: pre"><span >            fc,</span></span></div></div><div class="inlineWrapper"><div  class = 'S10'><span style="white-space: pre"><span >            softmax,</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S11'><span style="white-space: pre"><span >            classoutput]</span></span></div><div  class = 'S4'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="41C1C38D" prevent-scroll="true" data-testid="output_7" style="width: 1723px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" data-previous-available-width="1693" data-previous-scroll-height="153" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">layers = </span></div><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">  7×1 Layer array with layers:
+
+     1   ''   Image Input             28×28×4 images with 'zerocenter' normalization
+     2   ''   2-D Convolution         20 5×5 convolutions with stride [1  1] and padding [0  0  0  0]
+     3   ''   ReLU                    ReLU
+     4   ''   2-D Max Pooling         2×2 max pooling with stride [1  1] and padding [0  0  0  0]
+     5   ''   Fully Connected         6 fully connected layer
+     6   ''   Softmax                 softmax
+     7   ''   Classification Output   crossentropyex</div></div></div></div></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% Creating Network Architectures
+%% Task 1
+% The first layer of any convolutional neural network is an image input layer.
+% 
+% |imageInputLayer(_inputSize_)|
+% 
+% This layer requires the image size as input.
+% 
+% The input size is a three-element vector corresponding to the height, width, 
+% and number of channels of that image.
+% 
+% Grayscale images have one channel, color images have three, and the landcover 
+% images have four (red, green, blue, near infrared).
+
+imageinput = imageInputLayer([28, 28, 4])
+%% Task 2
+% Convolution layers learn features in the input image by applying different 
+% filters to the image. To create a convolution layer, you need to specify the 
+% filter size and the number of filters.
+% 
+% |convolution2dLayer([_h_ _w_],_n_)|
+% 
+% You will learn more about convolution layers later in this module.
+
+conv = convolution2dLayer([5, 5], 20)
+%% Task 3
+% Convolution layers are generally followed by _rectified linear unit_ (ReLU) 
+% and _max pooling_ layers.
+% 
+% A ReLU layer sets all negative values to zero.
+% 
+% |reluLayer()|
+% 
+% Max pooling layers perform downsampling by “pooling” rectangular regions together 
+% and computing the maximum of each region. Use the pool size as input.
+% 
+% |maxPooling2dLayer([_h_ _w_])|
+
+relu = reluLayer
+maxpool = maxPooling2dLayer([2, 2])
+%% Task 4
+% The last three layers of a convolutional neural network are
+%% 
+% * |fullyConnectedLayer|
+% * |softmaxLayer|
+% * |classificationLayer|
+%% 
+% The fully connected layer has an *OutputSize* property, which represents the 
+% number of classes that the network can predict.
+
+fc = fullyConnectedLayer(6)
+softmax = softmaxLayer
+classoutput = classificationLayer
+%%
+layers = [	imageinput
+            conv,
+            relu,
+            maxpool,
+            fc,
+            softmax,
+            classoutput]
+##### SOURCE END #####
+-->
+</div></body></html>
