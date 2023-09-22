@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2023a"><title>Evaluate an LSTM Network</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.CodeBlock { background-color: #F5F5F5; margin: 10px 0 10px 0; }
+.S2 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 0px none rgb(33, 33, 33); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S3 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 0px none rgb(33, 33, 33); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S4 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 0px 0px 4px 4px; padding: 0px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S5 { margin: 10px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S6 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 4px; padding: 6px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S7 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>Evaluate an LSTM Network</span></h1><div  class = 'S1'><span>Instructions are in the task pane to the left. Complete and submit each task one at a time.</span></div><div  class = 'S1'><span>This code loads the data and corresponding labels, transforms the datastore, and extracts the testing data.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >pathToSignals = </span><span style="color: rgb(167, 9, 245);">"../data/flooddata"</span><span >;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >rng </span><span style="color: rgb(167, 9, 245);">default</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >sigds = signalDatastore(pathToSignals, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >    </span><span style="color: rgb(167, 9, 245);">"IncludeSubfolders"</span><span >, true, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >    </span><span style="color: rgb(167, 9, 245);">"SignalVariableNames"</span><span >, [</span><span style="color: rgb(167, 9, 245);">"ax" "ay" "az"</span><span >], </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >    </span><span style="color: rgb(167, 9, 245);">"ReadOutputOrientation"</span><span >, </span><span style="color: rgb(167, 9, 245);">"row"</span><span >);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >labels = folders2labels(pathToSignals);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >labels = renamecats(labels, [</span><span style="color: rgb(167, 9, 245);">"0.0 ft" "0.19 ft" "2.5 ft" "4.5 ft"</span><span >]);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >sigt = transform(sigds, @prepsig);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >sigdata = readall(sigt);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >idx = splitlabels(labels, [0.8 0.1]);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >testdata = sigdata(idx{3});</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >testlabels = labels(idx{3});</span></span></div></div></div><div  class = 'S5'><span>Load the trained network.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >load </span><span style="color: rgb(167, 9, 245);">floodnet.mat</span></span></div></div></div><h2  class = 'S7'><span>Task 1</span></h2><div  class = 'S1'><span>In this activity, you will evaluate the trained LSTM using the test data set. The</span><span> </span><span style=' font-family: monospace;'>classify</span><span> </span><span>function can be used with an trained LSTM to predict the class of new signals.</span></div><div  class = 'S1'><span style=' font-style: italic; font-family: monospace;'>predictedLabel</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>=</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>classify</span><span style=' font-family: monospace;'>(</span><span style=' font-style: italic; font-family: monospace;'>net</span><span style=' font-family: monospace;'>,</span><span style=' font-style: italic; font-family: monospace;'>data</span><span style=' font-family: monospace;'>)</span></div><div  class = 'S1'><span>The testing data and corresponding labels are stored in</span><span> </span><span style=' font-family: monospace;'>testdata</span><span> </span><span>and</span><span> </span><span style=' font-family: monospace;'>testlabels</span><span>.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >testpred = classify(floodnet, testdata)</span></span></div></div></div><h2  class = 'S7'><span>Task 2</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >confusionchart(testlabels, testpred)</span></span></div></div></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">function </span><span >sig = prepsig(sigin)</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >sig = cell2mat(sigin);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >sig = sig';</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >sig = {sig};</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% Evaluate an LSTM Network
+% Instructions are in the task pane to the left. Complete and submit each task 
+% one at a time.
+% 
+% This code loads the data and corresponding labels, transforms the datastore, 
+% and extracts the testing data.
+
+pathToSignals = "../data/flooddata";
+rng default
+sigds = signalDatastore(pathToSignals, ...
+    "IncludeSubfolders", true, ...
+    "SignalVariableNames", ["ax" "ay" "az"], ...
+    "ReadOutputOrientation", "row");
+labels = folders2labels(pathToSignals);
+labels = renamecats(labels, ["0.0 ft" "0.19 ft" "2.5 ft" "4.5 ft"]);
+sigt = transform(sigds, @prepsig);
+sigdata = readall(sigt);
+idx = splitlabels(labels, [0.8 0.1]);
+testdata = sigdata(idx{3});
+testlabels = labels(idx{3});
+%% 
+% Load the trained network.
+
+load floodnet.mat
+%% Task 1
+% In this activity, you will evaluate the trained LSTM using the test data set. 
+% The |classify| function can be used with an trained LSTM to predict the class 
+% of new signals.
+% 
+% |_predictedLabel_ = classify(_net_,_data_)|
+% 
+% The testing data and corresponding labels are stored in |testdata| and |testlabels|.
+
+testpred = classify(floodnet, testdata)
+%% Task 2
+
+confusionchart(testlabels, testpred)
+%%
+function sig = prepsig(sigin)
+sig = cell2mat(sigin);
+sig = sig';
+sig = {sig};
+end
+##### SOURCE END #####
+-->
+</div></body></html>

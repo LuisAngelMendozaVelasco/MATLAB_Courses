@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2023a"><title>Set Training Options</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.CodeBlock { background-color: #F5F5F5; margin: 10px 0 10px 0; }
+.S2 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 0px none rgb(33, 33, 33); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S3 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 0px none rgb(33, 33, 33); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S4 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 0px 0px 4px 4px; padding: 0px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S5 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.S6 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 4px 4px 0px 0px; padding: 6px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S7 { color: rgb(33, 33, 33); padding: 10px 0px 6px 17px; background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box; font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px; overflow-x: hidden; line-height: 17.234px;  }
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsErrorElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsErrorElement .diagnosticMessage-errorType {    overflow: auto;}
+.embeddedOutputsErrorElement.inlineElement {}
+.embeddedOutputsErrorElement.rightPaneElement {}
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsWarningElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsWarningElement .diagnosticMessage-warningType {    overflow: auto;}
+.embeddedOutputsWarningElement.inlineElement {}
+.embeddedOutputsWarningElement.rightPaneElement {}
+/* Copyright 2015-2022 The MathWorks, Inc. *//* In this file, styles are not scoped to rtcContainer since they could be in the Dojo Tooltip */.diagnosticMessage-wrapper {    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;    font-size: 12px;}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType {    color: var(--mw-color-matlabWarning);}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType a {    color: var(--mw-color-matlabWarning);    text-decoration: underline;}
+.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-warningType,.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-warningType a {    color: var(--mw-color-matlabWarning) !important;}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType {    color: var(--mw-color-matlabErrors);}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType a {    color: var(--mw-color-matlabErrors);    text-decoration: underline;}
+.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-errorType,.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-errorType a {    color: var(--mw-color-matlabErrors) !important;}
+.diagnosticMessage-wrapper .diagnosticMessage-messagePart,.diagnosticMessage-wrapper .diagnosticMessage-causePart {    white-space: pre-wrap;}
+.diagnosticMessage-wrapper .diagnosticMessage-stackPart {    white-space: pre;}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement {    white-space: pre;    word-wrap:  initial;    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsTextElement .textElement,.embeddedOutputsVariableStringElement .textElement {    overflow: auto;}
+.textElement,.rtcDataTipElement .textElement {    padding-top: 2px;}
+.embeddedOutputsTextElement.inlineElement,.embeddedOutputsVariableStringElement.inlineElement {}
+.inlineElement .textElement {}
+.embeddedOutputsTextElement.rightPaneElement,.embeddedOutputsVariableStringElement.rightPaneElement {    min-height: 16px;}
+.rightPaneElement .textElement {    padding-top: 2px;    padding-left: 9px;}</style></head><body><div class = rtcContent><h1  class = 'S0'><span>Set Training Options</span></h1><div  class = 'S1'><span>Instructions are in the task pane to the left. Complete and submit each task one at a time.</span></div><div  class = 'S1'><span>This code loads the data and corresponding labels, transforms the datastore, and extracts the validation data.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >pathToSignals = </span><span style="color: rgb(167, 9, 245);">"../data/flooddata"</span><span >;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >rng </span><span style="color: rgb(167, 9, 245);">default</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >sigds = signalDatastore(pathToSignals, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >    </span><span style="color: rgb(167, 9, 245);">"IncludeSubfolders"</span><span >, true, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >    </span><span style="color: rgb(167, 9, 245);">"SignalVariableNames"</span><span >, [</span><span style="color: rgb(167, 9, 245);">"ax" "ay" "az"</span><span >], </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >    </span><span style="color: rgb(167, 9, 245);">"ReadOutputOrientation"</span><span >, </span><span style="color: rgb(167, 9, 245);">"row"</span><span >);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >labels = folders2labels(pathToSignals);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >labels = renamecats(labels, [</span><span style="color: rgb(167, 9, 245);">"0.0 ft" "0.19 ft" "2.5 ft" "4.5 ft"</span><span >]);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >sigt = transform(sigds, @prepsig);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >sigdata = readall(sigt);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >idx = splitlabels(labels, [0.8 0.1]);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >valdata = sigdata(idx{2});</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >vallabels = labels(idx{2});</span></span></div></div></div><h2  class = 'S5'><span>Task 1</span></h2><div  class = 'S1'><span>What are the options you can set to control network training? You can see the available options for a chosen training algorithm by using the</span><span> </span><span style=' font-family: monospace;'>trainingOptions</span><span> </span><span>function.</span></div><div  class = 'S1'><span style=' font-family: monospace;'>opts</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>=</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>trainingOptions</span><span style=' font-family: monospace;'>(</span><span style=' font-family: monospace;'>"adam"</span><span style=' font-family: monospace;'>)</span></div><div  class = 'S1'><span>This creates a variable</span><span> </span><span style=' font-family: monospace;'>opts</span><span> </span><span>that contains the default options for the Adam optimizer.</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre"><span >opts = trainingOptions(</span><span style="color: rgb(167, 9, 245);">"adam"</span><span >)</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement scrollableOutput" uid="79C919CA" prevent-scroll="true" data-testid="output_0" style="width: 1338px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent scrollArea" data-previous-available-width="1308" data-previous-scroll-height="522" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">opts = </span></div><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">  TrainingOptionsADAM with properties:
+
+             GradientDecayFactor: 0.9000
+      SquaredGradientDecayFactor: 0.9990
+                         Epsilon: 1.0000e-08
+                InitialLearnRate: 1.0000e-03
+               LearnRateSchedule: 'none'
+             LearnRateDropFactor: 0.1000
+             LearnRateDropPeriod: 10
+                L2Regularization: 1.0000e-04
+         GradientThresholdMethod: 'l2norm'
+               GradientThreshold: Inf
+                       MaxEpochs: 30
+                   MiniBatchSize: 128
+                         Verbose: 1
+                VerboseFrequency: 50
+                  ValidationData: []
+             ValidationFrequency: 50
+              ValidationPatience: Inf
+                         Shuffle: 'once'
+                  CheckpointPath: ''
+             CheckpointFrequency: 1
+         CheckpointFrequencyUnit: 'epoch'
+            ExecutionEnvironment: 'auto'
+                      WorkerLoad: []
+                       OutputFcn: []
+                           Plots: 'none'
+                  SequenceLength: 'longest'
+            SequencePaddingValue: 0
+        SequencePaddingDirection: 'right'
+            DispatchInBackground: 0
+         ResetInputNormalization: 1
+    BatchNormalizationStatistics: 'population'
+                   OutputNetwork: 'last-iteration'
+</div></div></div></div></div></div><h2  class = 'S5'><span>Task 2</span></h2><div  class = 'S1'><span>You can specify any number of settings as optional name-value pairs in the</span><span> </span><span style=' font-family: monospace;'>trainingOptions</span><span> </span><span>function.</span></div><div  class = 'S1'><span style=' font-family: monospace;'>opts</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>=</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>trainingOptions</span><span style=' font-family: monospace;'>(</span><span style=' font-family: monospace;'>"adam"</span><span style=' font-family: monospace;'>,</span><span style=' font-family: monospace;'>"</span><span style=' font-style: italic; font-family: monospace;'>Name</span><span style=' font-family: monospace;'>"</span><span style=' font-family: monospace;'>,</span><span style=' font-style: italic; font-family: monospace;'>value</span><span style=' font-family: monospace;'>)</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >opts = trainingOptions(</span><span style="color: rgb(167, 9, 245);">"adam"</span><span >, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >    </span><span style="color: rgb(167, 9, 245);">"ValidationData"</span><span >, {valdata vallabels}, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >    </span><span style="color: rgb(167, 9, 245);">"Plots"</span><span >, </span><span style="color: rgb(167, 9, 245);">"training-progress"</span><span >);</span></span></div></div></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">function </span><span >sig = prepsig(sigin)</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >    sig = cell2mat(sigin);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >    sig = sig';</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >    sig = {sig};</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% Set Training Options
+% Instructions are in the task pane to the left. Complete and submit each task 
+% one at a time.
+%% 
+% This code loads the data and corresponding labels, transforms the datastore, 
+% and extracts the validation data.
+
+pathToSignals = "../data/flooddata";
+rng default
+sigds = signalDatastore(pathToSignals, ...
+    "IncludeSubfolders", true, ...
+    "SignalVariableNames", ["ax" "ay" "az"], ...
+    "ReadOutputOrientation", "row");
+labels = folders2labels(pathToSignals);
+labels = renamecats(labels, ["0.0 ft" "0.19 ft" "2.5 ft" "4.5 ft"]);
+sigt = transform(sigds, @prepsig);
+sigdata = readall(sigt);
+idx = splitlabels(labels, [0.8 0.1]);
+valdata = sigdata(idx{2});
+vallabels = labels(idx{2});
+%% Task 1
+% What are the options you can set to control network training? You can see 
+% the available options for a chosen training algorithm by using the |trainingOptions| 
+% function.
+% 
+% |opts = trainingOptions("adam")|
+% 
+% This creates a variable |opts| that contains the default options for the Adam 
+% optimizer.
+
+opts = trainingOptions("adam")
+%% Task 2
+% You can specify any number of settings as optional name-value pairs in the 
+% |trainingOptions| function.
+% 
+% |opts = trainingOptions("adam","_Name_",_value_)|
+
+opts = trainingOptions("adam", ...
+    "ValidationData", {valdata vallabels}, ...
+    "Plots", "training-progress");
+%%
+function sig = prepsig(sigin)
+    sig = cell2mat(sigin);
+    sig = sig';
+    sig = {sig};
+end
+##### SOURCE END #####
+-->
+</div></body></html>
