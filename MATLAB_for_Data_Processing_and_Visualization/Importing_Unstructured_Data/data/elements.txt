@@ -1,0 +1,23 @@
+Atomic data
+
+Period 1
+H 1.008
+He 4.003
+Period 2
+Li 6.941
+Be 9.012
+B 10.81
+C 12.01
+N 14.01
+O 16.00
+F 19.00
+Ne 20.18
+Period 3
+Na 22.99
+Mg 24.31
+Al 26.98
+Si 28.09
+P 30.97
+S 32.07
+Cl 35.45
+Ar 39.95

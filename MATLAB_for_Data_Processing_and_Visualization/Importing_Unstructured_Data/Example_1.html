@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2023b"><title>File I/O Basics</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S2 { margin: 20px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.CodeBlock { background-color: #F5F5F5; margin: 10px 0 10px 0; }
+.S3 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 4px 4px 0px 0px; padding: 6px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S4 { color: rgb(33, 33, 33); padding: 10px 0px 6px 17px; background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box; font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px; overflow-x: hidden; line-height: 17.234px;  }
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsErrorElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsErrorElement .diagnosticMessage-errorType {    overflow: auto;}
+.embeddedOutputsErrorElement.inlineElement {}
+.embeddedOutputsErrorElement.rightPaneElement {}
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsWarningElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsWarningElement .diagnosticMessage-warningType {    overflow: auto;}
+.embeddedOutputsWarningElement.inlineElement {}
+.embeddedOutputsWarningElement.rightPaneElement {}
+/* Copyright 2015-2023 The MathWorks, Inc. *//* In this file, styles are not scoped to rtcContainer since they could be in the Dojo Tooltip */.diagnosticMessage-wrapper {    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;    font-size: 12px;}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType {    /*This fallback value will be used for appdesigner warnings*/    color: var(--rtc-warning-output-color, var(--mw-color-matlabWarning));}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType a {    /*This fallback value will be used for appdesigner warnings*/    color: var(--rtc-warning-output-color, var(--mw-color-matlabWarning));    text-decoration: underline;}
+.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-warningType,.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-warningType a {    color: var(--mw-color-matlabWarning) !important;}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType {    /*This fallback value will be used in appdesigner error tooltip text*/    color: var(--rtc-error-output-color, var(--mw-color-matlabErrors));}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType a {    /*This fallback value will be used in appdesigner error tooltip text*/    color: var(--rtc-error-output-color, var(--mw-color-matlabErrors));    text-decoration: underline;}
+.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-errorType,.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-errorType a {    color: var(--mw-color-matlabErrors) !important;}
+.diagnosticMessage-wrapper .diagnosticMessage-messagePart,.diagnosticMessage-wrapper .diagnosticMessage-causePart {    white-space: pre-wrap;}
+.diagnosticMessage-wrapper .diagnosticMessage-stackPart {    white-space: pre;}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement {    white-space: pre;    word-wrap:  initial;    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsTextElement .textElement,.embeddedOutputsVariableStringElement .textElement {    overflow: auto;}
+.textElement,.rtcDataTipElement .textElement {    padding-top: 2px;}
+.embeddedOutputsTextElement.inlineElement,.embeddedOutputsVariableStringElement.inlineElement {}
+.inlineElement .textElement {}
+.embeddedOutputsTextElement.rightPaneElement,.embeddedOutputsVariableStringElement.rightPaneElement {    min-height: 16px;}
+.rightPaneElement .textElement {    padding-top: 2px;    padding-left: 9px;}
+.S5 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 0px none rgb(33, 33, 33); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S6 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 0px; padding: 0px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>File I/O Basics</span></h1><div  class = 'S1'><span>Instructions are in the task pane to the left. Complete and submit each task one at a time.</span></div><h2  class = 'S2'><span>Task 1</span></h2><div  class = 'S1'><span>You can use the</span><span> </span><span style=' font-family: monospace;'>fopen</span><span> </span><span>function to open a file. This does not open the file in an editor but instead opens a connection between MATLAB and the file for reading and writing the data.</span></div><div  class = 'S1'><span style=' font-family: monospace;'>fi</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>=</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>fopen</span><span style=' font-family: monospace;'>(</span><span style=' font-family: monospace;'>"economy.txt"</span><span style=' font-family: monospace;'>)</span><span style=' font-family: monospace;'>;</span></div><div  class = 'S1'><span style=' font-family: monospace;'>fi</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>=</span><span style=' font-family: monospace;'>   </span></div><div  class = 'S1'><span style=' font-family: monospace;'>3</span></div><div  class = 'S1'><span>The returned value is a unique</span><span> </span><span style=' font-style: italic;'>file identifier</span><span> </span><span>used to reference the open file.</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S3'><span style="white-space: pre"><span >fid = fopen(</span><span style="color: rgb(167, 9, 245);">"./data/foo.txt"</span><span >)</span></span></div><div  class = 'S4'><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px; '>fid = 3</div></div></div></div><h2  class = 'S2'><span>Task 2</span></h2><div  class = 'S1'><span>Once the file is opened, you can use the file identifier to read data from the file.</span></div><div  class = 'S1'><span style=' font-family: monospace;'>fgetl</span><span style=' font-family: monospace;'>(</span><span style=' font-family: monospace;'>fi</span><span style=' font-family: monospace;'>)</span></div><div  class = 'S1'><span style=' font-family: monospace;'>ans</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>=</span><span style=' font-family: monospace;'> </span></div><div  class = 'S1'><span style=' font-family: monospace;'>date</span><span style=' font-family: monospace;'>,</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>unrate</span><span style=' font-family: monospace;'>,</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>gdp</span><span style=' font-family: monospace;'>,</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>feddebt</span></div><div  class = 'S1'><span style=' font-family: monospace;'>fgetl</span><span style=' font-family: monospace;'>(</span><span style=' font-family: monospace;'>fi</span><span style=' font-family: monospace;'>)</span></div><div  class = 'S1'><span style=' font-family: monospace;'>ans</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>=</span></div><div  class = 'S1'><span style=' font-family: monospace;'>2014-01-01</span><span style=' font-family: monospace;'>,</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>6.6</span><span style=' font-family: monospace;'>,</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>15724.9</span><span style=' font-family: monospace;'>,</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>103.63233</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S3'><span style="white-space: pre"><span >x = fgetl(fid)</span></span></div><div  class = 'S4'><div class="inlineElement eoOutputWrapper disableDefaultGestureHandling embeddedOutputsVariableStringElement" uid="D94B2945" prevent-scroll="true" data-testid="output_1" tabindex="-1" style="width: 1722px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" tabindex="-1" data-previous-available-width="1685" data-previous-scroll-height="20" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">x = </span>'05-Jun-2001 12 27.5 95.0 46 1007'</div></div></div></div></div></div><h2  class = 'S2'><span>Task 3</span></h2><div  class = 'S1'><span>Subsequent file reads will read in subsequent lines. The file position indicator moves to the beginning of the next line after each read.</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S3'><span style="white-space: pre"><span >x2 = fgetl(fid)</span></span></div><div  class = 'S4'><div class="inlineElement eoOutputWrapper disableDefaultGestureHandling embeddedOutputsVariableStringElement" uid="4AAAD6D2" prevent-scroll="true" data-testid="output_2" tabindex="-1" style="width: 1722px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" tabindex="-1" data-previous-available-width="1685" data-previous-scroll-height="20" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">x2 = </span>'05-Jun-2001 18 28.5 95.3 58 1002'</div></div></div></div></div></div><h2  class = 'S2'><span>Task 4</span></h2><div  class = 'S1'><span>You can move the file position indicator back to the beginning of the file using the</span><span> </span><span style=' font-family: monospace;'>frewind</span><span> </span><span>command.</span></div><div  class = 'S1'><span style=' font-family: monospace;'>frewind</span><span style=' font-family: monospace;'>(</span><span style=' font-family: monospace;'>fi</span><span style=' font-family: monospace;'>)</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >frewind(fid)</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre"><span >y = fgetl(fid)</span></span></div><div  class = 'S4'><div class="inlineElement eoOutputWrapper disableDefaultGestureHandling embeddedOutputsVariableStringElement" uid="C6F81AB9" prevent-scroll="true" data-testid="output_3" tabindex="-1" style="width: 1722px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" tabindex="-1" data-previous-available-width="1685" data-previous-scroll-height="20" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">y = </span>'05-Jun-2001 12 27.5 95.0 46 1007'</div></div></div></div></div></div><h2  class = 'S2'><span>Task 5</span></h2><div  class = 'S1'><span>You've seen how</span><span> </span><span style=' font-family: monospace;'>fopen</span><span> </span><span>creates a link to a file. This requires resources from your operating system. If you open files without closing them when you're finished you are wasting system resources and risk opening more files than is allowed by your system. This will result in a MATLAB error.</span></div><div  class = 'S1'><span>To close a file that has been opened by</span><span> </span><span style=' font-family: monospace;'>fopen</span><span>, use the</span><span> </span><span style=' font-family: monospace;'>fclose</span><span> </span><span>function.</span></div><div  class = 'S1'><span style=' font-family: monospace;'>fclose</span><span style=' font-family: monospace;'>(</span><span style=' font-family: monospace;'>fi</span><span style=' font-family: monospace;'>)</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S3'><span style="white-space: pre"><span >fclose(fid)</span></span></div><div  class = 'S4'><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px; '>ans = 0</div></div></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% File I/O Basics
+% Instructions are in the task pane to the left. Complete and submit each task 
+% one at a time.
+%% Task 1
+% You can use the |fopen| function to open a file. This does not open the file 
+% in an editor but instead opens a connection between MATLAB and the file for 
+% reading and writing the data.
+% 
+% |fi = fopen("economy.txt");|
+% 
+% |fi =   
+% 
+% |3|
+% 
+% The returned value is a unique _file identifier_ used to reference the open 
+% file.
+
+fid = fopen("./data/foo.txt")
+%% Task 2
+% Once the file is opened, you can use the file identifier to read data from 
+% the file.
+% 
+% |fgetl(fi)|
+% 
+% |ans = 
+% 
+% |date, unrate, gdp, feddebt|
+% 
+% |fgetl(fi)|
+% 
+% |ans =|
+% 
+% |2014-01-01, 6.6, 15724.9, 103.63233|
+
+x = fgetl(fid)
+%% Task 3
+% Subsequent file reads will read in subsequent lines. The file position indicator 
+% moves to the beginning of the next line after each read.
+
+x2 = fgetl(fid)
+%% Task 4
+% You can move the file position indicator back to the beginning of the file 
+% using the |frewind| command.
+% 
+% |frewind(fi)|
+
+frewind(fid)
+y = fgetl(fid)
+%% Task 5
+% You've seen how |fopen| creates a link to a file. This requires resources 
+% from your operating system. If you open files without closing them when you're 
+% finished you are wasting system resources and risk opening more files than is 
+% allowed by your system. This will result in a MATLAB error.
+% 
+% To close a file that has been opened by |fopen|, use the |fclose| function.
+% 
+% |fclose(fi)|
+
+fclose(fid)
+##### SOURCE END #####
+-->
+</div></body></html>

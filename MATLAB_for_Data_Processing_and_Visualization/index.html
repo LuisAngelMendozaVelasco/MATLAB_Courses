@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>MATLAB for Data Processing and Visualization</title>
+
+        <script>
+            function examplesList(topic, numberExamples) {
+                var txt = "";
+                txt +=  '<h2>' + topic + '</h2>\n' + 
+                        '<details>\n' + 
+                            '<summary>Examples</summary>\n';
+
+                for (var i = 1; i <= numberExamples; i++) {
+                    txt += '<li type="square"><a href="./' + topic.replace(/\s/g, "_") + '/Example_' + i + '.html">Example'+ i + '</a></li>\n';
+                }
+
+                txt += '</details>\n';
+                document.getElementById(topic).innerHTML = txt;
+            }
+        </script>  
+    </head>
+    <body>  
+        <h1 style="text-align: center;">MATLAB for Data Processing and Visualization</h1>
+
+        <p id="Graphics Functions"></p>
+        <script>examplesList('Graphics Functions', 4);</script>
+
+        <p id="Customizing Graphics Objects"></p>
+        <script>examplesList('Customizing Graphics Objects', 9);</script>
+
+        <p id="Defining Categories of Data"></p>
+        <script>examplesList('Defining Categories of Data', 7);</script>
+
+        <p id="Analyzing Groups within Data"></p>
+        <script>examplesList('Analyzing Groups within Data', 5);</script>
+
+        <p id="Importing Data from Multiple Files"></p>
+        <script>examplesList('Importing Data from Multiple Files', 16);</script>
+
+        <p id="Review Project"></p>
+        <script>examplesList('Review Project', 1);</script>
+
+        <p id="Images and 3-D Surface Plots"></p>
+        <script>examplesList('Images and 3-D Surface Plots', 13);</script>
+
+        <p id="Importing Unstructured Data"></p>
+        <script>examplesList('Importing Unstructured Data', 7);</script>
+    </body>
+</html>

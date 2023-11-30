@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2023b"><title>Balloon Exercise</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S2 { margin: 20px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.CodeBlock { background-color: #F5F5F5; margin: 10px 0 10px 0; }
+.S3 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 4px 4px 0px 0px; padding: 6px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S4 { color: rgb(33, 33, 33); padding: 10px 0px 6px 17px; background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box; font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px; overflow-x: hidden; line-height: 17.234px;  }
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsErrorElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsErrorElement .diagnosticMessage-errorType {    overflow: auto;}
+.embeddedOutputsErrorElement.inlineElement {}
+.embeddedOutputsErrorElement.rightPaneElement {}
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsWarningElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsWarningElement .diagnosticMessage-warningType {    overflow: auto;}
+.embeddedOutputsWarningElement.inlineElement {}
+.embeddedOutputsWarningElement.rightPaneElement {}
+/* Copyright 2015-2023 The MathWorks, Inc. *//* In this file, styles are not scoped to rtcContainer since they could be in the Dojo Tooltip */.diagnosticMessage-wrapper {    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;    font-size: 12px;}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType {    /*This fallback value will be used for appdesigner warnings*/    color: var(--rtc-warning-output-color, var(--mw-color-matlabWarning));}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType a {    /*This fallback value will be used for appdesigner warnings*/    color: var(--rtc-warning-output-color, var(--mw-color-matlabWarning));    text-decoration: underline;}
+.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-warningType,.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-warningType a {    color: var(--mw-color-matlabWarning) !important;}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType {    /*This fallback value will be used in appdesigner error tooltip text*/    color: var(--rtc-error-output-color, var(--mw-color-matlabErrors));}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType a {    /*This fallback value will be used in appdesigner error tooltip text*/    color: var(--rtc-error-output-color, var(--mw-color-matlabErrors));    text-decoration: underline;}
+.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-errorType,.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-errorType a {    color: var(--mw-color-matlabErrors) !important;}
+.diagnosticMessage-wrapper .diagnosticMessage-messagePart,.diagnosticMessage-wrapper .diagnosticMessage-causePart {    white-space: pre-wrap;}
+.diagnosticMessage-wrapper .diagnosticMessage-stackPart {    white-space: pre;}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement {    white-space: pre;    word-wrap:  initial;    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsTextElement .textElement,.embeddedOutputsVariableStringElement .textElement {    overflow: auto;}
+.textElement,.rtcDataTipElement .textElement {    padding-top: 2px;}
+.embeddedOutputsTextElement.inlineElement,.embeddedOutputsVariableStringElement.inlineElement {}
+.inlineElement .textElement {}
+.embeddedOutputsTextElement.rightPaneElement,.embeddedOutputsVariableStringElement.rightPaneElement {    min-height: 16px;}
+.rightPaneElement .textElement {    padding-top: 2px;    padding-left: 9px;}
+.embeddedOutputsMatrixElement,.eoOutputWrapper .matrixElement {    min-height: 18px;    box-sizing: border-box;}
+.embeddedOutputsMatrixElement .matrixElement,.eoOutputWrapper  .matrixElement,.rtcDataTipElement .matrixElement {    position: relative;}
+.matrixElement .variableValue,.rtcDataTipElement .matrixElement .variableValue {    white-space: pre;    display: inline-block;    vertical-align: top;    overflow: hidden;}
+.embeddedOutputsMatrixElement.inlineElement {}
+.embeddedOutputsMatrixElement.inlineElement .topHeaderWrapper {    display: none;}
+.embeddedOutputsMatrixElement.inlineElement .veTable .body {    padding-top: 0 !important;    max-height: 100px;}
+.inlineElement .matrixElement {    max-height: 300px;}
+.embeddedOutputsMatrixElement.rightPaneElement {}
+.rightPaneElement .matrixElement,.rtcDataTipElement .matrixElement {    overflow: hidden;    padding-left: 9px;}
+.rightPaneElement .matrixElement {    margin-bottom: -1px;}
+.embeddedOutputsMatrixElement .matrixElement .valueContainer,.eoOutputWrapper .matrixElement .valueContainer,.rtcDataTipElement .matrixElement .valueContainer {    white-space: nowrap;    margin-bottom: 3px;}
+.embeddedOutputsMatrixElement .matrixElement .valueContainer .horizontalEllipsis.hide,.embeddedOutputsMatrixElement .matrixElement .verticalEllipsis.hide,.eoOutputWrapper .matrixElement .valueContainer .horizontalEllipsis.hide,.eoOutputWrapper .matrixElement .verticalEllipsis.hide,.rtcDataTipElement .matrixElement .valueContainer .horizontalEllipsis.hide,.rtcDataTipElement .matrixElement .verticalEllipsis.hide {    display: none;}
+.embeddedOutputsVariableMatrixElement .matrixElement .valueContainer.hideEllipses .verticalEllipsis, .embeddedOutputsVariableMatrixElement .matrixElement .valueContainer.hideEllipses .horizontalEllipsis {    display:none;}
+.embeddedOutputsMatrixElement .matrixElement .valueContainer .horizontalEllipsis,.eoOutputWrapper .matrixElement .valueContainer .horizontalEllipsis {    margin-bottom: -3px;}
+.eoOutputWrapper .embeddedOutputsVariableMatrixElement .matrixElement .valueContainer {    cursor: default !important;}
+.embeddedOutputsVariableElement {    white-space: pre-wrap;    word-wrap: break-word;    min-height: 18px;    max-height: 250px;    overflow: auto;}
+.eoOutputWrapper .variableElement {    padding-top: 2px;}
+.embeddedOutputsVariableElement.inlineElement {}
+.inlineElement .variableElement {}
+.embeddedOutputsVariableElement.rightPaneElement {    min-height: 16px;}
+.rightPaneElement .variableElement {    padding-left: 9px;}
+.outputsOnRight .embeddedOutputsVariableElement.rightPaneElement .eoOutputContent {    /* Remove extra space allocated for navigation border */    margin-top: 0;    margin-bottom: 0;}
+.variableNameElement {    margin-bottom: 3px;    display: inline-block;}
+/* * Ellipses as base64 for HTML export. */.matrixElement .horizontalEllipsis,.rtcDataTipElement .matrixElement .horizontalEllipsis {    display: inline-block;    margin-top: 3px;    /* base64 encoded version of images-liveeditor/HEllipsis.png */    width: 30px;    height: 12px;    background-repeat: no-repeat;    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAJCAYAAADO1CeCAAAAJUlEQVR42mP4//8/A70xw0i29BUDFPxnAEtTW37wWDqakIa4pQDvOOG89lHX2gAAAABJRU5ErkJggg==");}
+.matrixElement .verticalEllipsis,.textElement .verticalEllipsis,.rtcDataTipElement .matrixElement .verticalEllipsis,.rtcDataTipElement .textElement .verticalEllipsis {    margin-left: 35px;    /* base64 encoded version of images-liveeditor/VEllipsis.png */    width: 12px;    height: 30px;    background-repeat: no-repeat;    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAZCAYAAAAIcL+IAAAALklEQVR42mP4//8/AzGYgWyFMECMwv8QddRS+P//KyimlmcGUOFoOI6GI/UVAgDnd8Dd4+NCwgAAAABJRU5ErkJggg==");}</style></head><body><div class = rtcContent><h1  class = 'S0'><span>Balloon Exercise</span></h1><div  class = 'S1'><span>Instructions are in the task pane to the left. Complete and submit each task one at a time.</span></div><h2  class = 'S2'><span>Task 1</span></h2><div  class = 'S1'><span>The file </span><span style=' font-family: monospace;'>balloons.txt</span><span> is open in the editor.</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S3'><span style="white-space: pre"><span >bds = datastore(</span><span style="color: rgb(167, 9, 245);">"./data/balloons.txt"</span><span >)</span></span></div><div  class = 'S4'><div class="inlineElement eoOutputWrapper disableDefaultGestureHandling embeddedOutputsVariableStringElement scrollableOutput" uid="1FEA2F33" prevent-scroll="true" data-testid="output_0" tabindex="-1" style="width: 1722px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent scrollArea" tabindex="-1" data-previous-available-width="1685" data-previous-scroll-height="610" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">bds = </span></div><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">  TabularTextDatastore with properties:
+
+                      Files: {
+                             ' ...\Importing_Data_from_Multiple_Files\data\balloons.txt'
+                             }
+                    Folders: {
+                             ' ...\Importing_Data_from_Multiple_Files\data'
+                             }
+               FileEncoding: 'UTF-8'
+   AlternateFileSystemRoots: {}
+         VariableNamingRule: 'modify'
+          ReadVariableNames: true
+              VariableNames: {'YELLOW', 'SMALL', 'STRETCH' ... and 2 more}
+             DatetimeLocale: en_US
+
+  Text Format Properties:
+             NumHeaderLines: 0
+                  Delimiter: ','
+               RowDelimiter: '\r\n'
+             TreatAsMissing: ''
+               MissingValue: NaN
+
+  Advanced Text Format Properties:
+            TextscanFormats: {'%q', '%q', '%q' ... and 2 more}
+                   TextType: 'char'
+         ExponentCharacters: 'eEdD'
+               CommentStyle: ''
+                 Whitespace: ' \b\t'
+    MultipleDelimitersAsOne: false
+
+  Properties that control the table returned by preview, read, readall:
+      SelectedVariableNames: {'YELLOW', 'SMALL', 'STRETCH' ... and 2 more}
+            SelectedFormats: {'%q', '%q', '%q' ... and 2 more}
+                   ReadSize: 20000 rows
+                 OutputType: 'table'
+                   RowTimes: []
+
+  Write-specific Properties:
+     SupportedOutputFormats: ["txt"    "csv"    "xlsx"    "xls"    "parquet"    "parq"]
+        DefaultOutputFormat: "txt"</div></div></div></div></div></div><h2  class = 'S2'><span>Task 2</span></h2><div  class = 'S1'><span>By default, if variables names are not specified, they are detected from the first nonheader line in the file.</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S3'><span style="white-space: pre"><span >bds.ReadVariableNames = false</span></span></div><div  class = 'S4'><div class="inlineElement eoOutputWrapper disableDefaultGestureHandling embeddedOutputsVariableStringElement scrollableOutput" uid="A98DDDAF" prevent-scroll="true" data-testid="output_1" tabindex="-1" style="width: 1722px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent scrollArea" tabindex="-1" data-previous-available-width="1685" data-previous-scroll-height="610" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">bds = </span></div><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">  TabularTextDatastore with properties:
+
+                      Files: {
+                             ' ...\Importing_Data_from_Multiple_Files\data\balloons.txt'
+                             }
+                    Folders: {
+                             ' ...\Importing_Data_from_Multiple_Files\data'
+                             }
+               FileEncoding: 'UTF-8'
+   AlternateFileSystemRoots: {}
+         VariableNamingRule: 'modify'
+          ReadVariableNames: false
+              VariableNames: {'Var1', 'Var2', 'Var3' ... and 2 more}
+             DatetimeLocale: en_US
+
+  Text Format Properties:
+             NumHeaderLines: 0
+                  Delimiter: ','
+               RowDelimiter: '\r\n'
+             TreatAsMissing: ''
+               MissingValue: NaN
+
+  Advanced Text Format Properties:
+            TextscanFormats: {'%q', '%q', '%q' ... and 2 more}
+                   TextType: 'char'
+         ExponentCharacters: 'eEdD'
+               CommentStyle: ''
+                 Whitespace: ' \b\t'
+    MultipleDelimitersAsOne: false
+
+  Properties that control the table returned by preview, read, readall:
+      SelectedVariableNames: {'Var1', 'Var2', 'Var3' ... and 2 more}
+            SelectedFormats: {'%q', '%q', '%q' ... and 2 more}
+                   ReadSize: 20000 rows
+                 OutputType: 'table'
+                   RowTimes: []
+
+  Write-specific Properties:
+     SupportedOutputFormats: ["txt"    "csv"    "xlsx"    "xls"    "parquet"    "parq"]
+        DefaultOutputFormat: "txt"</div></div></div></div></div></div><h2  class = 'S2'><span>Task 3</span></h2><div  class = 'S1'><span>If there are no variable names specified, the datastore gives default values to the variable names.</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S3'><span style="white-space: pre"><span >v = bds.VariableNames</span></span></div><div  class = 'S4'><div class="inlineElement eoOutputWrapper disableDefaultGestureHandling embeddedOutputsTextMatrixElement embeddedOutputsVariableMatrixElement" uid="6DB5CE4A" prevent-scroll="true" data-testid="output_2" data-width="1692" tabindex="-1" style="width: 1722px; white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="matrixElement veSpecifier saveLoad eoOutputContent" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="veVariableName variableNameElement" style="width: 1692px; white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="headerElementClickToInteract" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">v = </span><span class="veVariableValueSummary headerElement" style="white-space: normal; font-style: italic; color: rgb(97, 97, 97); font-size: 12px;">1×5 cell</span></div></div><div class="valueContainer" data-layout="{&quot;totalRows&quot;:&quot;1&quot;,&quot;totalColumns&quot;:&quot;5&quot;}" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="variableValue" style="width: 410px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">'Var1'       'Var2'       'Var3'       'Var4'       'Var5'       <br></div><div class="horizontalEllipsis hide" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div><div class="verticalEllipsis hide" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div></div></div><div class="outputLayer selectedOutputDecorationLayer doNotExport" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div><div class="outputLayer activeOutputDecorationLayer doNotExport" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div><div class="outputLayer scrollableOutputDecorationLayer doNotExport" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div><div class="outputLayer navigationFocusLayer doNotExport" tabindex="-1" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div></div></div></div></div><h2  class = 'S2'><span>Task 4</span></h2><div  class = 'S1'><span>Variable names are saved in cell arrays or string arrays, which are arrays that can hold text. Create a string array using square brackets which contain strings (</span><span style=' font-family: monospace;'>" "</span><span>).</span></div><div  class = 'S1'><span style=' font-family: monospace;'>ca</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>=</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>[</span><span style=' font-family: monospace;'>"cat"</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>"dog"</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>"cow"</span><span style=' font-family: monospace;'>]</span><span style=' font-family: monospace;'>;</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S3'><span style="white-space: pre"><span >nv = [</span><span style="color: rgb(167, 9, 245);">"color"</span><span >,</span><span style="color: rgb(167, 9, 245);">"size"</span><span >,</span><span style="color: rgb(167, 9, 245);">"act"</span><span >,</span><span style="color: rgb(167, 9, 245);">"age"</span><span >,</span><span style="color: rgb(167, 9, 245);">"inflated"</span><span >]</span></span></div><div  class = 'S4'><div class="inlineElement eoOutputWrapper disableDefaultGestureHandling embeddedOutputsTextMatrixElement embeddedOutputsVariableMatrixElement" uid="838014E7" prevent-scroll="true" data-testid="output_3" data-width="1692" tabindex="-1" style="width: 1722px; white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="matrixElement veSpecifier saveLoad eoOutputContent" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="veVariableName variableNameElement" style="width: 1692px; white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="headerElementClickToInteract" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">nv = </span><span class="veVariableValueSummary headerElement" style="white-space: normal; font-style: italic; color: rgb(97, 97, 97); font-size: 12px;">1×5 string</span></div></div><div class="valueContainer" data-layout="{&quot;totalRows&quot;:&quot;1&quot;,&quot;totalColumns&quot;:&quot;5&quot;}" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="variableValue" style="width: 410px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">"color"      "size"       "act"        "age"        "inflated"   <br></div><div class="horizontalEllipsis hide" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div><div class="verticalEllipsis hide" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div></div></div><div class="outputLayer selectedOutputDecorationLayer doNotExport" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div><div class="outputLayer activeOutputDecorationLayer doNotExport" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div><div class="outputLayer scrollableOutputDecorationLayer doNotExport" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div><div class="outputLayer navigationFocusLayer doNotExport" tabindex="-1" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div></div></div></div></div><h2  class = 'S2'><span>Task 5</span></h2><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S3'><span style="white-space: pre"><span >bds.VariableNames = nv</span></span></div><div  class = 'S4'><div class="inlineElement eoOutputWrapper disableDefaultGestureHandling embeddedOutputsVariableStringElement scrollableOutput" uid="D8A32A62" prevent-scroll="true" data-testid="output_4" tabindex="-1" style="width: 1722px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent scrollArea" tabindex="-1" data-previous-available-width="1685" data-previous-scroll-height="610" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">bds = </span></div><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">  TabularTextDatastore with properties:
+
+                      Files: {
+                             ' ...\Importing_Data_from_Multiple_Files\data\balloons.txt'
+                             }
+                    Folders: {
+                             ' ...\Importing_Data_from_Multiple_Files\data'
+                             }
+               FileEncoding: 'UTF-8'
+   AlternateFileSystemRoots: {}
+         VariableNamingRule: 'modify'
+          ReadVariableNames: false
+              VariableNames: {'color', 'size', 'act' ... and 2 more}
+             DatetimeLocale: en_US
+
+  Text Format Properties:
+             NumHeaderLines: 0
+                  Delimiter: ','
+               RowDelimiter: '\r\n'
+             TreatAsMissing: ''
+               MissingValue: NaN
+
+  Advanced Text Format Properties:
+            TextscanFormats: {'%q', '%q', '%q' ... and 2 more}
+                   TextType: 'char'
+         ExponentCharacters: 'eEdD'
+               CommentStyle: ''
+                 Whitespace: ' \b\t'
+    MultipleDelimitersAsOne: false
+
+  Properties that control the table returned by preview, read, readall:
+      SelectedVariableNames: {'color', 'size', 'act' ... and 2 more}
+            SelectedFormats: {'%q', '%q', '%q' ... and 2 more}
+                   ReadSize: 20000 rows
+                 OutputType: 'table'
+                   RowTimes: []
+
+  Write-specific Properties:
+     SupportedOutputFormats: ["txt"    "csv"    "xlsx"    "xls"    "parquet"    "parq"]
+        DefaultOutputFormat: "txt"</div></div></div></div></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% Balloon Exercise
+% Instructions are in the task pane to the left. Complete and submit each task 
+% one at a time.
+%% Task 1
+% The file |balloons.txt| is open in the editor.
+
+bds = datastore("./data/balloons.txt")
+%% Task 2
+% By default, if variables names are not specified, they are detected from the 
+% first nonheader line in the file.
+
+bds.ReadVariableNames = false
+%% Task 3
+% If there are no variable names specified, the datastore gives default values 
+% to the variable names.
+
+v = bds.VariableNames
+%% Task 4
+% Variable names are saved in cell arrays or string arrays, which are arrays 
+% that can hold text. Create a string array using square brackets which contain 
+% strings (|" "|).
+% 
+% |ca = ["cat" "dog" "cow"];|
+
+nv = ["color","size","act","age","inflated"]
+%% Task 5
+
+bds.VariableNames = nv
+##### SOURCE END #####
+-->
+</div></body></html>
