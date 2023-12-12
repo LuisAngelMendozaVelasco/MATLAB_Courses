@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2023b"><title>Untitled</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.CodeBlock { background-color: #F5F5F5; margin: 10px 0 10px 0; }
+.S1 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 0px none rgb(33, 33, 33); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S2 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 0px none rgb(33, 33, 33); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S3 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 0px 0px 4px 4px; padding: 0px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S4 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.S5 { margin: 20px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }</style></head><body><div class = rtcContent><div  class = 'S0'><span>There are many</span><span> </span><span style=' font-family: monospace;'>verify</span><span style=' font-family: monospace;'>*</span><span> </span><span>functions other than</span><span> </span><span style=' font-family: monospace;'>verifyTrue</span><span>.</span><span> </span><span style=' font-family: monospace;'>verifyGreaterThan</span><span> </span><span>is formatted as follows:</span></div><div  class = 'S0'><span style=' font-family: monospace;'>verifyGreaterThan</span><span style=' font-family: monospace;'>(</span><span style=' font-family: monospace;'>testcase</span><span style=' font-family: monospace;'>,</span><span style=' font-family: monospace;'>a</span><span style=' font-family: monospace;'>,</span><span style=' font-family: monospace;'>b</span><span style=' font-family: monospace;'>)</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">function </span><span >test = squareRootTest</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >test = functiontests(localfunctions);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div></div><h2  class = 'S4'><span>Positive roots are real</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">function </span><span >posRootTest(testcase)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >x = linspace(0,pi);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >y = sqrt(x);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >verifyTrue(testcase,isreal(y))</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div></div><h2  class = 'S5'><span>Negative roots are complex</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">function </span><span >negRootTest(testcase)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >z = linspace(-pi,pi);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >y = sqrt(z);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >verifyFalse(testcase,isreal(y))</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div></div><h2  class = 'S5'><span style=' font-family: monospace;'>sqrt</span><span>(x) is smaller than x (if x &gt; 1)</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">function </span><span >sqrtTest(testcase)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >x = linspace(0,pi);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >y = x + 2;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >z = sqrt(y);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >verifyGreaterThan(testcase,y,z)</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+function test = squareRootTest
+%  SQUAREROOTTEST There are many |verify*| functions other than |verifyTrue|. |verifyGreaterThan| 
+% is formatted as follows:
+% 
+% |verifyGreaterThan(testcase,a,b)|
+test = functiontests(localfunctions);
+end
+%% Positive roots are real
+function posRootTest(testcase)
+x = linspace(0,pi);
+y = sqrt(x);
+verifyTrue(testcase,isreal(y))
+end
+%% Negative roots are complex
+function negRootTest(testcase)
+z = linspace(-pi,pi);
+y = sqrt(z);
+verifyFalse(testcase,isreal(y))
+end
+%% |sqrt|(x) is smaller than x (if x > 1)
+function sqrtTest(testcase)
+x = linspace(0,pi);
+y = x + 2;
+z = sqrt(y);
+verifyGreaterThan(testcase,y,z)
+end
+##### SOURCE END #####
+-->
+</div></body></html>

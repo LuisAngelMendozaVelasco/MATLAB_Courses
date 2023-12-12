@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>MATLAB Programming Techniques</title>
+
+        <script>
+            function examplesList(topic, numberExamples) {
+                var txt = "";
+                txt +=  '<h2>' + topic + '</h2>\n' + 
+                        '<details>\n' + 
+                            '<summary>Examples</summary>\n';
+
+                for (var i = 1; i <= numberExamples; i++) {
+                    txt += '<li type="square"><a href="./' + topic.replace(/\s/g, "_") + '/Example_' + i + '.html">Example'+ i + '</a></li>\n';
+                }
+
+                txt += '</details>\n';
+                document.getElementById(topic).innerHTML = txt;
+            }
+        </script>  
+    </head>
+    <body>  
+        <h1 style="text-align: center;">MATLAB Programming Techniques</h1>
+
+        <p id="Structuring Data"></p>
+        <script>examplesList('Structuring Data', 14);</script>
+
+        <p id="Manipulating Heterogeneous Data"></p>
+        <script>examplesList('Manipulating Heterogeneous Data', 8);</script>
+
+        <p id="Optimizing Your Code"></p>
+        <script>examplesList('Optimizing Your Code', 9);</script>
+
+        <p id="Creating Flexible Functions"></p>
+        <script>examplesList('Creating Flexible Functions', 22);</script>
+
+        <p id="Creating Robust Applications"></p>
+        <script>examplesList('Creating Robust Applications', 5);</script>
+
+        <p id="Verifying Application Behavior"></p>
+        <script>examplesList('Verifying Application Behavior', 16);</script>
+    </body>
+</html>

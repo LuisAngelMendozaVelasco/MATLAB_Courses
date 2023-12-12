@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2023b"><title>Checking Expected Properties</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.CodeBlock { background-color: #F5F5F5; margin: 10px 0 10px 0; }
+.S1 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 4px 4px 0px 0px; padding: 6px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S2 { color: rgb(33, 33, 33); padding: 10px 0px 6px 17px; background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box; font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px; overflow-x: hidden; line-height: 17.234px;  }
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsErrorElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsErrorElement .diagnosticMessage-errorType {    overflow: auto;}
+.embeddedOutputsErrorElement.inlineElement {}
+.embeddedOutputsErrorElement.rightPaneElement {}
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsWarningElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsWarningElement .diagnosticMessage-warningType {    overflow: auto;}
+.embeddedOutputsWarningElement.inlineElement {}
+.embeddedOutputsWarningElement.rightPaneElement {}
+/* Copyright 2015-2023 The MathWorks, Inc. *//* In this file, styles are not scoped to rtcContainer since they could be in the Dojo Tooltip */.diagnosticMessage-wrapper {    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;    font-size: 12px;}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType {    /*This fallback value will be used for appdesigner warnings*/    color: var(--rtc-warning-output-color, var(--mw-color-matlabWarning));}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType a {    /*This fallback value will be used for appdesigner warnings*/    color: var(--rtc-warning-output-color, var(--mw-color-matlabWarning));    text-decoration: underline;}
+.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-warningType,.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-warningType a {    color: var(--mw-color-matlabWarning) !important;}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType {    /*This fallback value will be used in appdesigner error tooltip text*/    color: var(--rtc-error-output-color, var(--mw-color-matlabErrors));}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType a {    /*This fallback value will be used in appdesigner error tooltip text*/    color: var(--rtc-error-output-color, var(--mw-color-matlabErrors));    text-decoration: underline;}
+.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-errorType,.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-errorType a {    color: var(--mw-color-matlabErrors) !important;}
+.diagnosticMessage-wrapper .diagnosticMessage-messagePart,.diagnosticMessage-wrapper .diagnosticMessage-causePart {    white-space: pre-wrap;}
+.diagnosticMessage-wrapper .diagnosticMessage-stackPart {    white-space: pre;}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement {    white-space: pre;    word-wrap:  initial;    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsTextElement .textElement,.embeddedOutputsVariableStringElement .textElement {    overflow: auto;}
+.textElement,.rtcDataTipElement .textElement {    padding-top: 2px;}
+.embeddedOutputsTextElement.inlineElement,.embeddedOutputsVariableStringElement.inlineElement {}
+.inlineElement .textElement {}
+.embeddedOutputsTextElement.rightPaneElement,.embeddedOutputsVariableStringElement.rightPaneElement {    min-height: 16px;}
+.rightPaneElement .textElement {    padding-top: 2px;    padding-left: 9px;}
+.S3 { margin: 20px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.S4 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S5 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 4px; padding: 6px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S6 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 0px none rgb(33, 33, 33); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S7 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 0px none rgb(33, 33, 33); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S8 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 0px 0px 4px 4px; padding: 0px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>Checking Expected Properties</span></h1><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S1'><span style="white-space: pre"><span >p = readparameters(</span><span style="color: rgb(167, 9, 245);">"./data/iss.txt"</span><span >)</span></span></div><div  class = 'S2'><div class="inlineElement eoOutputWrapper disableDefaultGestureHandling embeddedOutputsVariableStringElement" uid="58A58EF7" prevent-scroll="true" data-testid="output_0" tabindex="-1" style="width: 1146px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" tabindex="-1" data-previous-available-width="1109" data-previous-scroll-height="123" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">p = <span class="headerElement" style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">struct with fields:</span></span></div><div style="white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">           epoch: 02-Sep-2014 03:13:58
+     inclination: 51.6461
+            RAAN: 78.1961
+    eccentricity: 3.6620e-04
+      argPerigee: 72.7758
+         anomaly: 29.4412
+          motion: 15.5017
+</div></div></div></div></div></div><h2  class = 'S3'><span>Task 1</span></h2><div  class = 'S4'><span>The structure, </span><span style=' font-family: monospace;'>p</span><span>, contains the orbital parameters for the International Space Station. You will write a test to check the inclination for the International Space Station, which should be 51.6461 degrees.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >assert(isequal(p.inclination, 51.6461))</span></span></div></div></div><h2  class = 'S3'><span>Task 2</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >assert(p.inclination &gt;= 0)</span></span></div></div></div><h2  class = 'S3'><span>Task 3</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >assert(p.inclination &gt;= 0 &amp;&amp; p.inclination &lt;= 180)</span></span></div></div></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">function </span><span >p = readparameters(fname)</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">% Creates a structure of orbital parameters read from file</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">%</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">% P = READPARAMETERS(FILE) reads the two-line element set (TLE) file FILE</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">% (string) and returns a structure P containing the epoch [datetime],</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">% inclination [degrees], RA of the ascending node [degrees], eccentricity</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">% [number], argument of perigee [degrees], mean anomaly [degrees], and mean</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">% motion [revolutions/day]. All angles are given as scalar numbers.</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">% Get raw text from file; split into two lines</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >    txt = strsplit(fileread(fname),</span><span style="color: rgb(167, 9, 245);">'\n'</span><span >);</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">% Extract epoch year</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >    ey = str2double(txt{1}(19:20));</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">% Convert 2-digit epoch year to 4-digit year</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">% (00-60 -&gt; 2000-2060, 61-99 -&gt; 1961-1999)</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >    ey = 1900 + ey + 100*(ey &lt; 60);</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">% Extract epoch day</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >    ed = str2double(txt{1}(21:32));</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">% Build output structure</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >    p.epoch = datetime(ey,1,1) + days(ed - 1);</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >    p.inclination = str2double(txt{2}(9:16));</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >    p.RAAN = str2double(txt{2}(18:25));</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >    p.eccentricity = str2double([</span><span style="color: rgb(167, 9, 245);">'0.'</span><span >,txt{2}(27:33)]);</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >    p.argPerigee = str2double(txt{2}(35:42));</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >    p.anomaly = str2double(txt{2}(44:51));</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >    p.motion = str2double(txt{2}(53:63));</span></span></div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% Checking Expected Properties
+
+p = readparameters("./data/iss.txt")
+%% Task 1
+% The structure, |p|, contains the orbital parameters for the International 
+% Space Station. You will write a test to check the inclination for the International 
+% Space Station, which should be 51.6461 degrees.
+
+assert(isequal(p.inclination, 51.6461))
+%% Task 2
+
+assert(p.inclination >= 0)
+%% Task 3
+
+assert(p.inclination >= 0 && p.inclination <= 180)
+%%
+function p = readparameters(fname)
+    % Creates a structure of orbital parameters read from file
+    %
+    % P = READPARAMETERS(FILE) reads the two-line element set (TLE) file FILE
+    % (string) and returns a structure P containing the epoch [datetime],
+    % inclination [degrees], RA of the ascending node [degrees], eccentricity
+    % [number], argument of perigee [degrees], mean anomaly [degrees], and mean
+    % motion [revolutions/day]. All angles are given as scalar numbers.
+    % Get raw text from file; split into two lines
+    txt = strsplit(fileread(fname),'\n');
+    % Extract epoch year
+    ey = str2double(txt{1}(19:20));
+    % Convert 2-digit epoch year to 4-digit year
+    % (00-60 -> 2000-2060, 61-99 -> 1961-1999)
+    ey = 1900 + ey + 100*(ey < 60);
+    % Extract epoch day
+    ed = str2double(txt{1}(21:32));
+    % Build output structure
+    p.epoch = datetime(ey,1,1) + days(ed - 1);
+    p.inclination = str2double(txt{2}(9:16));
+    p.RAAN = str2double(txt{2}(18:25));
+    p.eccentricity = str2double(['0.',txt{2}(27:33)]);
+    p.argPerigee = str2double(txt{2}(35:42));
+    p.anomaly = str2double(txt{2}(44:51));
+    p.motion = str2double(txt{2}(53:63));
+end
+##### SOURCE END #####
+-->
+</div></body></html>

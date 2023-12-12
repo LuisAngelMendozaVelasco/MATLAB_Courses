@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2023b"><title>Time the Calculation of Force on the Head</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S2 { margin: 20px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.CodeBlock { background-color: #F5F5F5; margin: 10px 0 10px 0; }
+.S3 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 4px; padding: 6px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S4 { margin: 10px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S5 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 4px 4px 0px 0px; padding: 6px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S6 { color: rgb(33, 33, 33); padding: 10px 0px 6px 17px; background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box; font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px; overflow-x: hidden; line-height: 17.234px;  }
+.variableValue { width: 100% !important; }
+.embeddedOutputsMatrixElement,.eoOutputWrapper .matrixElement {    min-height: 18px;    box-sizing: border-box;}
+.embeddedOutputsMatrixElement .matrixElement,.eoOutputWrapper  .matrixElement,.rtcDataTipElement .matrixElement {    position: relative;}
+.matrixElement .variableValue,.rtcDataTipElement .matrixElement .variableValue {    white-space: pre;    display: inline-block;    vertical-align: top;    overflow: hidden;}
+.embeddedOutputsMatrixElement.inlineElement {}
+.embeddedOutputsMatrixElement.inlineElement .topHeaderWrapper {    display: none;}
+.embeddedOutputsMatrixElement.inlineElement .veTable .body {    padding-top: 0 !important;    max-height: 100px;}
+.inlineElement .matrixElement {    max-height: 300px;}
+.embeddedOutputsMatrixElement.rightPaneElement {}
+.rightPaneElement .matrixElement,.rtcDataTipElement .matrixElement {    overflow: hidden;    padding-left: 9px;}
+.rightPaneElement .matrixElement {    margin-bottom: -1px;}
+.embeddedOutputsMatrixElement .matrixElement .valueContainer,.eoOutputWrapper .matrixElement .valueContainer,.rtcDataTipElement .matrixElement .valueContainer {    white-space: nowrap;    margin-bottom: 3px;}
+.embeddedOutputsMatrixElement .matrixElement .valueContainer .horizontalEllipsis.hide,.embeddedOutputsMatrixElement .matrixElement .verticalEllipsis.hide,.eoOutputWrapper .matrixElement .valueContainer .horizontalEllipsis.hide,.eoOutputWrapper .matrixElement .verticalEllipsis.hide,.rtcDataTipElement .matrixElement .valueContainer .horizontalEllipsis.hide,.rtcDataTipElement .matrixElement .verticalEllipsis.hide {    display: none;}
+.embeddedOutputsVariableMatrixElement .matrixElement .valueContainer.hideEllipses .verticalEllipsis, .embeddedOutputsVariableMatrixElement .matrixElement .valueContainer.hideEllipses .horizontalEllipsis {    display:none;}
+.embeddedOutputsMatrixElement .matrixElement .valueContainer .horizontalEllipsis,.eoOutputWrapper .matrixElement .valueContainer .horizontalEllipsis {    margin-bottom: -3px;}
+.eoOutputWrapper .embeddedOutputsVariableMatrixElement .matrixElement .valueContainer {    cursor: default !important;}
+.embeddedOutputsVariableElement {    white-space: pre-wrap;    word-wrap: break-word;    min-height: 18px;    max-height: 250px;    overflow: auto;}
+.eoOutputWrapper .variableElement {    padding-top: 2px;}
+.embeddedOutputsVariableElement.inlineElement {}
+.inlineElement .variableElement {}
+.embeddedOutputsVariableElement.rightPaneElement {    min-height: 16px;}
+.rightPaneElement .variableElement {    padding-left: 9px;}
+.outputsOnRight .embeddedOutputsVariableElement.rightPaneElement .eoOutputContent {    /* Remove extra space allocated for navigation border */    margin-top: 0;    margin-bottom: 0;}
+.variableNameElement {    margin-bottom: 3px;    display: inline-block;}
+/* * Ellipses as base64 for HTML export. */.matrixElement .horizontalEllipsis,.rtcDataTipElement .matrixElement .horizontalEllipsis {    display: inline-block;    margin-top: 3px;    /* base64 encoded version of images-liveeditor/HEllipsis.png */    width: 30px;    height: 12px;    background-repeat: no-repeat;    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAJCAYAAADO1CeCAAAAJUlEQVR42mP4//8/A70xw0i29BUDFPxnAEtTW37wWDqakIa4pQDvOOG89lHX2gAAAABJRU5ErkJggg==");}
+.matrixElement .verticalEllipsis,.textElement .verticalEllipsis,.rtcDataTipElement .matrixElement .verticalEllipsis,.rtcDataTipElement .textElement .verticalEllipsis {    margin-left: 35px;    /* base64 encoded version of images-liveeditor/VEllipsis.png */    width: 12px;    height: 30px;    background-repeat: no-repeat;    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAZCAYAAAAIcL+IAAAALklEQVR42mP4//8/AzGYgWyFMECMwv8QddRS+P//KyimlmcGUOFoOI6GI/UVAgDnd8Dd4+NCwgAAAABJRU5ErkJggg==");}
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsErrorElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsErrorElement .diagnosticMessage-errorType {    overflow: auto;}
+.embeddedOutputsErrorElement.inlineElement {}
+.embeddedOutputsErrorElement.rightPaneElement {}
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsWarningElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsWarningElement .diagnosticMessage-warningType {    overflow: auto;}
+.embeddedOutputsWarningElement.inlineElement {}
+.embeddedOutputsWarningElement.rightPaneElement {}
+/* Copyright 2015-2023 The MathWorks, Inc. *//* In this file, styles are not scoped to rtcContainer since they could be in the Dojo Tooltip */.diagnosticMessage-wrapper {    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;    font-size: 12px;}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType {    /*This fallback value will be used for appdesigner warnings*/    color: var(--rtc-warning-output-color, var(--mw-color-matlabWarning));}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType a {    /*This fallback value will be used for appdesigner warnings*/    color: var(--rtc-warning-output-color, var(--mw-color-matlabWarning));    text-decoration: underline;}
+.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-warningType,.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-warningType a {    color: var(--mw-color-matlabWarning) !important;}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType {    /*This fallback value will be used in appdesigner error tooltip text*/    color: var(--rtc-error-output-color, var(--mw-color-matlabErrors));}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType a {    /*This fallback value will be used in appdesigner error tooltip text*/    color: var(--rtc-error-output-color, var(--mw-color-matlabErrors));    text-decoration: underline;}
+.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-errorType,.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-errorType a {    color: var(--mw-color-matlabErrors) !important;}
+.diagnosticMessage-wrapper .diagnosticMessage-messagePart,.diagnosticMessage-wrapper .diagnosticMessage-causePart {    white-space: pre-wrap;}
+.diagnosticMessage-wrapper .diagnosticMessage-stackPart {    white-space: pre;}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement {    white-space: pre;    word-wrap:  initial;    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsTextElement .textElement,.embeddedOutputsVariableStringElement .textElement {    overflow: auto;}
+.textElement,.rtcDataTipElement .textElement {    padding-top: 2px;}
+.embeddedOutputsTextElement.inlineElement,.embeddedOutputsVariableStringElement.inlineElement {}
+.inlineElement .textElement {}
+.embeddedOutputsTextElement.rightPaneElement,.embeddedOutputsVariableStringElement.rightPaneElement {    min-height: 16px;}
+.rightPaneElement .textElement {    padding-top: 2px;    padding-left: 9px;}
+.S7 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 0px none rgb(33, 33, 33); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S8 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 0px none rgb(33, 33, 33); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S9 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 0px 0px 4px 4px; padding: 0px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>Time the Calculation of Force on the Head</span></h1><div  class = 'S1'><span>The variable</span><span> </span><span style=' font-family: monospace;'>sensorData</span><span> </span><span>contains force measurements in the x, y, and z direction for 18 car crash tests. The function</span><span> </span><span style=' font-family: monospace;'>calcF</span><span> </span><span>calculates the maximum force on the head.</span></div><div  class = 'S1'><span>The National Highway and Traffic Safety Administration tested thousands of vehicles, so if you can improve the speed of this function a little bit now, it will scale better.</span></div><h2  class = 'S2'><span>TODO: Start timer</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >tic</span></span></div></div></div><h2  class = 'S2'><span>Calculate Force on Head</span></h2><div  class = 'S1'><span>Load the data</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >load </span><span style="color: rgb(167, 9, 245);">./data/sensorData.mat </span></span></div></div></div><div  class = 'S4'><span>Calculate the maximum force on the head</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S5'><span style="white-space: pre"><span >F = calcF(sensorData)</span></span></div><div  class = 'S6'><div class="inlineElement eoOutputWrapper disableDefaultGestureHandling embeddedOutputsVariableMatrixElement" uid="357BFEE4" prevent-scroll="true" data-testid="output_0" data-width="1116" tabindex="-1" style="width: 1146px; white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="matrixElement veSpecifier saveLoad eoOutputContent" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="veVariableName variableNameElement double" style="width: 1116px; white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="headerElementClickToInteract" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><span style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">F = </span><span class="veVariableValueSummary veMetaSummary" style="white-space: normal; font-style: italic; color: rgb(97, 97, 97); font-size: 12px;">1×18</span></div></div><div class="valueContainer" data-layout="{&quot;columnWidth&quot;:66,&quot;totalColumns&quot;:&quot;18&quot;,&quot;totalRows&quot;:&quot;1&quot;,&quot;charsPerColumn&quot;:10}" style="white-space: nowrap; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="variableValue" style="width: 1058px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">   52.8451   52.8451   52.8451   52.8451   52.8451   52.8451   52.8451   52.8451   52.8451   52.8451   52.8451   52.8451   52.8451   52.8451   52.8451   52.8451   52.8451   52.8451
+</div><div class="horizontalEllipsis" style="white-space: nowrap; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div><div class="verticalEllipsis hide" style="white-space: nowrap; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div></div></div><div class="outputLayer selectedOutputDecorationLayer doNotExport" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div><div class="outputLayer activeOutputDecorationLayer doNotExport" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div><div class="outputLayer scrollableOutputDecorationLayer doNotExport" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div><div class="outputLayer navigationFocusLayer doNotExport" tabindex="-1" style="white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"></div></div></div></div></div><h2  class = 'S2'><span>TODO: Stop timer</span></h2><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S5'><span style="white-space: pre"><span >toc</span></span></div><div  class = 'S6'><div class="inlineElement eoOutputWrapper disableDefaultGestureHandling embeddedOutputsTextElement" uid="02D33E84" prevent-scroll="true" data-testid="output_1" tabindex="-1" style="width: 1146px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" tabindex="-1" data-previous-available-width="1109" data-previous-scroll-height="17" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">Elapsed time is 0.086117 seconds.</div></div></div></div></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">function </span><span >[Fmax, maxIdx, Fmean] = calcF(sensors)</span></span></div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >    n = size(sensors,1);</span></span></div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >    </span><span style="color: rgb(14, 0, 255);">for </span><span >k = 1:n</span></span></div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >        s = trimCell(sensors(k,:));</span></span></div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >        </span></span></div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >        Fx = s{1}(:,2);</span></span></div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >        Fy = s{2}(:,2);</span></span></div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >        Fz = s{3}(:,2);</span></span></div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >        </span></span></div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >        m = length(Fx);</span></span></div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >        </span><span style="color: rgb(14, 0, 255);">for </span><span >kk = 1:m</span></span></div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >            F(kk) = sqrt(Fx(kk)^2 + Fy(kk)^2 + Fz(kk)^2);</span></span></div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >        </span><span style="color: rgb(14, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >        </span></span></div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >        [Fmax(k), maxIdx(k)] = max(F);</span></span></div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >        Fmean(k) = mean(F);</span></span></div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >        </span></span></div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >    </span><span style="color: rgb(14, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S8'>&nbsp;</div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">function </span><span >F = trimCell(F)</span></span></div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">% A helper function to trim a cell array of column vectors to the</span></span></div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">% so all the column vectors have the same number of rows.  It will</span></span></div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">% also work for matrices provided they have more rows than columns.</span></span></div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">% It will return the result as a cell array.</span></span></div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >    </span></span></div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >    l = cellfun(@length, F);</span></span></div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >    minL = min(l);</span></span></div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >    f = @(x) x(1:minL,:);</span></span></div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >    F = cellfun(f, F, </span><span style="color: rgb(167, 9, 245);">"UniformOutput"</span><span >, false);</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% Time the Calculation of Force on the Head
+% The variable |sensorData| contains force measurements in the x, y, and z direction 
+% for 18 car crash tests. The function |calcF| calculates the maximum force on 
+% the head.
+% 
+% The National Highway and Traffic Safety Administration tested thousands of 
+% vehicles, so if you can improve the speed of this function a little bit now, 
+% it will scale better.
+%% TODO: Start timer
+
+tic
+%% Calculate Force on Head
+% Load the data
+
+load ./data/sensorData.mat 
+%% 
+% Calculate the maximum force on the head
+
+F = calcF(sensorData)
+%% TODO: Stop timer
+
+toc
+%%
+function [Fmax, maxIdx, Fmean] = calcF(sensors)
+    n = size(sensors,1);
+    for k = 1:n
+        s = trimCell(sensors(k,:));
+        
+        Fx = s{1}(:,2);
+        Fy = s{2}(:,2);
+        Fz = s{3}(:,2);
+        
+        m = length(Fx);
+        for kk = 1:m
+            F(kk) = sqrt(Fx(kk)^2 + Fy(kk)^2 + Fz(kk)^2);
+        end
+        
+        [Fmax(k), maxIdx(k)] = max(F);
+        Fmean(k) = mean(F);
+        
+    end
+end
+
+function F = trimCell(F)
+    % A helper function to trim a cell array of column vectors to the
+    % so all the column vectors have the same number of rows.  It will
+    % also work for matrices provided they have more rows than columns.
+    % It will return the result as a cell array.
+    
+    l = cellfun(@length, F);
+    minL = min(l);
+    f = @(x) x(1:minL,:);
+    F = cellfun(f, F, "UniformOutput", false);
+end
+##### SOURCE END #####
+-->
+</div></body></html>

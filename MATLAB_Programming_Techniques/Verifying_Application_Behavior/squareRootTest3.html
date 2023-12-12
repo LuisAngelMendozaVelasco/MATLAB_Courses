@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2023b"><title>Untitled</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.CodeBlock { background-color: #F5F5F5; margin: 10px 0 10px 0; }
+.S1 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 0px none rgb(33, 33, 33); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S2 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 0px none rgb(33, 33, 33); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S3 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 0px 0px 4px 4px; padding: 0px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S4 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.S5 { margin: 20px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.S6 { margin: 10px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }</style></head><body><div class = rtcContent><div  class = 'S0'><span>As you might expect, the</span><span> </span><span style=' font-family: monospace;'>sqrt</span><span> </span><span>function throws an error when called with a string as the input.</span></div><div  class = 'S0'><span>Use the</span><span> </span><span style=' font-family: monospace;'>verifyError</span><span> </span><span>function to complete this task.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">function </span><span >test = squareRootTest</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >test = functiontests(localfunctions);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div></div><h2  class = 'S4'><span>Positive roots are real</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">function </span><span >posRootTest(testcase)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >x = linspace(0,pi);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >y = sqrt(x);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >verifyTrue(testcase,isreal(y))</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div></div><h2  class = 'S5'><span>Negative roots are complex</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">function </span><span >negRootTest(testcase)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >z = linspace(-pi,pi);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >y = sqrt(z);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >verifyFalse(testcase,isreal(y))</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div></div><h2  class = 'S5'><span style=' font-family: monospace;'>sqrt</span><span>(x) is smaller than x (if x &gt; 1)</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">function </span><span >sqrtTest(testcase)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >x = linspace(0,pi);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >y = x + 2;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >z = sqrt(y);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >verifyGreaterThan(testcase,y,z)</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div></div><h2  class = 'S5'><span style=' font-family: monospace;'>sqrt</span><span> does not accept string input</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span style="color: rgb(0, 128, 19);">% TASK 1:</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span style="color: rgb(0, 128, 19);">% ENTER CODE FOR TASK 1 HERE:</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">function </span><span >testStringInput(testcase)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >verifyError(testcase,@() sqrt(</span><span style="color: rgb(167, 9, 245);">"hello"</span><span >),</span><span style="color: rgb(167, 9, 245);">"MATLAB:UndefinedFunction"</span><span >)</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div></div><div  class = 'S6'></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+function test = squareRootTest
+%  SQUAREROOTTEST As you might expect, the |sqrt| function throws an error when called with 
+% a string as the input.
+% 
+% Use the |verifyError| function to complete this task.
+test = functiontests(localfunctions);
+end
+%% Positive roots are real
+function posRootTest(testcase)
+x = linspace(0,pi);
+y = sqrt(x);
+verifyTrue(testcase,isreal(y))
+end
+%% Negative roots are complex
+function negRootTest(testcase)
+z = linspace(-pi,pi);
+y = sqrt(z);
+verifyFalse(testcase,isreal(y))
+end
+%% |sqrt|(x) is smaller than x (if x > 1)
+function sqrtTest(testcase)
+x = linspace(0,pi);
+y = x + 2;
+z = sqrt(y);
+verifyGreaterThan(testcase,y,z)
+end
+%% |sqrt| does not accept string input
+% TASK 1:
+% ENTER CODE FOR TASK 1 HERE:
+function testStringInput(testcase)
+verifyError(testcase,@() sqrt("hello"),"MATLAB:UndefinedFunction")
+end
+%% 
+%
+##### SOURCE END #####
+-->
+</div></body></html>

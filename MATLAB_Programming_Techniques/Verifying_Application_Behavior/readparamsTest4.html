@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2023b"><title>Untitled</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.CodeBlock { background-color: #F5F5F5; margin: 10px 0 10px 0; }
+.S1 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 0px none rgb(33, 33, 33); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S2 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 0px none rgb(33, 33, 33); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S3 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 0px 0px 4px 4px; padding: 0px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S4 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.S5 { margin: 20px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }</style></head><body><div class = rtcContent><div  class = 'S0'><span>Here you have a test function for the output and behavior of</span><span> </span><span style=' font-family: monospace;'>readparameters</span><span>.</span></div><div  class = 'S0'><span>The data files and</span><span> </span><span style=' font-family: monospace;'>readparameters.mlx</span><span> </span><span>are in a folder called 'source.' Within the test function, you need to add this folder to the path and remove it.</span></div><div  class = 'S0'><span>To do that, you will need to add the</span><span> </span><span style=' font-family: monospace;'>setupOnce</span><span> </span><span>and</span><span> </span><span style=' font-family: monospace;'>teardownOnce</span><span> </span><span>functions to the bottom of your test function:</span></div><div  class = 'S0'><span style=' font-family: monospace;'>function</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>setupOnce</span><span style=' font-family: monospace;'>(</span><span style=' font-family: monospace;'>testcase</span><span style=' font-family: monospace;'>)</span></div><div  class = 'S0'><span style=' font-family: monospace;'>% code to run before tests</span></div><div  class = 'S0'><span style=' font-family: monospace;'>end</span></div><div  class = 'S0'><span style=' font-family: monospace;'>function</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>teardownOnce</span><span style=' font-family: monospace;'>(</span><span style=' font-family: monospace;'>testcase</span><span style=' font-family: monospace;'>)</span></div><div  class = 'S0'><span style=' font-family: monospace;'>% code to run after tests</span></div><div  class = 'S0'><span style=' font-family: monospace;'>end</span></div><div  class = 'S0'><span>You can access it using</span></div><div  class = 'S0'><span>The first two tests use a tolerance value. This value is the same in both tests, but has to be set separately in each test function. Creating a variable shared between the tests allows you to change the tolerance for all of the tests in one place.</span></div><div  class = 'S0'><span>To create a shared variable named</span><span> </span><span style=' font-family: monospace;'>sharedVariable</span><span>, you need to define it in the</span><span> </span><span style=' font-family: monospace;'>setupOnce</span><span> </span><span>function. You can use the following code as a template:</span></div><div  class = 'S0'><span style=' font-family: monospace;'>testcase.TestData.sharedVariable</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>=</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>42</span><span style=' font-family: monospace;'>;</span></div><div  class = 'S0'><span>You can then access it in each of the test functions with</span></div><div  class = 'S0'><span style=' font-family: monospace;'>testcase.TestData.sharedVariable</span><span style=' font-family: monospace;'>;</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">function </span><span >test = readparamsTest</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >test = functiontests(localfunctions);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div></div><h2  class = 'S4'><span>Test iss.txt</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">function </span><span >issTest(testcase)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >p = readparameters(</span><span style="color: rgb(167, 9, 245);">"./data/iss.txt"</span><span >);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >tol = testcase.TestData.tol;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >verifyTrue(testcase,abs(p.inclination-51.6461)&lt;tol)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >verifyTrue(testcase,abs(p.RAAN-78.1961)&lt;tol)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >verifyTrue(testcase,abs(p.eccentricity-0.0003662)&lt;tol)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >verifyTrue(testcase,abs(p.argPerigee-72.7758)&lt;tol)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >verifyTrue(testcase,abs(p.anomaly-29.4412)&lt;tol)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >verifyTrue(testcase,abs(p.motion-15.50171480)&lt;tol)</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div></div><h2  class = 'S5'><span>Test navstar13.txt</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">function </span><span >navstar13Test(testcase)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >p = readparameters(</span><span style="color: rgb(167, 9, 245);">"./data/navstar13.txt"</span><span >);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >tol = testcase.TestData.tol;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >verifyTrue(testcase,abs(p.inclination-54.4862)&lt;tol)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >verifyTrue(testcase,abs(p.RAAN-240.4330)&lt;tol)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >verifyTrue(testcase,abs(p.eccentricity-0.0039927)&lt;tol)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >verifyTrue(testcase,abs(p.argPerigee-140.9349)&lt;tol)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >verifyTrue(testcase,abs(p.anomaly-293.6725)&lt;tol)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >verifyTrue(testcase,abs(p.motion-1.85321618)&lt;tol)</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div></div><h2  class = 'S5'><span>Check for error if file does not exist</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">function </span><span >testBadFilename(testcase)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >errorMessage = </span><span style="color: rgb(167, 9, 245);">"MATLAB:fileread:cannotOpenFile"</span><span >;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >cmd = @() readparameters(</span><span style="color: rgb(167, 9, 245);">"doesNotExist.txt"</span><span >);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >verifyError(testcase,cmd,errorMessage)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'>&nbsp;</div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div></div><h2  class = 'S5'><span>Pre and post tests</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span style="color: rgb(0, 128, 19);">% TASK 1:</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span style="color: rgb(0, 128, 19);">% ENTER CODE FOR TASK 1 HERE:</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">function </span><span >setupOnce(testcase)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >testcase.TestData.tol = 1e-8;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >addpath(</span><span style="color: rgb(167, 9, 245);">"source"</span><span >)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'>&nbsp;</div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">function </span><span >teardownOnce(testcase)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >rmpath(</span><span style="color: rgb(167, 9, 245);">"source"</span><span >)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'>&nbsp;</div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">function </span><span >p = readparameters(fname)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">% Creates a structure of orbital parameters read from file</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">%</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">% P = READPARAMETERS(FILE) reads the two-line element set (TLE) file FILE</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">% (string) and returns a structure P containing the epoch [datetime],</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">% inclination [degrees], RA of the ascending node [degrees], eccentricity</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">% [number], argument of perigee [degrees], mean anomaly [degrees], and mean</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">% motion [revolutions/day]. All angles are given as scalar numbers.</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">% Get raw text from file; split into two lines</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    txt = strsplit(fileread(fname),</span><span style="color: rgb(167, 9, 245);">'\n'</span><span >);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">% Extract epoch year</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    ey = str2double(txt{1}(19:20));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">% Convert 2-digit epoch year to 4-digit year</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">% (00-60 -&gt; 2000-2060, 61-99 -&gt; 1961-1999)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    ey = 1900 + ey + 100*(ey &lt; 60);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">% Extract epoch day</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    ed = str2double(txt{1}(21:32));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">% Build output structure</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    p.epoch = datetime(ey,1,1) + days(ed - 1);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    p.inclination = str2double(txt{2}(9:16));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    p.RAAN = str2double(txt{2}(18:25));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    p.eccentricity = str2double([</span><span style="color: rgb(167, 9, 245);">'0.'</span><span >,txt{2}(27:33)]);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    p.argPerigee = str2double(txt{2}(35:42));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    p.anomaly = str2double(txt{2}(44:51));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    p.motion = str2double(txt{2}(53:63));</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+function test = readparamsTest
+%  READPARAMSTEST Here you have a test function for the output and behavior of |readparameters|.
+% 
+% The data files and |readparameters.mlx| are in a folder called 'source.' Within 
+% the test function, you need to add this folder to the path and remove it.
+% 
+% To do that, you will need to add the |setupOnce| and |teardownOnce| functions 
+% to the bottom of your test function:
+% 
+% |function setupOnce(testcase)|
+% 
+% |% code to run before tests|
+% 
+% |end|
+% 
+% |function teardownOnce(testcase)|
+% 
+% |% code to run after tests|
+% 
+% |end|
+% 
+% You can access it using
+% 
+% The first two tests use a tolerance value. This value is the same in both 
+% tests, but has to be set separately in each test function. Creating a variable 
+% shared between the tests allows you to change the tolerance for all of the tests 
+% in one place.
+% 
+% To create a shared variable named |sharedVariable|, you need to define it 
+% in the |setupOnce| function. You can use the following code as a template:
+% 
+% |testcase.TestData.sharedVariable = 42;|
+% 
+% You can then access it in each of the test functions with
+% 
+% |testcase.TestData.sharedVariable;|
+test = functiontests(localfunctions);
+end
+%% Test iss.txt
+function issTest(testcase)
+p = readparameters("./data/iss.txt");
+tol = testcase.TestData.tol;
+verifyTrue(testcase,abs(p.inclination-51.6461)<tol)
+verifyTrue(testcase,abs(p.RAAN-78.1961)<tol)
+verifyTrue(testcase,abs(p.eccentricity-0.0003662)<tol)
+verifyTrue(testcase,abs(p.argPerigee-72.7758)<tol)
+verifyTrue(testcase,abs(p.anomaly-29.4412)<tol)
+verifyTrue(testcase,abs(p.motion-15.50171480)<tol)
+end
+%% Test navstar13.txt
+function navstar13Test(testcase)
+p = readparameters("./data/navstar13.txt");
+tol = testcase.TestData.tol;
+verifyTrue(testcase,abs(p.inclination-54.4862)<tol)
+verifyTrue(testcase,abs(p.RAAN-240.4330)<tol)
+verifyTrue(testcase,abs(p.eccentricity-0.0039927)<tol)
+verifyTrue(testcase,abs(p.argPerigee-140.9349)<tol)
+verifyTrue(testcase,abs(p.anomaly-293.6725)<tol)
+verifyTrue(testcase,abs(p.motion-1.85321618)<tol)
+end
+%% Check for error if file does not exist
+function testBadFilename(testcase)
+errorMessage = "MATLAB:fileread:cannotOpenFile";
+cmd = @() readparameters("doesNotExist.txt");
+verifyError(testcase,cmd,errorMessage)
+end
+%% Pre and post tests
+% TASK 1:
+% ENTER CODE FOR TASK 1 HERE:
+function setupOnce(testcase)
+testcase.TestData.tol = 1e-8;
+addpath("source")
+end
+function teardownOnce(testcase)
+rmpath("source")
+end
+function p = readparameters(fname)
+    % Creates a structure of orbital parameters read from file
+    %
+    % P = READPARAMETERS(FILE) reads the two-line element set (TLE) file FILE
+    % (string) and returns a structure P containing the epoch [datetime],
+    % inclination [degrees], RA of the ascending node [degrees], eccentricity
+    % [number], argument of perigee [degrees], mean anomaly [degrees], and mean
+    % motion [revolutions/day]. All angles are given as scalar numbers.
+    % Get raw text from file; split into two lines
+    txt = strsplit(fileread(fname),'\n');
+    % Extract epoch year
+    ey = str2double(txt{1}(19:20));
+    % Convert 2-digit epoch year to 4-digit year
+    % (00-60 -> 2000-2060, 61-99 -> 1961-1999)
+    ey = 1900 + ey + 100*(ey < 60);
+    % Extract epoch day
+    ed = str2double(txt{1}(21:32));
+    % Build output structure
+    p.epoch = datetime(ey,1,1) + days(ed - 1);
+    p.inclination = str2double(txt{2}(9:16));
+    p.RAAN = str2double(txt{2}(18:25));
+    p.eccentricity = str2double(['0.',txt{2}(27:33)]);
+    p.argPerigee = str2double(txt{2}(35:42));
+    p.anomaly = str2double(txt{2}(44:51));
+    p.motion = str2double(txt{2}(53:63));
+end
+##### SOURCE END #####
+-->
+</div></body></html>

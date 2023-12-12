@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2023b"><title>Create a test script to test sameIntersectionBAD</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 20px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.CodeBlock { background-color: #F5F5F5; margin: 10px 0 10px 0; }
+.S2 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 0px none rgb(33, 33, 33); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S3 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 0px none rgb(33, 33, 33); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S4 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 0px 0px 4px 4px; padding: 0px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S5 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>Create a test script to test sameIntersectionBAD</span></h1><h2  class = 'S1'><span>Test 1</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >x = [1 2 3 4 5];</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >y = [1 3 5];</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >z = [1 3];</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >assert(isequal(sameIntersectionBAD(x,y,z),true))</span></span></div></div></div><h2  class = 'S1'><span>Test 2</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >x = [1 2 3];</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >y = [1 3 5];</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >z = [1 2 3];</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >assert(isequal(sameIntersectionBAD(x,y,z),false))</span></span></div></div></div><h2  class = 'S1'><span>Test 3</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >x = [1 2 3];</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >y = [1 3 5];</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >z = [1 5 3];</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >assert(isequal(sameIntersectionBAD(x,y,z),false))</span></span></div></div></div><h1  class = 'S0'><span>Check if sets have the same intersection</span></h1><div  class = 'S5'><span style=' font-family: monospace;'>A</span><span>, </span><span style=' font-family: monospace;'>B</span><span>, </span><span style=' font-family: monospace;'>C</span><span> are input arrays</span></div><div  class = 'S5'><span style=' font-family: monospace;'>isSame</span><span> is </span><span style=' font-family: monospace;'>true</span><span> if </span><span style=' font-family: monospace;'>A</span><span> and </span><span style=' font-family: monospace;'>C</span><span> have the same intersection as </span><span style=' font-family: monospace;'>B</span><span> and </span><span style=' font-family: monospace;'>C</span></div><h2  class = 'S1'><span style=' font-family: monospace;'>Example</span></h2><div  class = 'S5'><span style=' font-family: monospace;'>A = [1 2 3];</span></div><div  class = 'S5'><span style=' font-family: monospace;'>B = [2 3 4]</span></div><div  class = 'S5'><span style=' font-family: monospace;'>C = [2 3];</span></div><div  class = 'S5'><span style=' font-family: monospace;'>isSame = sameIntersection(A,B,C)</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">function </span><span >isSame = sameIntersectionBAD(A,B,C)</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">% Find intersection of A-C and B-C</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >    acIntersect = intersect(A,B);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >    bcIntersect = intersect(B,C);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >    </span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">% Compare the variables acIntersect and bcIntersect.</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">%  If they are equal, set isSame to true.</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">%  If they are not equal, set isSame to false.</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >    </span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >    isSame = isequal(acIntersect,bcIntersect);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'>&nbsp;</div></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% Create a test script to test sameIntersectionBAD
+%% Test 1
+
+x = [1 2 3 4 5];
+y = [1 3 5];
+z = [1 3];
+assert(isequal(sameIntersectionBAD(x,y,z),true))
+%% Test 2
+
+x = [1 2 3];
+y = [1 3 5];
+z = [1 2 3];
+assert(isequal(sameIntersectionBAD(x,y,z),false))
+%% Test 3
+
+x = [1 2 3];
+y = [1 3 5];
+z = [1 5 3];
+assert(isequal(sameIntersectionBAD(x,y,z),false))
+%% Check if sets have the same intersection
+% |A|, |B|, |C| are input arrays
+% 
+% |isSame| is |true| if |A| and |C| have the same intersection as |B| and |C|
+%% |Example|
+% |A = [1 2 3];|
+% 
+% |B = [2 3 4]|
+% 
+% |C = [2 3];|
+% 
+% |isSame = sameIntersection(A,B,C)|
+
+function isSame = sameIntersectionBAD(A,B,C)
+    % Find intersection of A-C and B-C
+    acIntersect = intersect(A,B);
+    bcIntersect = intersect(B,C);
+    
+    % Compare the variables acIntersect and bcIntersect.
+    %  If they are equal, set isSame to true.
+    %  If they are not equal, set isSame to false.
+    
+    isSame = isequal(acIntersect,bcIntersect);
+end
+##### SOURCE END #####
+-->
+</div></body></html>
