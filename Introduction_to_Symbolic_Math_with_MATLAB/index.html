@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>Introduction to Symbolic Math with MATLAB</title>
+
+        <script>
+            function examplesList(topic, numberExamples) {
+                var txt = "";
+                txt +=  '<h2>' + topic + '</h2>\n' + 
+                        '<details>\n' + 
+                            '<summary>Examples</summary>\n';
+
+                for (var i = 1; i <= numberExamples; i++) {
+                    txt += '<li type="square"><a href="./' + topic.replace(/\s/g, "_") + '/Example_' + i + '.html">Example'+ i + '</a></li>\n';
+                }
+
+                txt += '</details>\n';
+                document.getElementById(topic).innerHTML = txt;
+            }
+        </script>  
+    </head>
+    <body>  
+        <h1 style="text-align: center;">Introduction to Symbolic Math with MATLAB</h1>
+
+        <p id="Symbolic Variables"></p>
+        <script>examplesList('Symbolic Variables', 2);</script>
+
+        <p id="Mathematical Expressions with Symbolic Variables"></p>
+        <script>examplesList('Mathematical Expressions with Symbolic Variables', 3);</script>
+
+        <p id="Define and Solve Symbolic Equations"></p>
+        <script>examplesList('Define and Solve Symbolic Equations', 2);</script>
+
+        <p id="Algebraic Manipulation and Simplification"></p>
+        <script>examplesList('Algebraic Manipulation and Simplification', 1);</script>
+
+        <p id="Working with Assumptions"></p>
+        <script>examplesList('Working with Assumptions', 2);</script>
+
+        <p id="Working with Units of Measurement"></p>
+        <script>examplesList('Working with Units of Measurement', 2);</script>
+
+        <p id="Symbolic Functions"></p>
+        <script>examplesList('Symbolic Functions', 2);</script>
+
+        <p id="Visualize Symbolic Functions and Equations"></p>
+        <script>examplesList('Visualize Symbolic Functions and Equations', 2);</script>
+
+        <p id="Review Project I"></p>
+        <script>examplesList('Review Project I', 2);</script>
+
+        <p id="Calculus with Symbolic Math"></p>
+        <script>examplesList('Calculus with Symbolic Math', 5);</script>
+
+        <p id="Review Project II"></p>
+        <script>examplesList('Review Project II', 2);</script>
+    </body>
+</html>
