@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Solving Nonlinear Equations with MATLAB</title>
+
+        <script>
+            function examplesList(topic, numberExamples) {
+                var txt = "";
+                txt +=  '<h2>' + topic + '</h2>\n' + 
+                        '<details>\n' + 
+                            '<summary>Examples</summary>\n';
+
+                for (var i = 1; i <= numberExamples; i++) {
+                    txt += '<li type="square"><a href="./' + topic.replace(/\s/g, "_") + '/Example_' + i + '.html">Example'+ i + '</a></li>\n';
+                }
+
+                txt += '</details>\n';
+                document.getElementById(topic).innerHTML = txt;
+            }
+        </script>  
+    </head>
+    <body>  
+        <h1 style="text-align: center;">Solving Nonlinear Equations with MATLAB</h1>
+
+        <p id="What is Root Finding"></p>
+        <script>examplesList('What is Root Finding', 2);</script>
+
+        <p id="Finding a Root-The Bisection Method"></p>
+        <script>examplesList('Finding a Root-The Bisection Method', 3);</script>
+
+        <p id="Finding a Root-The fzero Function"></p>
+        <script>examplesList('Finding a Root-The fzero Function', 5);</script>
+
+        <p id="Systems of Nonlinear Equations-The fsolve Function"></p>
+        <script>examplesList('Systems of Nonlinear Equations-The fsolve Function', 7);</script>
+    </body>
+</html>
