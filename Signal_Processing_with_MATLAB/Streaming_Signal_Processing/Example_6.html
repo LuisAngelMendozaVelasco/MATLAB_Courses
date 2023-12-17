@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2023b"><title>Stream Filter using a Loop</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.CodeBlock { background-color: #F5F5F5; margin: 10px 0 10px 0; }
+.S2 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 0px none rgb(33, 33, 33); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S3 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 0px 0px 4px 4px; padding: 0px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S4 { margin: 10px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S5 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 0px none rgb(33, 33, 33); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S6 { margin: 20px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.S7 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 4px 4px 0px 0px; padding: 6px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S8 { color: rgb(33, 33, 33); padding: 10px 0px 6px 17px; background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box; font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px; overflow-x: hidden; line-height: 17.234px;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>Stream Filter using a Loop</span></h1><div  class = 'S1'><span>Instructions are in the task pane to the left. Complete and submit each task one at a time.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >load </span><span style="color: rgb(167, 9, 245);">./data/monitoredfan.mat</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >src = dsp.SignalSource(monitoredfan,1000);</span></span></div></div></div><div  class = 'S4'><span>Create filter object from bandpass filter</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >bpFilt = designfilt(</span><span style="color: rgb(167, 9, 245);">"bandpassfir"</span><span >, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >    </span><span style="color: rgb(167, 9, 245);">"StopbandFrequency1"</span><span >,500,</span><span style="color: rgb(167, 9, 245);">"PassbandFrequency1"</span><span >,570, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >    </span><span style="color: rgb(167, 9, 245);">"PassbandFrequency2"</span><span >,580,</span><span style="color: rgb(167, 9, 245);">"StopbandFrequency2"</span><span >,600, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >    </span><span style="color: rgb(167, 9, 245);">"StopbandAttenuation1"</span><span >,60,</span><span style="color: rgb(167, 9, 245);">"PassbandRipple"</span><span >,1, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >    </span><span style="color: rgb(167, 9, 245);">"StopbandAttenuation2"</span><span >,60,</span><span style="color: rgb(167, 9, 245);">"SampleRate"</span><span >,fs);</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >[b,a] = tf(bpFilt);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >fir = dsp.FIRFilter(b);</span></span></div></div></div><h2  class = 'S6'><span>Tasks 1-3</span></h2><div  class = 'S1'><span>You can use the</span><span> </span><span style=' font-family: monospace;'>isDone</span><span> </span><span>function with a</span><span> </span><span style=' font-family: monospace;'>while</span><span> </span><span>loop to stream an entire signal:</span></div><div  class = 'S1'><span style=' font-family: monospace;'>while</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>~</span><span style=' font-family: monospace;'>isDone</span><span style=' font-family: monospace;'>(</span><span style=' font-family: monospace;'>s</span><span style=' font-family: monospace;'>)</span></div><div  class = 'S1'><span style=' font-family: monospace;'>% Do Stuff</span></div><div  class = 'S1'><span style=' font-family: monospace;'>end</span></div><div  class = 'S1'><span>To find when the fan breaks, you don't need to stream the entire fan signal. Instead, you can stop streaming once your metric reaches a threshold.</span></div><div  class = 'S1'><span style=' font-family: monospace;'>if</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>metric</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>&gt;</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>thresh</span></div><div  class = 'S1'><span style=' font-family: monospace;'>break</span></div><div  class = 'S1'><span style=' font-family: monospace;'>end</span></div><div  class = 'S1'><span>The</span><span> </span><span style=' font-family: monospace;'>break</span><span> </span><span>function will stop the loop.</span></div><div  class = 'S1'><span>Look at the value of</span><span> </span><span style=' font-family: monospace;'>m</span><span> </span><span>in the Workspace. It's very close to</span><span> </span><span style=' font-family: monospace;'>0.25</span><span>. But how do you know when the signal reached the threshold? You can add a counter to check how many steps were taken.</span></div><div  class = 'S1'><span style=' font-family: monospace;'>counter</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>=</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>0</span><span style=' font-family: monospace;'>;</span></div><div  class = 'S1'><span style=' font-family: monospace;'>while</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>...</span></div><div  class = 'S1'><span style=' font-family: monospace;'>    </span><span style=' font-family: monospace;'>counter</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>=</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>counter</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>+</span><span style=' font-family: monospace;'> </span><span style=' font-family: monospace;'>n</span></div><div  class = 'S1'><span style=' font-family: monospace;'>end</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >c = 0;</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">while </span><span >~isDone(src)</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >    c = c + 1;</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >    frame = src();</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >    sigfilt = fir(frame);</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >    m = mean(sigfilt.^2);</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >    </span><span style="color: rgb(14, 0, 255);">if </span><span >m &gt; 0.25</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >        </span><span style="color: rgb(14, 0, 255);">break</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >    </span><span style="color: rgb(14, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div></div><h2  class = 'S6'><span>Task 4</span></h2><div  class = 'S1'><span>Now you can use the counter as an index into your time vector. The counter </span><span style=' font-family: monospace;'>c</span><span> counts the number of frames processed and each frame contains 1000 samples, so you can index into the time vector using </span><span style=' font-family: monospace;'>c*1000</span><span>.</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S7'><span style="white-space: pre"><span >tbroken = t(c*1000)</span></span></div><div  class = 'S8'><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px; '>tbroken = 170.8329</div></div></div></div><h2  class = 'S6'><span>Task 5</span></h2><div  class = 'S1'><span>The variable</span><span> </span><span style=' font-family: monospace;'>tbroken</span><span> </span><span>contains the time that the fan broke in seconds.</span></div><div  class = 'S1'><span>Once your processing is complete, it is best practice to run the</span><span> </span><span style=' font-family: monospace;'>release</span><span> </span><span>method on each System object to let property values and input characteristics change.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >release(src);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >release(fir);</span></span></div></div></div><div  class = 'S4'></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% Stream Filter using a Loop
+% Instructions are in the task pane to the left. Complete and submit each task 
+% one at a time.
+
+load ./data/monitoredfan.mat
+src = dsp.SignalSource(monitoredfan,1000);
+%% 
+% Create filter object from bandpass filter
+
+bpFilt = designfilt("bandpassfir", ...
+    "StopbandFrequency1",500,"PassbandFrequency1",570, ...
+    "PassbandFrequency2",580,"StopbandFrequency2",600, ...
+    "StopbandAttenuation1",60,"PassbandRipple",1, ...
+    "StopbandAttenuation2",60,"SampleRate",fs);
+[b,a] = tf(bpFilt);
+fir = dsp.FIRFilter(b);
+%% Tasks 1-3
+% You can use the |isDone| function with a |while| loop to stream an entire 
+% signal:
+% 
+% |while ~isDone(s)|
+% 
+% |% Do Stuff|
+% 
+% |end|
+% 
+% To find when the fan breaks, you don't need to stream the entire fan signal. 
+% Instead, you can stop streaming once your metric reaches a threshold.
+% 
+% |if metric > thresh|
+% 
+% |break|
+% 
+% |end|
+% 
+% The |break| function will stop the loop.
+% 
+% Look at the value of |m| in the Workspace. It's very close to |0.25|. But 
+% how do you know when the signal reached the threshold? You can add a counter 
+% to check how many steps were taken.
+% 
+% |counter = 0;|
+% 
+% |while ...|
+% 
+% counter = counter + n|
+% 
+% |end|
+
+c = 0;
+while ~isDone(src)
+    c = c + 1;
+    frame = src();
+    sigfilt = fir(frame);
+    m = mean(sigfilt.^2);
+    if m > 0.25
+        break
+    end
+end
+%% Task 4
+% Now you can use the counter as an index into your time vector. The counter 
+% |c| counts the number of frames processed and each frame contains 1000 samples, 
+% so you can index into the time vector using |c*1000|.
+
+tbroken = t(c*1000)
+%% Task 5
+% The variable |tbroken| contains the time that the fan broke in seconds.
+% 
+% Once your processing is complete, it is best practice to run the |release| 
+% method on each System object to let property values and input characteristics 
+% change.
+
+release(src);
+release(fir);
+%% 
+%
+##### SOURCE END #####
+-->
+</div></body></html>

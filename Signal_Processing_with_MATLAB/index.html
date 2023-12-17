@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>Signal Processing with MATLAB</title>
+
+        <script>
+            function examplesList(topic, numberExamples) {
+                var txt = "";
+                txt +=  '<h2>' + topic + '</h2>\n' + 
+                        '<details>\n' + 
+                            '<summary>Examples</summary>\n';
+
+                for (var i = 1; i <= numberExamples; i++) {
+                    txt += '<li type="square"><a href="./' + topic.replace(/\s/g, "_") + '/Example_' + i + '.html">Example'+ i + '</a></li>\n';
+                }
+
+                txt += '</details>\n';
+                document.getElementById(topic).innerHTML = txt;
+            }
+        </script>  
+    </head>
+    <body>  
+        <h1 style="text-align: center;">Signal Processing with MATLAB</h1>
+
+        <h2><a href="https://matlabacademy.mathworks.com/artifacts/quick-reference.html?course=mlsg&release=R2023b&language=en&">Course reference</a></h2>
+
+        <p id="Introduction"></p>
+        <script>examplesList('Introduction', 2);</script>
+
+        <p id="Generating Signals and Common Signal Operations"></p>
+        <script>examplesList('Generating Signals and Common Signal Operations', 12);</script>
+
+        <p id="Estimating Power Spectral Density"></p>
+        <script>examplesList('Estimating Power Spectral Density', 10);</script>
+
+        <p id="Improving the Power Spectral Density Estimate"></p>
+        <script>examplesList('Improving the Power Spectral Density Estimate', 8);</script>
+
+        <p id="Characterizing Digital Filters"></p>
+        <script>examplesList('Characterizing Digital Filters', 9);</script>
+
+        <p id="Designing Digital Filters"></p>
+        <script>examplesList('Designing Digital Filters', 10);</script>
+
+        <p id="Streaming Signal Processing"></p>
+        <script>examplesList('Streaming Signal Processing', 5);</script>
+    </body>
+</html>
