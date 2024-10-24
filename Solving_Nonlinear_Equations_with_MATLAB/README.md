@@ -1,4 +1,3 @@
-# Solving Nonlinear Equations with MATLAB
-Learn the basics to solving nonlinear equations in MATLAB® . Apply root-finding methods to solve nonlinear equations across fields of engineering, physics, and biology.
+# Solving Nonlinear Equations
 
-https://luisangelmendozavelasco.github.io/MATLAB_Courses/Solving_Nonlinear_Equations_with_MATLAB/index.html
+Learn the basics to solving nonlinear equations in MATLAB® . Apply root-finding methods to solve nonlinear equations across fields of engineering, physics, and biology.

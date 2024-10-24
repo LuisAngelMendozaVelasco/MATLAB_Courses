@@ -1,4 +1,3 @@
-# MATLAB Fundamentals
-Learn core MATLAB functionality for data analysis, modeling, and programming.
+# Fundamentals
 
-https://luisangelmendozavelasco.github.io/MATLAB_Courses/MATLAB_Fundamentals/index.html
+Learn core MATLAB functionality for data analysis, modeling, and programming.
