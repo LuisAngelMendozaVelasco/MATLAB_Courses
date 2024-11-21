@@ -1,3 +1,3 @@
-# MATLAB_Courses
+# MATLAB Courses
 
 Self-Paced Online Courses from MathWorks.
